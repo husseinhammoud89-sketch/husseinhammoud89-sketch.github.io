@@ -98,6 +98,24 @@ body::before {
 
 .nav { z-index: 100; }
 
+/* ── PAGE LINES ── */
+.page-lines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  gap: calc(100% / 10);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-lines span {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: rgba(21,21,21,0.06);
+  flex-shrink: 0;
+}
+
 /* ── CUSTOM CURSOR ── */
 a, button, [role="button"], label, select, input[type="submit"], input[type="button"] {
   cursor: none;
@@ -149,13 +167,23 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
   background: var(--bg);
-  border-bottom: 1px solid var(--dark);
   z-index: 100;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 0 40px;
   transition: transform 0.3s ease;
+  position: fixed;
+}
+
+.nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+  right: 40px;
+  height: 3px;
+  background: var(--dark);
 }
 
 .nav--hidden { transform: translateY(-100%); }
@@ -357,8 +385,20 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px;
-  border-bottom: 2px solid var(--dark);
+  padding: 20px 40px 20px;
+  position: relative;
+}
+
+.fw-header::after,
+.about-header::after,
+.services-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+  right: 40px;
+  height: 3px;
+  background: var(--dark);
 }
 
 .fw-label, .fw-scroll {
@@ -458,7 +498,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 
 .about-header {
   padding: 20px 40px;
-  border-bottom: 2px solid var(--dark);
+  position: relative;
 }
 
 .about-label {
@@ -512,7 +552,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 
 .services-header {
   padding: 20px 40px;
-  border-bottom: 2px solid var(--dark);
+  position: relative;
 }
 
 .services-label {
@@ -619,6 +659,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   border: 1px solid var(--border);
   padding: 4px 10px;
   border-radius: 999px;
+  position: relative;
+  z-index: 1;
 }
 
 /* ── FOOTER ── */
@@ -692,7 +734,6 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   align-items: flex-start;
   justify-content: space-between;
   padding-bottom: 40px;
-  border-bottom: 1px solid rgba(241,239,236,0.12);
   gap: 40px;
 }
 
@@ -805,6 +846,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
+  background: var(--bg);
   margin-bottom: 20px;
 }
 
@@ -896,6 +938,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: 20px 24px;
   margin: 28px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .cs-callout p {
@@ -916,6 +960,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   cursor: zoom-in;
+  position: relative;
+  z-index: 1;
 }
 
 .cs-img-caption {
@@ -939,6 +985,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   cursor: zoom-in;
+  position: relative;
+  z-index: 1;
 }
 
 .cs-img-grid-item .cs-img-caption { text-align: left; margin-top: 8px; }
@@ -955,6 +1003,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 24px 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .cs-stat-value {
@@ -990,6 +1040,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   font-size: 13px;
   font-weight: 500;
   color: var(--text-primary);
+  position: relative;
+  z-index: 1;
 }
 
 .cs-component-dot {
@@ -1007,7 +1059,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 }
 
 .cs-note {
-  background: rgba(21,21,21,0.04);
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 20px 24px;
@@ -1015,6 +1067,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
 .cs-ba-grid {
@@ -1045,6 +1099,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   border: 1px solid var(--border);
   overflow: hidden;
   cursor: zoom-in;
+  position: relative;
+  z-index: 1;
 }
 
 .cs-ba-img-wrap img {
