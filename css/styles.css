@@ -258,8 +258,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   width: 26%;
   flex-shrink: 0;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: 600;
   letter-spacing: -1px;
   line-height: 1.6;
   color: var(--text-primary);
@@ -482,8 +482,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 }
 
 .about-bio p {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: 600;
   letter-spacing: -1px;
   line-height: 1.6;
   color: var(--text-primary);
