@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MobiBox — Hussein Hammoud</title>
+  <meta name="description" content="End-to-end redesign of a Direct Carrier Billing platform — new IA, design system, and React component library." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Hussein Hammoud</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="mailto:hussein.hammoud89@gmail.com" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+
+    <!-- HERO -->
+    <div class="cs-hero">
+      <div class="cs-hero-inner">
+        <span class="cs-tag">Ad-Tech · DCB Platform</span>
+        <h1>Redesigning MobiBox from the ground up</h1>
+        <p class="cs-hero-sub">End-to-end redesign of a Direct Carrier Billing platform. New information architecture, a scalable design system, and a full React component library handed off to engineering.</p>
+        <div class="cs-meta">
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Company</div>
+            <div class="cs-meta-value">Mobile Arts</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Role</div>
+            <div class="cs-meta-value">Lead Product Designer</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Timeline</div>
+            <div class="cs-meta-value">Oct 2025 to Jun 2026</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Tools</div>
+            <div class="cs-meta-value">Figma · React · Claude Code · Storybook</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD SCREENSHOT -->
+    <div class="cs-img-full" style="padding-top: 60px;">
+      <img src="images/mobibox/dashboard.png" alt="MobiBox Dashboard" data-lightbox />
+      <p class="cs-img-caption">Dashboard: KPI strip (Avg Payout, Active Services, CAPs, Markets) + Payouts by GEO + CAPs health monitoring</p>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="cs-body">
+      <div class="cs-section">
+        <div class="cs-section-label">Overview</div>
+        <h2>The platform worked. The experience didn't.</h2>
+        <p>MobiBox is Mobile Arts' core product. A DCB (Direct Carrier Billing) platform used by telecom operators and content publishers across the MENA region to manage subscription services, payouts, capacity limits, and market performance.</p>
+        <p>When I joined, the platform was functional but visually inconsistent, hard to navigate, and built on a patchwork of UI patterns that had accumulated over years. The engineering team was moving fast, but without a design system, every new screen reinvented the wheel.</p>
+        <div class="cs-callout">
+          <p>"The product works but it doesn't feel like a product. We need it to scale visually and structurally before we grow the team."</p>
+        </div>
+        <p>My mandate: own the full redesign of the IA, UI, and component system, and close the gap between design and engineering so the team could ship consistently without waiting on designers.</p>
+      </div>
+    </div>
+
+    <!-- BEFORE / AFTER -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">Before and After</div>
+        <h2>Where it started.</h2>
+        <p>The original platform had no visual system. Forms were long, flat walls of fields with no grouping, no hierarchy, and no feedback states. Every modal was a different shape. The same action looked different depending on which screen you were on. Workflows were fragmented too. Completing a single task required jumping across multiple unrelated screens, breaking focus and adding unnecessary friction.</p>
+      </div>
+    </div>
+
+    <div class="cs-ba-grid">
+      <div>
+        <div class="cs-ba-label">Before</div>
+        <div class="cs-ba-img-wrap">
+          <img src="images/mobibox/old-billing.png" alt="Old billing channel form" />
+        </div>
+        <p class="cs-ba-caption">Billing channel setup: flat form, no grouping, inconsistent controls</p>
+      </div>
+      <div>
+        <div class="cs-ba-label">After</div>
+        <div class="cs-ba-img-wrap">
+          <img src="images/mobibox/billing.png" alt="New billing setup" />
+        </div>
+        <p class="cs-ba-caption">Billing setup redesigned: structured layout, clear sections, consistent controls</p>
+      </div>
+    </div>
+
+    <!-- SCOPE OF WORK -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">Scope of Work</div>
+        <h2>Four parallel workstreams</h2>
+
+        <h3>1. Information architecture</h3>
+        <p>The original platform had no clear mental model. Operators, services, offers, portals, and billing settings were scattered without hierarchy. I mapped every entity and their relationships, then restructured the nav around three primary objects: Services, Dashboard, and Clients. Everything else became a sub-surface or drawer.</p>
+
+        <h3>2. Core screen redesigns</h3>
+        <p>I redesigned four primary surfaces from scratch: the Services overview (grid, search, filter chips, archive/restore), the Service Detail drawer (tabbed: Overview / Offers / Activity), the Analytics Dashboard (KPI strip, Payouts bar chart, CAPs health, Country and Operator performance), and the 5-step Service Creation Wizard.</p>
+
+        <h3>3. Design system</h3>
+        <p>Built a token-based design system with a single source of truth in <code>design-tokens.ts</code> covering colors, radii, shadows, typography, spacing, motion, and z-index. 24 components from primitives (Button, Input, Chip, StatusPill, BarChart) to full composites (ServiceGrid, DashboardSection, WizardShell). Every component documented in Storybook.</p>
+
+        <h3>4. Design-to-code handoff via Claude Code</h3>
+        <p>Rather than delivering static Figma specs, I used Claude Code to translate the design system directly into a working React + Next.js + MUI v6 implementation. The team received production-ready TypeScript components, not redlines. This eliminated the interpretation gap between design intent and engineering output.</p>
+      </div>
+    </div>
+
+    <!-- SERVICES + WIZARD SCREENSHOTS -->
+    <div class="cs-img-grid">
+      <div class="cs-img-grid-item">
+        <img src="images/mobibox/services.png" alt="Services overview grid" data-lightbox />
+        <p class="cs-img-caption">Services overview: filter chips, search, status pills, 3-dot actions</p>
+      </div>
+      <div class="cs-img-grid-item">
+        <img src="images/mobibox/services-new.png" alt="5-step service creation wizard" data-lightbox />
+        <p class="cs-img-caption">Service creation wizard: 5-step flow with auto-saved draft state</p>
+      </div>
+    </div>
+
+    <!-- THEME EDITOR SCREENSHOT -->
+    <div class="cs-img-full">
+      <img src="images/mobibox/theme-editor.png" alt="Offer theme editor, phone preview and property panel" data-lightbox />
+      <p class="cs-img-caption">Inline offer theme editor. Live phone preview updates as you edit. Theme settings, custom disclaimers, and OTP/Voice channel switching in the right panel.</p>
+    </div>
+
+    <!-- DESIGN SYSTEM -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">Design System</div>
+        <h2>24 components. One source of truth.</h2>
+        <p>The system follows a strict layer architecture: tokens to primitives to composites to screens. No component reaches across layers. No hex values in component files. The MUI theme overrides ensure visual consistency even when engineers reach for raw MUI components directly.</p>
+
+        <div class="cs-component-grid">
+          <div class="cs-component-item"><span class="cs-component-dot"></span>Button (variant, size, loading)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>StatusPill (online / draft / themed / error)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>StatTile (KPI tile with semantic tone)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>BarChart (pure-CSS, cursor tooltip)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>Chip (filter / dismissible / with count)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>ServiceDetailDrawer (tabbed panel)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>WizardShell (5-step chrome + stepper)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>OfferThemeEditor (phone preview + panel)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>DashboardSection (search + expand shell)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>Avatar (deterministic tint from name)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>Banner (info / success / warning / danger)</div>
+          <div class="cs-component-item"><span class="cs-component-dot"></span>ProgressBar (semantic threshold tones)</div>
+        </div>
+
+        <p style="margin-top: 24px;">Every primitive is documented in <strong>Storybook 9</strong>. Each story covers all variants, states, and compositions. Button, StatusPill, Card, Chip, Input, Banner, StatTile, ProgressBar, BarChart, Switch, and Avatar all have dedicated stories, so the team can browse and test components in isolation without touching the app.</p>
+
+        <div class="cs-tags">
+          <span class="tag">design-tokens.ts</span>
+          <span class="tag">MUI v6 theme overrides</span>
+          <span class="tag">Storybook 9</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">React 19</span>
+          <span class="tag">Next.js 16</span>
+          <span class="tag">Lucide icons</span>
+        </div>
+      </div>
+
+      <!-- OUTCOMES -->
+      <div class="cs-section">
+        <div class="cs-section-label">Outcomes</div>
+        <h2>A platform ready to scale.</h2>
+
+        <div class="cs-stats">
+          <div class="cs-stat">
+            <div class="cs-stat-value">24</div>
+            <div class="cs-stat-label">Production-ready components shipped to engineering</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-value">4</div>
+            <div class="cs-stat-label">Core screens redesigned from scratch</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-value">1</div>
+            <div class="cs-stat-label">Design system as single source of truth</div>
+          </div>
+        </div>
+
+        <p>The handoff was complete and immediately integrable. The team received a working Next.js app with full TypeScript typing, Storybook documentation, mock data, and integration instructions. No Figma redlines. No ambiguity.</p>
+        <p>The design system's token architecture means future team members can restyle the entire product by editing one file. The component API is deliberately thin: wrappers stay under 80 lines, heavy logic stays in MUI underneath.</p>
+
+        <div class="cs-note">
+          <strong>Note:</strong> This case study covers the design system and handoff work completed before the engagement ended. Figma source files and additional interaction flows will be added when accessible.
+        </div>
+      </div>
+
+      <!-- WHAT MADE IT DIFFERENT -->
+      <div class="cs-section">
+        <div class="cs-section-label">What made it different</div>
+        <h2>Design + Claude Code as a force multiplier.</h2>
+        <p>The most unusual part of this project was using Claude Code as a design-to-engineering bridge. Instead of exporting specs and waiting for interpretation, I used it to generate the React implementation directly from the design system I had defined.</p>
+        <p>This meant decisions I made in Figma (component variants, token values, spacing logic, interaction states) arrived in the codebase exactly as designed. The team didn't have to guess. Edge cases I had considered (cascade-load pagination fix, typed tab unions, render-prop dashboard shells) were present in the first commit.</p>
+        <p>For a fast-moving ad-tech product with a small engineering team, that's not a nice-to-have. It's the difference between design being a bottleneck and design being a multiplier.</p>
+      </div>
+    </div>
+
+    <!-- NEXT PROJECT -->
+    <a href="jobrivals.html" class="cs-next">
+      <div>
+        <div class="cs-next-label">Next project</div>
+        <h3>JobRivals — AI Hiring Platform</h3>
+      </div>
+      <div class="cs-next-arrow">→</div>
+    </a>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-lines">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="footer-marquee">
+      <div class="footer-marquee-track">
+        <span>Let's work together </span>
+        <span>Let's work together </span>
+        <span>Let's work together </span>
+        <span>Let's work together </span>
+      </div>
+    </div>
+    <div class="footer-body">
+      <div class="footer-top">
+        <div class="footer-info">
+          <p>I'm currently available for new work. Let me know if you need a product (UX/UI) designer. I'd love to talk about the next big thing!</p>
+        </div>
+        <a href="https://linkedin.com/in/hussein-hammoud-2148b686/" target="_blank" class="footer-linkedin">LinkedIn <span class="footer-linkedin-arrow">↑</span></a>
+      </div>
+      <div class="footer-bottom">
+        <a href="mailto:hussein.hammoud89@gmail.com" class="footer-email">hussein.hammoud89@gmail.com</a>
+        <div class="footer-copy-row"><span>© Crafted by</span><a href="mailto:hussein.hammoud89@gmail.com">Hussein</a></div>
+        <a href="#" class="footer-back-top">↑ Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

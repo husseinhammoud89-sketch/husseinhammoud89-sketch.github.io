@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hussein Hammoud — Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #e8e8e8;
+      padding: 40px 20px;
+      color: #111;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.13);
+    }
+
+    /* ── YELLOW HEADER ── */
+    .header {
+      background: #F5C700;
+      padding: 36px 48px 32px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #111;
+      margin-bottom: 14px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 28px;
+      align-items: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #111;
+      text-decoration: none;
+    }
+
+    .contact-item [data-lucide] {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ── INFO CARD (inside yellow) ── */
+    .info-card {
+      margin-top: 22px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .info-row:last-child { border-bottom: none; }
+
+    .info-label {
+      font-size: 13px;
+      font-weight: 700;
+      width: 130px;
+      flex-shrink: 0;
+      padding: 10px 16px;
+      border-right: 1.5px solid #e8e8e8;
+    }
+
+    .info-value {
+      font-size: 13px;
+      color: #333;
+      padding: 10px 16px;
+      line-height: 1.5;
+    }
+
+    /* ── BODY ── */
+    .body {
+      padding: 44px 48px 56px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      margin-top: 44px;
+    }
+    .section-title:first-child { margin-top: 0; }
+
+    /* ── ROLE ── */
+    .role { margin-bottom: 28px; }
+
+    .role-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 3px;
+    }
+
+    .role-title {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .role-title [data-lucide] {
+      width: 14px;
+      height: 14px;
+      color: #999;
+      flex-shrink: 0;
+    }
+
+    .role-dates {
+      font-size: 13px;
+      color: #999;
+      white-space: nowrap;
+    }
+
+    .role-subtitle {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    /* ── PILLS ── */
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .pill {
+      background: #ebebeb;
+      color: #333;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 3px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── BULLETS ── */
+    ul.bullets { list-style: none; }
+
+    ul.bullets li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 13.5px;
+      color: #333;
+      margin-bottom: 5px;
+      line-height: 1.55;
+    }
+
+    ul.bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 1px;
+      top: 0;
+      color: #111;
+    }
+
+    .role-divider {
+      border: none;
+      border-top: 1px solid #f0f0f0;
+      margin: 24px 0;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-entry { margin-bottom: 20px; }
+
+    .edu-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .edu-school {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .edu-dates {
+      font-size: 13px;
+      color: #999;
+      white-space: nowrap;
+    }
+
+    .edu-degree {
+      font-size: 13px;
+      color: #555;
+    }
+
+    /* ── MORE ABOUT ME ── */
+    .about-block { margin-bottom: 14px; }
+
+    .about-label {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .about-value {
+      font-size: 13.5px;
+      color: #333;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; max-width: 100%; }
+      @page { margin: 0; size: A4; }
+    }
+
+    @media (max-width: 600px) {
+      .header, .body { padding-left: 24px; padding-right: 24px; }
+      .header h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <h1>Hussein Hammoud</h1>
+
+    <div class="contact-row">
+      <a class="contact-item" href="mailto:hussein.hammoud89@gmail.com">
+        <i data-lucide="mail"></i> hussein.hammoud89@gmail.com
+      </a>
+      <a class="contact-item" href="tel:+96170842588">
+        <i data-lucide="phone"></i> +96170842588
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/hussein-hammoud-2148b686/">
+        <i data-lucide="linkedin"></i> LinkedIn
+      </a>
+      <a class="contact-item" href="https://husseinhammoud.framer.website/">
+        <i data-lucide="globe"></i> My Website
+      </a>
+    </div>
+
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">Previous role</span>
+        <span class="info-value">Lead Product Designer at Mobile Arts</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Experience</span>
+        <span class="info-value">Ad-Tech, Recruitment, HR, Fintech, B2C, Incubator, Education</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Technologies</span>
+        <span class="info-value">Figma, JIRA, Claude Code, Adobe Creative Suite</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BODY ── -->
+  <div class="body">
+
+    <h2 class="section-title">Work experience</h2>
+
+    <!-- Mobile Arts -->
+    <div class="role">
+      <div class="role-top">
+        <span class="role-title">Lead Product Designer, Mobile Arts <i data-lucide="building-2"></i></span>
+        <span class="role-dates">Oct 2025 – Jun 2026 (8m)</span>
+      </div>
+      <p class="role-subtitle">Ad-Tech</p>
+      <div class="pills">
+        <span class="pill">Figma</span>
+        <span class="pill">JIRA</span>
+        <span class="pill">Claude Code</span>
+      </div>
+      <ul class="bullets">
+        <li>Owned end-to-end redesign of flagship ad-tech platform — rebuilt information architecture, core workflows, and UI into a modern, minimal, scalable system ready for product expansion.</li>
+        <li>Defined and shipped a Figma-based design system that standardized components and accelerated design-to-dev delivery across the product.</li>
+        <li>Integrated Claude Code into the design workflow to automate repetitive UI tasks, prototype faster, and reduce handoff friction with engineering.</li>
+        <li>Drove alignment between design, product, and engineering via structured JIRA sprints, compressing iteration cycles.</li>
+      </ul>
+    </div>
+
+    <hr class="role-divider" />
+
+    <!-- UNESCWA -->
+    <div class="role">
+      <div class="role-top">
+        <span class="role-title">Lead Product Designer, UNESCWA <i data-lucide="building-2"></i></span>
+        <span class="role-dates">Oct 2024 – Apr 2025 (6m)</span>
+      </div>
+      <p class="role-subtitle">NGO UX/UI Design Web Applications ITS</p>
+      <div class="pills">
+        <span class="pill">Figma</span>
+        <span class="pill">JIRA</span>
+      </div>
+      <ul class="bullets">
+        <li>Designed internal web portals and operational workflow tools serving UN staff across the Western Asia region.</li>
+        <li>Built ESCWA's first unified design system, reducing inconsistency across multiple digital products.</li>
+        <li>Led accessibility reviews ensuring all interfaces met UN digital standards and WCAG guidelines.</li>
+        <li>Collaborated with cross-functional stakeholders to align product direction with operational needs.</li>
+      </ul>
+    </div>
+
+    <hr class="role-divider" />
+
+    <!-- JobRivals -->
+    <div class="role">
+      <div class="role-top">
+        <span class="role-title">Lead Product Designer, JobRivals <i data-lucide="building-2"></i></span>
+        <span class="role-dates">Sep 2023 – Aug 2024 (11m)</span>
+      </div>
+      <p class="role-subtitle">Startup · Recruitment Technology · AI UX/UI Web App · Recruitment · HR</p>
+      <div class="pills">
+        <span class="pill">Figma</span>
+        <span class="pill">JIRA</span>
+      </div>
+      <ul class="bullets">
+        <li>Designed 0→1 product experience for an AI-powered hiring platform — from discovery through high-fidelity prototype to dev handoff.</li>
+        <li>Invented a pre-signup assessment flow that surfaced candidate quality before account creation, creating a key product differentiator.</li>
+        <li>Delivered a fully responsive candidate + recruiter experience across web and mobile in an 11-month solo design engagement.</li>
+        <li>Collaborated with founders, developers, and data scientists to align product functionality with user needs and AI capabilities.</li>
+      </ul>
+    </div>
+
+    <hr class="role-divider" />
+
+    <!-- Klevr -->
+    <div class="role">
+      <div class="role-top">
+        <span class="role-title">Senior Product Designer, Klevr <i data-lucide="building-2"></i></span>
+        <span class="role-dates">Jan 2022 – Aug 2023 (1y 7m)</span>
+      </div>
+      <p class="role-subtitle">Product Design UX/UI · Fintech · B2C</p>
+      <div class="pills">
+        <span class="pill">Figma</span>
+        <span class="pill">JIRA</span>
+      </div>
+      <ul class="bullets">
+        <li>Designed WeePay — a mobile-first clinic payment app — from wireframes through production-ready UI.</li>
+        <li>Shipped responsive web experiences for clinic clients, improving patient-facing billing flows.</li>
+        <li>Implemented user-centered design principles in healthcare digital products for improved accessibility.</li>
+        <li>Maintained cross-platform visual consistency across mobile app, web, and client materials.</li>
+      </ul>
+    </div>
+
+    <hr class="role-divider" />
+
+    <!-- Interform -->
+    <div class="role">
+      <div class="role-top">
+        <span class="role-title">Senior Product Designer, Interform <i data-lucide="building-2"></i></span>
+        <span class="role-dates">Jan 2021 – Dec 2021 (11m)</span>
+      </div>
+      <p class="role-subtitle">Startup · Product Design UX/UI · Incubator</p>
+      <div class="pills">
+        <span class="pill">Figma</span>
+        <span class="pill">JIRA</span>
+      </div>
+      <ul class="bullets">
+        <li>Shipped UX/UI designs across concurrent startup products within the incubator portfolio.</li>
+        <li>Applied rapid prototyping and mobile-first principles to compress concept-to-handoff timelines.</li>
+        <li>Conducted user research and usability testing to enhance product usability.</li>
+        <li>Built per-product design systems enabling consistent, fast iteration without visual debt.</li>
+      </ul>
+    </div>
+
+    <hr class="role-divider" />
+
+    <!-- UNWFP -->
+    <div class="role">
+      <div class="role-top">
+        <span class="role-title">Lead Product Designer/Animator, UNWFP <i data-lucide="building-2"></i></span>
+        <span class="role-dates">Jan 2020 – Jan 2021 (1y)</span>
+      </div>
+      <p class="role-subtitle">NGO · Product Design · ITS · Mobile Applications</p>
+      <div class="pills">
+        <span class="pill">Adobe Creative Suite</span>
+        <span class="pill">Figma</span>
+      </div>
+      <ul class="bullets">
+        <li>Led UX/UI design for Dalili — a mobile app delivering real-time food prices and vendor data to vulnerable communities across Lebanon.</li>
+        <li>Prioritized accessibility and low-literacy UX patterns for users with limited digital experience.</li>
+        <li>Produced motion graphic campaigns distributed across WFP's regional digital channels.</li>
+        <li>Collaborated with cross-functional teams including field officers, developers, and communication specialists.</li>
+      </ul>
+    </div>
+
+    <hr class="role-divider" />
+
+    <!-- UNHCR -->
+    <div class="role">
+      <div class="role-top">
+        <span class="role-title">Lead Digital Designer/Animator, UNHCR <i data-lucide="building-2"></i></span>
+        <span class="role-dates">Feb 2018 – Nov 2019 (1y 9m)</span>
+      </div>
+      <p class="role-subtitle">NGO · Design · Media Production · Animation · Humanitarian Aid</p>
+      <div class="pills">
+        <span class="pill">Adobe Creative Suite</span>
+        <span class="pill">Figma</span>
+      </div>
+      <ul class="bullets">
+        <li>Designed and animated digital content for awareness, fundraising, and advocacy campaigns across UNHCR's regional communications.</li>
+        <li>Delivered multilingual assets for campaigns reaching global and regional audiences.</li>
+        <li>Maintained visual consistency with UNHCR brand standards across all digital touchpoints.</li>
+        <li>Worked closely with communications and content teams to create compelling visual narratives.</li>
+      </ul>
+    </div>
+
+    <hr class="role-divider" />
+
+    <!-- DataFlow -->
+    <div class="role">
+      <div class="role-top">
+        <span class="role-title">Product Designer / Animator, DataFlow <i data-lucide="building-2"></i></span>
+        <span class="role-dates">Aug 2014 – Dec 2017 (3y 4m)</span>
+      </div>
+      <p class="role-subtitle">E-Learning · Information Technology & Services · Design · Education</p>
+      <div class="pills">
+        <span class="pill">Adobe Creative Suite</span>
+        <span class="pill">Figma</span>
+      </div>
+      <ul class="bullets">
+        <li>Designed UX/UI for DataFlow's online education platform, improving learner navigation and content discoverability.</li>
+        <li>Produced animated explainer and educational videos simplifying complex topics for a diverse learner base.</li>
+        <li>Conducted UX research and prototyping to improve platform usability and engagement.</li>
+        <li>Maintained consistent visual language across product UI and all multimedia content.</li>
+      </ul>
+    </div>
+
+    <hr class="role-divider" />
+
+    <!-- UN ESCWA -->
+    <div class="role">
+      <div class="role-top">
+        <span class="role-title">Graphic Designer, UN ESCWA <i data-lucide="building-2"></i></span>
+        <span class="role-dates">Jan 2014 – Apr 2014 (3m)</span>
+      </div>
+      <p class="role-subtitle">Supports economic and social development in Western Asia.</p>
+      <div class="pills">
+        <span class="pill">Adobe Creative Suite</span>
+      </div>
+      <ul class="bullets">
+        <li>Created digital and print materials for UN internal and public communications, aligned with UN brand standards.</li>
+        <li>Produced motion graphic animations for events and informational content.</li>
+        <li>Ensured consistent branding with the communications and events teams.</li>
+      </ul>
+    </div>
+
+    <!-- ── EDUCATION ── -->
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-entry">
+      <div class="edu-top">
+        <span class="edu-school">University of Michigan</span>
+        <span class="edu-dates">Jan 2021 – Jan 2022 (1y)</span>
+      </div>
+      <p class="edu-degree">Certificate, User Experience Design</p>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-top">
+        <span class="edu-school">Lebanese International University</span>
+        <span class="edu-dates">Feb 2009 – Mar 2013 (4y 1m)</span>
+      </div>
+      <p class="edu-degree">B.S. Visual Arts &amp; Design</p>
+    </div>
+
+    <!-- ── MORE ABOUT ME ── -->
+    <h2 class="section-title">More about me</h2>
+
+    <div class="about-block">
+      <p class="about-label">Languages</p>
+      <p class="about-value">English, Arabic</p>
+    </div>
+
+  </div>
+</div>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>
