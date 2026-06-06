@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JobRivals — Hussein Hammoud</title>
+  <title>JobRivals Hussein Hammoud</title>
   <meta name="description" content="0 to 1 product design for an AI-powered hiring platform that flips the traditional job board model." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
@@ -22,10 +22,11 @@
   <div class="page-wrap">
   <div class="page-lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
+    <!-- HERO -->
     <div class="cs-hero">
       <div class="cs-hero-inner">
         <span class="cs-tag">AI Recruitment · SaaS · 0 to 1</span>
-        <h1>JobRivals — designing the hiring platform that flips the script</h1>
+        <h1>JobRivals designing the hiring platform that flips the script</h1>
         <p class="cs-hero-sub">Full product design for an AI-powered hiring platform from discovery through high-fidelity prototype to dev handoff. Instead of candidates applying, employers browse and compete for talent.</p>
         <div class="cs-meta">
           <div class="cs-meta-item">
@@ -48,31 +49,153 @@
       </div>
     </div>
 
-    <div class="cs-body">
+    <!-- HERO SCREEN -->
+    <div class="cs-img-full" style="padding-top: 60px;">
+      <img src="images/jobrivals/screens/screen-7-badges-list.png" alt="JobRivals Badges" data-lightbox />
+      <p class="cs-img-caption">Candidate badge profile verified tool proficiencies, progress tracking, and AI-recommended next badges</p>
+    </div>
 
+    <!-- OVERVIEW -->
+    <div class="cs-body">
       <div class="cs-section">
         <div class="cs-section-label">Overview</div>
         <h2>What if candidates were the product, not the applicants?</h2>
-        <p>Traditional job boards put all the burden on candidates. You apply, wait, get rejected, and never know why. JobRivals flipped this completely: candidates create profiles, and employers browse and compete to hire them — like products on a shelf.</p>
-        <p>I was brought in as the sole designer to take this concept from zero to a fully shipped product experience — candidate app, recruiter dashboard, and everything in between.</p>
+        <p>Traditional job boards put all the burden on candidates. You apply, wait, get rejected, and never know why. JobRivals flipped this completely: candidates create rich, assessed profiles, and employers browse and compete to hire them like products on a shelf.</p>
+        <p>I was brought in as the sole designer to take this concept from zero to a fully shipped product experience the candidate onboarding flow, the assessment system, the candidate profile, and the full employer recruiter dashboard.</p>
         <div class="cs-callout">
           <p>"We want candidates to feel like action figures in a store. Employers pick them, not the other way around."</p>
         </div>
+        <p>The platform serves two distinct user types with very different goals. Candidates want to stand out and get noticed without firing off 100 applications. Employers want to find pre-qualified talent fast, without wading through irrelevant CVs. Designing for both simultaneously with consistent visual language but different interaction models was the central challenge.</p>
       </div>
+    </div>
 
+    <!-- CANDIDATE FLOW INTRO -->
+    <div class="cs-body" style="padding-top: 0;">
       <div class="cs-section">
-        <div class="cs-section-label">My Role</div>
-        <h2>Solo designer, full product scope.</h2>
-        <p>Over 11 months I owned the entire design process: user research, information architecture, interaction design, visual design, and developer handoff. No design team, no design system inherited from a previous iteration. Everything built from scratch.</p>
-
-        <h3>Key design decisions</h3>
-        <p>The biggest challenge was the pre-signup assessment flow. To maintain quality on both sides, I invented a screening experience that surfaced candidate quality before account creation. Candidates answer a short set of questions upfront — this data feeds the matching algorithm and gives employers meaningful signal before they even view a full profile.</p>
-        <p>This became one of the product's core differentiators. Employers weren't browsing generic CVs — they were browsing pre-qualified candidates with visible compatibility scores.</p>
-
-        <h3>Responsive across web and mobile</h3>
-        <p>The candidate experience was primarily mobile. The recruiter experience was primarily desktop. I designed and maintained both simultaneously, ensuring visual consistency across very different interaction contexts and screen densities.</p>
+        <div class="cs-section-label">Candidate Flow</div>
+        <h2>Getting in the door.</h2>
+        <p>The first thing a candidate sees is the role selection a single, clear choice that sets the context for everything that follows. The onboarding branches from here: candidates heading into the job-seeker path are taken through a structured assessment before their profile is ever visible to employers.</p>
+        <p>This was a deliberate product decision. Low-quality profiles hurt employer trust. By making the assessment a prerequisite, we kept the talent pool genuinely useful from day one.</p>
       </div>
+    </div>
 
+    <!-- SCREEN 1 + 2 GRID -->
+    <div class="cs-img-grid">
+      <div class="cs-img-grid-item">
+        <img src="images/jobrivals/screens/screen-1-role-selection.png" alt="Role selection screen" data-lightbox />
+        <p class="cs-img-caption">Role selection the first fork: looking to hire, or looking for work</p>
+      </div>
+      <div class="cs-img-grid-item">
+        <img src="images/jobrivals/screens/screen-2-assessment.png" alt="Assessment question screen" data-lightbox />
+        <p class="cs-img-caption">Assessment flow multi-section stepper with progress tracking across 5 dimensions</p>
+      </div>
+    </div>
+
+    <!-- WORK EXPERIENCE -->
+    <div class="cs-img-full">
+      <img src="images/jobrivals/screens/screen-3-work-experience.png" alt="Work experience screen" data-lightbox />
+      <p class="cs-img-caption">Work experience input card-based timeline with inline add/edit and role verification</p>
+    </div>
+
+    <!-- ASSESSMENT SECTION -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">The Assessment System</div>
+        <h2>The engine behind the match.</h2>
+        <p>The pre-signup assessment was the product's core differentiator. Candidates answer questions across five dimensions Personality, Mindset, Performance, IQ, and Critical Thinking before their profile is ever created. This data feeds the AI matching algorithm and gives employers a compatibility score before they even view a full profile.</p>
+        <p>The stepper UI was designed to feel like progress, not a test. Each section has a distinct label, a clear "done" state, and saves automatically. The candidate never loses work, and the employer always gets complete signal.</p>
+
+        <h3>Designing for honesty</h3>
+        <p>One of the hardest UX problems here was incentivizing honest answers. If candidates know they're being scored, they'll game it. The copy and framing were carefully written to position the assessment as "helping the AI find the right role for you" rather than "proving yourself to employers." That shift in framing was the key.</p>
+      </div>
+    </div>
+
+    <!-- CANDIDATE PROFILE -->
+    <div class="cs-img-full">
+      <img src="images/jobrivals/screens/screen-4-candidate-profile.png" alt="Candidate profile" data-lightbox />
+      <p class="cs-img-caption">Candidate profile sidebar nav with work history, skills, and badge collection in a single view</p>
+    </div>
+
+    <!-- RADAR + BADGES GRID -->
+    <div class="cs-img-grid" style="align-items: start;">
+      <div class="cs-img-grid-item">
+        <img src="images/jobrivals/screens/screen-5-radar.png" alt="Skills radar graph" data-lightbox style="aspect-ratio: 2560/1866; object-fit: cover; object-position: top;" />
+        <p class="cs-img-caption">Skills radar assessment results visualized across 6 dimensions with hover tooltips</p>
+      </div>
+      <div class="cs-img-grid-item">
+        <img src="images/jobrivals/screens/screen-9-talent-discover.png" alt="Talent discover" data-lightbox style="aspect-ratio: 2560/1866; object-fit: cover; object-position: top;" />
+        <p class="cs-img-caption">Employer talent discovery dashboard AI-matched candidates surfaced by role, location, and availability</p>
+      </div>
+    </div>
+
+    <!-- BADGE SYSTEM SECTION -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">The Badge System</div>
+        <h2>Verified skills, not just claimed ones.</h2>
+        <p>Any candidate can write "Figma expert" on a CV. JobRivals badges are different they're earned through in-platform assessments tied to specific tools and verified against real usage patterns. Employers can filter by badge, and candidates with more verified badges appear higher in discovery.</p>
+        <p>The badge UI was designed to feel like something worth earning. The progress bar toward Elite status, the trophy icon, the "5 verified · 2 in progress" state all of it was intentional gamification nudging candidates to complete more assessments without feeling coercive.</p>
+      </div>
+    </div>
+
+    <!-- BADGES LIST VIEW -->
+    <div class="cs-img-full">
+      <img src="images/jobrivals/screens/screen-6-badges.png" alt="My Badges sidebar" data-lightbox />
+      <p class="cs-img-caption">Badge system verified tool proficiencies with progress tracking toward Elite status</p>
+    </div>
+
+    <!-- EMPLOYER FLOW INTRO -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">Employer Flow</div>
+        <h2>Hiring without the noise.</h2>
+        <p>The employer side was designed around one principle: reduce friction to the moment of "this person is right." Employers should be able to go from landing on the platform to inviting a candidate in as few steps as possible, with enough signal at each step to feel confident.</p>
+        <p>The dashboard is their base of operations. The first time they land, it's an empty state with a clear call to action. Once they post a job, the platform starts surfacing matched talent automatically.</p>
+      </div>
+    </div>
+
+    <!-- EMPLOYER DASHBOARD EMPTY STATE -->
+    <div class="cs-img-full">
+      <img src="images/jobrivals/screens/screen-8-employer-dashboard.png" alt="Employer dashboard empty state" data-lightbox />
+      <p class="cs-img-caption">Employer dashboard (empty state) clear first-action prompt with company profile header and nav</p>
+    </div>
+
+    <!-- TALENT SEARCH -->
+    <div class="cs-img-full">
+      <img src="images/jobrivals/screens/screen-10-talent-search.png" alt="Talent search" data-lightbox />
+      <p class="cs-img-caption">Talent search sidebar filters (experience range, work type, language) with ranked candidate rows</p>
+    </div>
+
+    <!-- JOB POST + DISCOVER GRID -->
+    <div class="cs-img-grid" style="align-items: start;">
+      <div class="cs-img-grid-item">
+        <img src="images/jobrivals/screens/screen-11-compare.png" alt="Compare talent radar" data-lightbox style="aspect-ratio: 2560/1778; object-fit: cover; object-position: top;" />
+        <p class="cs-img-caption">Compare talent multi-overlay radar chart with Ideal benchmark and per-candidate scores</p>
+      </div>
+      <div class="cs-img-grid-item">
+        <img src="images/jobrivals/screens/screen-12-job-review.png" alt="Job post review" data-lightbox style="aspect-ratio: 2560/1778; object-fit: cover; object-position: top;" />
+        <p class="cs-img-caption">Job post review full summary of all inputs before publishing, with inline edit access</p>
+      </div>
+    </div>
+
+    <!-- COMPARE SECTION -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">Compare Talent</div>
+        <h2>Side-by-side, not gut feel.</h2>
+        <p>One of the most requested features from early employer testing: the ability to compare candidates head-to-head. The compare view overlays multiple radar charts on a single graph, with each candidate in a distinct color. Hover over any axis label and a tooltip breaks down each candidate's score for that dimension.</p>
+        <p>The "Ideal" benchmark is generated from the job post criteria employers can see at a glance who comes closest to their stated requirements, not just who looks good in isolation.</p>
+      </div>
+    </div>
+
+    <!-- COMPARE SCREEN FULL -->
+    <div class="cs-img-full">
+      <img src="images/jobrivals/screens/screen-11-compare.png" alt="Compare talent radar" data-lightbox />
+      <p class="cs-img-caption">Compare talent multi-overlay radar chart with Ideal benchmark, per-candidate scores, and IQ hover tooltip</p>
+    </div>
+
+    <!-- OUTCOMES -->
+    <div class="cs-body" style="padding-top: 0;">
       <div class="cs-section">
         <div class="cs-section-label">Outcomes</div>
         <h2>Shipped and measured.</h2>
@@ -92,7 +215,8 @@
           </div>
         </div>
 
-        <p>The product launched after 11 months of solo design work and was immediately adopted by both recruiters and candidates. The pre-signup assessment flow reduced low-quality profiles and improved employer satisfaction with browse quality.</p>
+        <p>The product launched after 11 months of solo design work. The pre-signup assessment flow reduced low-quality profiles significantly and improved employer satisfaction with browse quality. The badge system became a retention driver candidates kept returning to earn more badges and improve their ranking.</p>
+        <p>The compare feature was built directly from employer feedback gathered during early access. It became one of the most-used features in the recruiter dashboard within the first month.</p>
 
         <div class="cs-tags">
           <span class="tag">Figma</span>
@@ -101,15 +225,34 @@
           <span class="tag">UX Research</span>
           <span class="tag">Design System</span>
           <span class="tag">Prototyping</span>
+          <span class="tag">AI Matching</span>
+          <span class="tag">Gamification</span>
         </div>
       </div>
 
+      <!-- REFLECTION -->
+      <div class="cs-section">
+        <div class="cs-section-label">Reflection</div>
+        <h2>What I'd do differently.</h2>
+        <p>The assessment flow is powerful but long 30 to 45 minutes is a significant commitment at the top of the funnel. In hindsight, I'd explore a progressive disclosure model: get candidates in with a 5-minute starter assessment, then unlock the full assessment as they engage with the platform. This would reduce drop-off without sacrificing data quality.</p>
+        <p>The employer onboarding was also simpler than it should have been. The job post flow works, but it doesn't teach employers how to write a job post that attracts the right candidates. There's an opportunity for AI-assisted job post optimization that would make the matching engine significantly more accurate.</p>
+
+        <div class="cs-note">
+          <strong>Note:</strong> These screens represent the redesigned portfolio version of JobRivals built to showcase the product's key flows at their best. The live product was designed and shipped in Figma during the original engagement.
+        </div>
+      </div>
     </div>
 
+    <!-- NEXT PROJECT -->
     <a href="weepay.html" class="cs-next">
-      <div>
-        <div class="cs-next-label">Next project</div>
-        <h3>WeePay — Financial App</h3>
+      <div class="cs-next-left">
+        <div class="cs-next-thumb">
+          <img src="images/weepay/weepay-4.png" alt="WeePay" />
+        </div>
+        <div>
+          <div class="cs-next-label">Next project</div>
+          <h3>WeePay Financial App</h3>
+        </div>
       </div>
       <div class="cs-next-arrow">→</div>
     </a>
@@ -148,6 +291,7 @@
   <div class="lightbox" id="lightbox">
     <img id="lightbox-img" src="" alt="" />
   </div>
+
   <script src="js/main.js"></script>
 </body>
 </html>
