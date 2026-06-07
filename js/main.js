@@ -21,6 +21,7 @@
 
   const cursor = document.createElement('div');
   cursor.className = 'cursor';
+  cursor.style.translate = '-200px -200px';
   document.body.appendChild(cursor);
 
   const explore = document.createElement('div');
