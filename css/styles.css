@@ -1427,8 +1427,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .fw-item-name { font-size: 32px; }
   .fw-item-desc { font-size: 16px; }
   .fw-item-tag { font-size: 14px; }
-  .fw-item-img { width: 100%; height: auto; aspect-ratio: 16/10; overflow: hidden; }
-  .fw-item-img img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: top !important; }
+  .fw-item-img { width: 100%; height: auto; aspect-ratio: unset; }
+  .fw-item-img img { width: 100% !important; height: auto !important; object-fit: unset !important; }
 
   /* ABOUT */
   .about-grid { width: 100%; }
