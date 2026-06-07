@@ -1,5 +1,24 @@
-// Custom cursor
+// Mobile nav toggle
 (function () {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+    });
+  });
+})();
+
+// Custom cursor (desktop only)
+(function () {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
   const cursor = document.createElement('div');
   cursor.className = 'cursor';
   document.body.appendChild(cursor);
