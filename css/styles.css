@@ -788,7 +788,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   gap: 40px;
 }
 
-.footer-info { max-width: 440px; text-align: right; }
+.footer-info { max-width: 440px; text-align: left; }
 
 .footer-info p {
   font-size: 24px;
@@ -836,7 +836,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 .footer-bottom-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 16px;
 }
 
