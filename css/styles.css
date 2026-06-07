@@ -641,6 +641,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
