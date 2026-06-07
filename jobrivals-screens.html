@@ -1,0 +1,2900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JobRivals Redesign Screens</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand: #1a6cf6;
+    --brand-hover: #1558d4;
+    --brand-light: #eff4ff;
+    --green: #16a34a;
+    --green-light: #dcfce7;
+    --zinc-50: #fafafa;
+    --zinc-100: #f4f4f5;
+    --zinc-200: #e4e4e7;
+    --zinc-300: #d4d4d8;
+    --zinc-400: #a1a1aa;
+    --zinc-500: #71717a;
+    --zinc-600: #52525b;
+    --zinc-700: #3f3f46;
+    --zinc-800: #27272a;
+    --zinc-900: #18181b;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --radius-lg: 14px;
+    --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+    --shadow: 0 1px 3px 0 rgba(0,0,0,0.08), 0 1px 2px -1px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--zinc-100);
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .screen-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--zinc-400);
+    margin-bottom: 12px;
+  }
+
+  /* ─── LOGO ─── */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+  .logo-text {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--zinc-900);
+    letter-spacing: -0.02em;
+  }
+
+  /* ═══════════════════════════════════════════
+     SCREEN 1 Role Selection
+  ═══════════════════════════════════════════ */
+  .screen-1 {
+    width: 1280px;
+    height: 800px;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--zinc-200);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .s1-nav {
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--zinc-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .s1-nav-right {
+    font-size: 13px;
+    color: var(--zinc-500);
+  }
+  .s1-nav-right a {
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .s1-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    gap: 0;
+  }
+  .s1-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--zinc-400);
+    margin-bottom: 16px;
+  }
+  .s1-heading {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--zinc-900);
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .s1-sub {
+    font-size: 15px;
+    color: var(--zinc-500);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .s1-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 560px;
+    margin-bottom: 32px;
+  }
+  .s1-card {
+    border: 1.5px solid var(--zinc-200);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .s1-card:hover {
+    border-color: var(--brand);
+    box-shadow: var(--shadow-md);
+  }
+  .s1-card.selected {
+    border-color: var(--brand);
+    background: var(--brand-light);
+    box-shadow: 0 0 0 3px rgba(26,108,246,0.08);
+  }
+  .s1-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--zinc-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
+  .s1-card.selected .s1-card-icon {
+    background: rgba(26,108,246,0.12);
+  }
+  .s1-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--zinc-900);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .s1-card-desc {
+    font-size: 13px;
+    color: var(--zinc-500);
+    line-height: 1.5;
+  }
+  .s1-card-check {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .s1-card.selected .s1-card-check {
+    opacity: 1;
+  }
+  .s1-card-check svg {
+    width: 11px;
+    height: 11px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .btn-primary {
+    height: 44px;
+    padding: 0 24px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    letter-spacing: -0.01em;
+    transition: background 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: var(--brand-hover); }
+  .btn-primary svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .btn-ghost {
+    height: 44px;
+    padding: 0 20px;
+    background: transparent;
+    color: var(--zinc-500);
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+  .btn-ghost:hover { color: var(--zinc-800); }
+
+  /* ═══════════════════════════════════════════
+     SCREEN 2 Assessment Question
+  ═══════════════════════════════════════════ */
+  .screen-2 {
+    width: 1280px;
+    height: 800px;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--zinc-200);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .s2-nav {
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--zinc-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .s2-stepper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .stepper-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .s2-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .s2-step-dot {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid var(--zinc-200);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--zinc-400);
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+  .s2-step.active .s2-step-dot {
+    border-color: var(--brand);
+    background: var(--brand);
+    color: #fff;
+  }
+  .s2-step.done .s2-step-dot {
+    border-color: var(--brand);
+    background: var(--brand-light);
+    color: var(--brand);
+  }
+  .s2-step-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--zinc-400);
+    white-space: nowrap;
+  }
+  .s2-step.active .s2-step-label { color: var(--brand); font-weight: 600; }
+  .s2-step.done .s2-step-label { color: var(--zinc-600); }
+  .stepper-connector {
+    width: 72px;
+    height: 2px;
+    background: var(--zinc-200);
+    flex-shrink: 0;
+    margin-bottom: 18px;
+    border-radius: 999px;
+  }
+  .stepper-connector.filled { background: var(--brand); }
+
+  .s2-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px 48px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .s2-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 12px;
+    align-self: flex-start;
+  }
+  .s2-question {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--zinc-900);
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    align-self: flex-start;
+  }
+  .s2-progress-bar-wrap {
+    width: 100%;
+    height: 3px;
+    background: var(--zinc-100);
+    border-radius: 999px;
+    margin-bottom: 36px;
+    overflow: hidden;
+  }
+  .s2-progress-bar {
+    height: 100%;
+    width: 35%;
+    background: var(--brand);
+    border-radius: 999px;
+  }
+  .s2-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: auto;
+  }
+  .s2-option {
+    border: 1.5px solid var(--zinc-200);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.15s;
+  }
+  .s2-option:hover {
+    border-color: var(--brand);
+    background: var(--brand-light);
+  }
+  .s2-option.selected {
+    border-color: var(--brand);
+    background: var(--brand-light);
+    box-shadow: 0 0 0 3px rgba(26,108,246,0.08);
+  }
+  .s2-option-radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--zinc-300);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+  .s2-option.selected .s2-option-radio {
+    border-color: var(--brand);
+    background: var(--brand);
+  }
+  .s2-option.selected .s2-option-radio::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+  }
+  .s2-option-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--zinc-800);
+    letter-spacing: -0.01em;
+  }
+  .s2-option-sub {
+    font-size: 13px;
+    color: var(--zinc-500);
+    margin-top: 2px;
+  }
+  .s2-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 32px;
+    border-top: 1px solid var(--zinc-100);
+    margin-top: 32px;
+  }
+  .s2-q-counter {
+    font-size: 13px;
+    color: var(--zinc-400);
+    font-weight: 500;
+  }
+  .s2-footer-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ═══════════════════════════════════════════
+     SCREEN 3 Work Experience Cards
+  ═══════════════════════════════════════════ */
+  .screen-3 {
+    width: 1280px;
+    min-height: 800px;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--zinc-200);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .s3-nav {
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--zinc-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .s3-progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .s3-progress-step {
+    height: 3px;
+    width: 40px;
+    border-radius: 999px;
+    background: var(--zinc-200);
+  }
+  .s3-progress-step.done { background: var(--brand); }
+  .s3-progress-step.active { background: var(--brand); opacity: 0.4; }
+  .s3-body {
+    flex: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 56px 48px 48px;
+  }
+  .s3-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--zinc-400);
+    margin-bottom: 32px;
+    cursor: pointer;
+    transition: color 0.15s;
+    text-decoration: none;
+  }
+  .s3-back:hover { color: var(--zinc-700); }
+  .s3-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .s3-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--zinc-400);
+    margin-bottom: 10px;
+  }
+  .s3-heading {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--zinc-900);
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .s3-sub {
+    font-size: 14px;
+    color: var(--zinc-500);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  .s3-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .s3-card {
+    border: 1px solid var(--zinc-200);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    background: #fff;
+    position: relative;
+    transition: box-shadow 0.15s;
+  }
+  .s3-card:hover { box-shadow: var(--shadow-md); }
+  .s3-card-actions {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    gap: 4px;
+  }
+  .s3-card-action {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: transparent;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .s3-card-action:hover { background: var(--zinc-100); border-color: var(--zinc-200); }
+  .s3-card-action svg { width: 13px; height: 13px; stroke: var(--zinc-400); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .s3-card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--zinc-900);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+    padding-right: 64px;
+  }
+  .s3-card-company {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--zinc-600);
+    margin-bottom: 8px;
+  }
+  .s3-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .s3-card-date {
+    font-size: 12px;
+    color: var(--zinc-400);
+    font-weight: 500;
+  }
+  .s3-card-location {
+    font-size: 12px;
+    color: var(--zinc-400);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .s3-card-location svg { width: 11px; height: 11px; stroke: var(--zinc-400); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .s3-add-btn {
+    width: 100%;
+    border: 1.5px dashed var(--zinc-200);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--zinc-500);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-bottom: 32px;
+  }
+  .s3-add-btn:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-light); }
+  .s3-add-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .s3-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 24px;
+    border-top: 1px solid var(--zinc-100);
+  }
+
+  /* ═══════════════════════════════════════════
+     SCREEN 4 Candidate Profile
+  ═══════════════════════════════════════════ */
+  .screen-4 {
+    width: 1280px;
+    min-height: 900px;
+    background: var(--zinc-50);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--zinc-200);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .s4-nav {
+    background: #fff;
+    border-bottom: 1px solid var(--zinc-200);
+    padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  .s4-nav-top {
+    padding: 20px 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .s4-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 20px;
+    padding-top: 4px;
+  }
+  .s4-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--zinc-200);
+  }
+  .s4-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .s4-profile-info { display: flex; flex-direction: column; gap: 3px; }
+  .s4-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--zinc-900);
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .s4-name-edit {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.12s;
+  }
+  .s4-name-edit:hover { background: var(--zinc-100); }
+  .s4-name-edit svg { width: 12px; height: 12px; stroke: var(--zinc-400); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .s4-title { font-size: 14px; color: var(--zinc-600); font-weight: 500; }
+  .s4-viewers {
+    font-size: 12px;
+    color: var(--zinc-400);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .s4-viewers svg { width: 12px; height: 12px; stroke: var(--zinc-400); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .s4-tabs {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid var(--zinc-100);
+  }
+  .s4-tab {
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--zinc-500);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.12s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .s4-tab:hover { color: var(--zinc-800); }
+  .s4-tab.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 600; }
+  .s4-tab-badge {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ef4444;
+    display: inline-block;
+  }
+  .s4-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 20px;
+    padding: 24px 32px;
+    align-items: start;
+  }
+  .s4-left { display: flex; flex-direction: column; gap: 16px; }
+  .s4-right { display: flex; flex-direction: column; gap: 16px; }
+  .s4-card {
+    background: #fff;
+    border: 1px solid var(--zinc-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .s4-card-header {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--zinc-100);
+  }
+  .s4-card-title-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--zinc-800);
+    letter-spacing: -0.01em;
+  }
+  .s4-card-edit {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .s4-card-edit:hover { background: var(--zinc-100); }
+  .s4-card-edit svg { width: 13px; height: 13px; stroke: var(--zinc-400); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .s4-card-body { padding: 16px 20px; }
+  .s4-exp-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--zinc-100);
+  }
+  .s4-exp-item:first-child { padding-top: 0; }
+  .s4-exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .s4-exp-role {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--zinc-900);
+    letter-spacing: -0.01em;
+  }
+  .s4-exp-company { font-size: 13px; color: var(--zinc-600); font-weight: 500; }
+  .s4-exp-date { font-size: 12px; color: var(--zinc-400); }
+  .s4-show-more {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand);
+    cursor: pointer;
+    padding-top: 8px;
+    display: block;
+  }
+  .s4-number-big {
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--brand);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    padding: 8px 0 4px;
+  }
+  .s4-number-label {
+    font-size: 12px;
+    color: var(--zinc-400);
+    font-weight: 500;
+  }
+  .s4-skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .s4-skill-tag {
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: var(--zinc-100);
+    border: 1px solid var(--zinc-200);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--zinc-700);
+    display: inline-flex;
+    align-items: center;
+  }
+  .s4-badge-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--zinc-100);
+  }
+  .s4-badge-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .s4-badge-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--zinc-100);
+    border: 1px solid var(--zinc-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .s4-badge-icon img { object-fit: cover; }
+  .s4-badge-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--zinc-800);
+    flex: 1;
+  }
+  .s4-badge-verified {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--green-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .s4-badge-verified svg { width: 11px; height: 11px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .s4-add-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .s4-add-badge:hover { background: var(--zinc-100); }
+  .s4-add-badge svg { width: 14px; height: 14px; stroke: var(--zinc-400); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .s4-lang-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--zinc-100);
+  }
+  .s4-lang-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .s4-lang-name { font-size: 13px; font-weight: 600; color: var(--zinc-800); }
+  .s4-lang-level {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--zinc-500);
+    background: var(--zinc-100);
+    padding: 2px 10px;
+    border-radius: 999px;
+  }
+  .s4-link { font-size: 13px; color: var(--brand); text-decoration: none; font-weight: 500; }
+  .s4-link:hover { text-decoration: underline; }
+  .s4-alert {
+    background: var(--brand-light);
+    border: 1px solid rgba(26,108,246,0.15);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .s4-alert-icon { width: 18px; height: 18px; border-radius: 50%; background: var(--brand); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .s4-alert-icon svg { width: 10px; height: 10px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; }
+  .s4-alert-text { font-size: 12px; color: var(--zinc-700); flex: 1; font-weight: 500; }
+  .s4-alert-close { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+  .s4-alert-close svg { width: 12px; height: 12px; stroke: var(--zinc-400); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ═══════════════════════════════════════════
+     SCREEN 5 Radar Graph
+  ═══════════════════════════════════════════ */
+  .screen-5 {
+    width: 1280px;
+    min-height: 900px;
+    background: var(--zinc-50);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--zinc-200);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .s5-nav { background: #fff; border-bottom: 1px solid var(--zinc-200); padding: 0 32px; display: flex; flex-direction: column; }
+  .s5-nav-top { padding: 20px 0 16px; display: flex; align-items: center; justify-content: space-between; }
+  .s5-profile-header { display: flex; align-items: center; gap: 16px; padding-bottom: 20px; padding-top: 4px; }
+  .s5-tabs { display: flex; gap: 0; border-top: 1px solid var(--zinc-100); }
+  .s5-body { flex: 1; padding: 28px 32px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+  .s5-left { display: flex; flex-direction: column; gap: 20px; }
+  .s5-right { display: flex; flex-direction: column; gap: 16px; }
+  .s5-card { background: #fff; border: 1px solid var(--zinc-200); border-radius: var(--radius-lg); }
+  .s5-card-header { padding: 16px 20px; border-bottom: 1px solid var(--zinc-100); }
+  .s5-card-title { font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em; }
+  .s5-card-desc { font-size: 12px; color: var(--zinc-400); margin-top: 2px; }
+  .s5-radar-wrap {
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 420px;
+  }
+  .s5-radar-inner {
+    position: relative;
+    display: inline-block;
+  }
+  .s5-radar-svg { overflow: visible; }
+  .s5-tooltip {
+    position: absolute;
+    top: 72px;
+    left: calc(100% + 4px);
+    background: #fff;
+    border: 1px solid rgba(26,108,246,0.25);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    box-shadow: 0 4px 16px rgba(26,108,246,0.10), var(--shadow-lg);
+    width: 130px;
+  }
+  .s5-tooltip-pct { font-size: 20px; font-weight: 800; color: var(--zinc-900); letter-spacing: -0.03em; }
+  .s5-tooltip-label { font-size: 12px; font-weight: 600; color: var(--zinc-700); margin-bottom: 4px; }
+  .s5-tooltip-desc { font-size: 11px; color: var(--zinc-400); line-height: 1.5; }
+  .s5-tooltip-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--brand-light);
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  .s5-legend {
+    padding: 16px 20px;
+    display: flex;
+    gap: 20px;
+    border-top: 1px solid var(--zinc-100);
+  }
+  .s5-legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--zinc-500); }
+  .s5-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .s5-score-card { background: #fff; border: 1px solid var(--zinc-200); border-radius: var(--radius-lg); overflow: hidden; }
+  .s5-score-header { padding: 14px 16px; border-bottom: 1px solid var(--zinc-100); font-size: 13px; font-weight: 600; color: var(--zinc-800); }
+  .s5-score-list { padding: 8px 0; }
+  .s5-score-item { display: flex; align-items: center; gap: 12px; padding: 10px 16px; }
+  .s5-score-item:hover { background: var(--zinc-50); }
+  .s5-score-name { font-size: 13px; font-weight: 500; color: var(--zinc-700); flex: 1; }
+  .s5-score-bar-wrap { width: 80px; height: 4px; background: var(--zinc-100); border-radius: 999px; overflow: hidden; }
+  .s5-score-bar { height: 100%; border-radius: 999px; background: var(--brand); }
+  .s5-score-pct { font-size: 12px; font-weight: 600; color: var(--zinc-600); width: 32px; text-align: right; }
+  .s5-insight-card { background: #fff; border: 1px solid var(--zinc-200); border-radius: var(--radius-lg); padding: 16px; }
+  .s5-insight-title { font-size: 13px; font-weight: 600; color: var(--zinc-800); margin-bottom: 12px; }
+  .s5-insight-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--zinc-100); }
+  .s5-insight-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .s5-insight-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+  .s5-insight-text { font-size: 12px; color: var(--zinc-600); line-height: 1.5; }
+  .s5-insight-text strong { color: var(--zinc-800); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 1 Role Selection
+═══════════════════════════════════════ -->
+<div class="screen-label">Screen 1 Onboarding: Role Selection</div>
+<div class="screen-1">
+  <nav class="s1-nav">
+    <a href="#" class="logo">
+      <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+      <span class="logo-text">JobRivals</span>
+    </a>
+    <span class="s1-nav-right">Already have an account? <a href="#">Sign in</a></span>
+  </nav>
+  <div class="s1-body">
+    <span class="s1-eyebrow">Get started</span>
+    <h1 class="s1-heading">What brings you to JobRivals?</h1>
+    <p class="s1-sub">We'll personalize your experience based on your goal.</p>
+    <div class="s1-cards">
+      <div class="s1-card selected">
+        <div class="s1-card-check">
+          <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <div class="s1-card-icon">🔍</div>
+        <div class="s1-card-title">I'm looking for a job</div>
+        <div class="s1-card-desc">Build your profile, showcase skills, and get discovered by top employers.</div>
+      </div>
+      <div class="s1-card">
+        <div class="s1-card-check">
+          <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <div class="s1-card-icon">🏢</div>
+        <div class="s1-card-title">I'm looking to hire</div>
+        <div class="s1-card-desc">Find verified candidates, compare skills, and make smarter hiring decisions.</div>
+      </div>
+    </div>
+    <button class="btn-primary">
+      Continue
+      <svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9,4 13,8 9,12"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 2 Assessment Question
+═══════════════════════════════════════ -->
+<div class="screen-label">Screen 2 Assessment: Question</div>
+<div class="screen-2">
+  <nav class="s2-nav">
+    <a href="#" class="logo">
+      <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+      <span class="logo-text">JobRivals</span>
+    </a>
+    <div class="stepper-wrap">
+      <div class="s2-step done">
+        <div class="s2-step-dot">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg>
+        </div>
+        <span class="s2-step-label">Personality</span>
+      </div>
+      <div class="stepper-connector filled"></div>
+      <div class="s2-step active">
+        <div class="s2-step-dot">2</div>
+        <span class="s2-step-label">Mindset</span>
+      </div>
+      <div class="stepper-connector"></div>
+      <div class="s2-step">
+        <div class="s2-step-dot">3</div>
+        <span class="s2-step-label">Performance</span>
+      </div>
+      <div class="stepper-connector"></div>
+      <div class="s2-step">
+        <div class="s2-step-dot">4</div>
+        <span class="s2-step-label">IQ</span>
+      </div>
+      <div class="stepper-connector"></div>
+      <div class="s2-step">
+        <div class="s2-step-dot">5</div>
+        <span class="s2-step-label">Done</span>
+      </div>
+    </div>
+    <div style="width: 120px"></div>
+  </nav>
+  <div class="s2-body">
+    <span class="s2-section-label">Mindset</span>
+    <h2 class="s2-question">Which situation appeals to you more?</h2>
+    <div class="s2-progress-bar-wrap">
+      <div class="s2-progress-bar"></div>
+    </div>
+    <div class="s2-options">
+      <div class="s2-option selected">
+        <div class="s2-option-radio"></div>
+        <div>
+          <div class="s2-option-text">The structured and scheduled</div>
+          <div class="s2-option-sub">Clear processes, defined goals, predictable outcomes</div>
+        </div>
+      </div>
+      <div class="s2-option">
+        <div class="s2-option-radio"></div>
+        <div>
+          <div class="s2-option-text">The unstructured and open-ended</div>
+          <div class="s2-option-sub">Creative freedom, ambiguous problems, flexible timelines</div>
+        </div>
+      </div>
+    </div>
+    <div class="s2-footer">
+      <span class="s2-q-counter">Question 3 of 8</span>
+      <div class="s2-footer-right">
+        <button class="btn-ghost">Skip for later</button>
+        <button class="btn-primary">
+          Next
+          <svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9,4 13,8 9,12"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 3 Work Experience
+═══════════════════════════════════════ -->
+<div class="screen-label">Screen 3 Onboarding: Work Experience</div>
+<div class="screen-3">
+  <nav class="s3-nav">
+    <a href="#" class="logo">
+      <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+      <span class="logo-text">JobRivals</span>
+    </a>
+    <div class="s3-progress-wrap">
+      <div class="s3-progress-step done"></div>
+      <div class="s3-progress-step done"></div>
+      <div class="s3-progress-step active"></div>
+      <div class="s3-progress-step"></div>
+      <div class="s3-progress-step"></div>
+    </div>
+    <div style="width: 120px"></div>
+  </nav>
+  <div class="s3-body">
+    <a href="#" class="s3-back">
+      <svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"/></svg>
+      Back
+    </a>
+    <div class="s3-eyebrow">Create your profile</div>
+    <h2 class="s3-heading">Here's what we picked up on your work experience.</h2>
+    <p class="s3-sub">Adding your experience helps employers find you for the right roles. Edit, remove, or add anything we missed.</p>
+    <div class="s3-grid">
+      <div class="s3-card">
+        <div class="s3-card-actions">
+          <button class="s3-card-action">
+            <svg viewBox="0 0 13 13"><path d="M9.5 2.5l1 1L4 10H3V9l6.5-6.5z"/></svg>
+          </button>
+          <button class="s3-card-action">
+            <svg viewBox="0 0 13 13"><polyline points="2,4 11,4"/><path d="M5,4V3h3v1M4,4v7h5V4"/></svg>
+          </button>
+        </div>
+        <div class="s3-card-title">Product Designer</div>
+        <div class="s3-card-company">Mobibox Studio</div>
+        <div class="s3-card-meta">
+          <div class="s3-card-date">Jan 2021 Jan 2023</div>
+          <div class="s3-card-location">
+            <svg viewBox="0 0 11 11"><circle cx="5.5" cy="4" r="2"/><path d="M5.5 10S2 7 2 4.5a3.5 3.5 0 017 0C9 7 5.5 10 5.5 10z"/></svg>
+            Beirut, Lebanon
+          </div>
+        </div>
+      </div>
+      <div class="s3-card">
+        <div class="s3-card-actions">
+          <button class="s3-card-action">
+            <svg viewBox="0 0 13 13"><path d="M9.5 2.5l1 1L4 10H3V9l6.5-6.5z"/></svg>
+          </button>
+          <button class="s3-card-action">
+            <svg viewBox="0 0 13 13"><polyline points="2,4 11,4"/><path d="M5,4V3h3v1M4,4v7h5V4"/></svg>
+          </button>
+        </div>
+        <div class="s3-card-title">UX/UI Designer</div>
+        <div class="s3-card-company">Dalili App</div>
+        <div class="s3-card-meta">
+          <div class="s3-card-date">Mar 2023 Present</div>
+          <div class="s3-card-location">
+            <svg viewBox="0 0 11 11"><circle cx="5.5" cy="4" r="2"/><path d="M5.5 10S2 7 2 4.5a3.5 3.5 0 017 0C9 7 5.5 10 5.5 10z"/></svg>
+            Remote
+          </div>
+        </div>
+      </div>
+      <div class="s3-card">
+        <div class="s3-card-actions">
+          <button class="s3-card-action">
+            <svg viewBox="0 0 13 13"><path d="M9.5 2.5l1 1L4 10H3V9l6.5-6.5z"/></svg>
+          </button>
+          <button class="s3-card-action">
+            <svg viewBox="0 0 13 13"><polyline points="2,4 11,4"/><path d="M5,4V3h3v1M4,4v7h5V4"/></svg>
+          </button>
+        </div>
+        <div class="s3-card-title">Visual Designer</div>
+        <div class="s3-card-company">Freelance</div>
+        <div class="s3-card-meta">
+          <div class="s3-card-date">Jun 2019 Dec 2020</div>
+          <div class="s3-card-location">
+            <svg viewBox="0 0 11 11"><circle cx="5.5" cy="4" r="2"/><path d="M5.5 10S2 7 2 4.5a3.5 3.5 0 017 0C9 7 5.5 10 5.5 10z"/></svg>
+            Beirut, Lebanon
+          </div>
+        </div>
+      </div>
+      <div class="s3-card">
+        <div class="s3-card-actions">
+          <button class="s3-card-action">
+            <svg viewBox="0 0 13 13"><path d="M9.5 2.5l1 1L4 10H3V9l6.5-6.5z"/></svg>
+          </button>
+          <button class="s3-card-action">
+            <svg viewBox="0 0 13 13"><polyline points="2,4 11,4"/><path d="M5,4V3h3v1M4,4v7h5V4"/></svg>
+          </button>
+        </div>
+        <div class="s3-card-title">Graphic Designer</div>
+        <div class="s3-card-company">Agency Work</div>
+        <div class="s3-card-meta">
+          <div class="s3-card-date">Jan 2018 May 2019</div>
+          <div class="s3-card-location">
+            <svg viewBox="0 0 11 11"><circle cx="5.5" cy="4" r="2"/><path d="M5.5 10S2 7 2 4.5a3.5 3.5 0 017 0C9 7 5.5 10 5.5 10z"/></svg>
+            Beirut, Lebanon
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="s3-add-btn">
+      <svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+      Add experience
+    </button>
+    <div class="s3-footer">
+      <button class="btn-ghost">Skip for later</button>
+      <button class="btn-primary">
+        Continue
+        <svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9,4 13,8 9,12"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 4 Candidate Profile
+═══════════════════════════════════════ -->
+<div class="screen-label">Screen 4 Candidate Profile</div>
+<div class="screen-4">
+  <nav class="s4-nav">
+    <div class="s4-nav-top">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+        <span class="logo-text">JobRivals</span>
+      </a>
+    </div>
+    <div class="s4-profile-header">
+      <div class="s4-avatar"><img src="images/jobrivals/ProfileImage.png" alt="John Doe"></div>
+      <div class="s4-profile-info">
+        <div class="s4-name">
+          John Doe
+          <div class="s4-name-edit">
+            <svg viewBox="0 0 12 12"><path d="M8.5 1.5l2 2L3 11H1V9L8.5 1.5z"/></svg>
+          </div>
+        </div>
+        <div class="s4-title">Product Designer</div>
+        <div class="s4-viewers">
+          <svg viewBox="0 0 12 12"><circle cx="6" cy="5" r="2"/><path d="M1 10c0-2 2-3.5 5-3.5S11 8 11 10"/></svg>
+          123 profile viewers this month
+        </div>
+      </div>
+    </div>
+    <div class="s4-tabs">
+      <a href="#" class="s4-tab active">Profile</a>
+      <a href="#" class="s4-tab">My Badges</a>
+      <a href="#" class="s4-tab">Notifications <span class="s4-tab-badge"></span></a>
+      <a href="#" class="s4-tab">Graph</a>
+      <a href="#" class="s4-tab">Settings</a>
+    </div>
+  </nav>
+  <div class="s4-body">
+    <div class="s4-left">
+      <div class="s4-alert">
+        <div class="s4-alert-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="3" x2="5" y2="5.5"/><circle cx="5" cy="7" r="0.5" fill="white" stroke="none"/></svg></div>
+        <span class="s4-alert-text">Get certified to show employers you know your stuff!</span>
+        <button class="btn-primary" style="height:32px;font-size:12px;padding:0 14px;">Get certified</button>
+        <div class="s4-alert-close"><svg viewBox="0 0 12 12"><line x1="2" y1="2" x2="10" y2="10"/><line x1="10" y1="2" x2="2" y2="10"/></svg></div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-header">
+          <span class="s4-card-title-text">Employment history</span>
+          <div class="s4-card-edit"><svg viewBox="0 0 13 13"><path d="M9.5 2.5l1 1L4 10H3V9l6.5-6.5z"/></svg></div>
+        </div>
+        <div class="s4-card-body">
+          <div class="s4-exp-item">
+            <div class="s4-exp-role">Senior Product Designer</div>
+            <div class="s4-exp-company">Dalili App</div>
+            <div class="s4-exp-date">Mar 2023 Present · 1 yr 3 mo</div>
+          </div>
+          <div class="s4-exp-item">
+            <div class="s4-exp-role">Product Designer</div>
+            <div class="s4-exp-company">Mobibox Studio</div>
+            <div class="s4-exp-date">Jan 2021 Jan 2023 · 2 yrs</div>
+          </div>
+          <span class="s4-show-more">Show 3 more</span>
+        </div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-header">
+          <span class="s4-card-title-text">Education</span>
+          <div class="s4-card-edit"><svg viewBox="0 0 13 13"><path d="M9.5 2.5l1 1L4 10H3V9l6.5-6.5z"/></svg></div>
+        </div>
+        <div class="s4-card-body">
+          <div class="s4-exp-item">
+            <div class="s4-exp-role">Bachelor's in Graphic Design</div>
+            <div class="s4-exp-company">Lebanese American University</div>
+            <div class="s4-exp-date">2015 2019</div>
+          </div>
+          <div class="s4-exp-item">
+            <div class="s4-exp-role">UX Design Certificate</div>
+            <div class="s4-exp-company">Google / Coursera</div>
+            <div class="s4-exp-date">2020</div>
+          </div>
+          <span class="s4-show-more">Show 1 more</span>
+        </div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-header">
+          <span class="s4-card-title-text">Languages</span>
+          <div class="s4-card-edit"><svg viewBox="0 0 13 13"><path d="M9.5 2.5l1 1L4 10H3V9l6.5-6.5z"/></svg></div>
+        </div>
+        <div class="s4-card-body">
+          <div class="s4-lang-item">
+            <span class="s4-lang-name">Arabic</span>
+            <span class="s4-lang-level">Native</span>
+          </div>
+          <div class="s4-lang-item">
+            <span class="s4-lang-name">English</span>
+            <span class="s4-lang-level">Fluent</span>
+          </div>
+          <div class="s4-lang-item">
+            <span class="s4-lang-name">French</span>
+            <span class="s4-lang-level">Conversational</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s4-right">
+      <div class="s4-card">
+        <div class="s4-card-header">
+          <span class="s4-card-title-text">Years of experience</span>
+          <div class="s4-card-edit"><svg viewBox="0 0 13 13"><path d="M9.5 2.5l1 1L4 10H3V9l6.5-6.5z"/></svg></div>
+        </div>
+        <div class="s4-card-body">
+          <div class="s4-number-big">6</div>
+          <div class="s4-number-label">years in design</div>
+        </div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-header">
+          <span class="s4-card-title-text">Skills</span>
+          <div class="s4-card-edit"><svg viewBox="0 0 13 13"><path d="M9.5 2.5l1 1L4 10H3V9l6.5-6.5z"/></svg></div>
+        </div>
+        <div class="s4-card-body">
+          <div class="s4-skills-wrap">
+            <span class="s4-skill-tag">Product Design</span>
+            <span class="s4-skill-tag">UX/UI</span>
+            <span class="s4-skill-tag">Figma</span>
+            <span class="s4-skill-tag">Animation</span>
+            <span class="s4-skill-tag">Prototyping</span>
+            <span class="s4-skill-tag">Design Systems</span>
+          </div>
+        </div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-header">
+          <span class="s4-card-title-text">Badges</span>
+          <button class="s4-add-badge"><svg viewBox="0 0 14 14"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></button>
+        </div>
+        <div class="s4-card-body">
+          <div class="s4-badge-item">
+            <div class="s4-badge-icon" style="overflow:hidden; display:flex; align-items:center; justify-content:center;"><img src="images/jobrivals/Figma-logo.svg" width="18" height="18" style="object-fit:contain;"></div>
+            <span class="s4-badge-name">Figma</span>
+            <div class="s4-badge-verified"><svg viewBox="0 0 11 11"><polyline points="2,6 4.5,8.5 9,3"/></svg></div>
+          </div>
+          <div class="s4-badge-item">
+            <div class="s4-badge-icon" style="overflow:hidden;"><img src="images/jobrivals/Illustrator-logo.jpg" width="32" height="32" style="object-fit:cover; display:block;"></div>
+            <span class="s4-badge-name">Illustrator</span>
+            <div class="s4-badge-verified"><svg viewBox="0 0 11 11"><polyline points="2,6 4.5,8.5 9,3"/></svg></div>
+          </div>
+          <div class="s4-badge-item">
+            <div class="s4-badge-icon" style="overflow:hidden; display:flex; align-items:center; justify-content:center;"><img src="https://www.adobe.com/favicon.ico" width="14" height="14" style="object-fit:contain;" onerror="this.parentElement.innerHTML='📐'"></div>
+            <span class="s4-badge-name">Adobe Suite</span>
+            <div class="s4-badge-verified"><svg viewBox="0 0 11 11"><polyline points="2,6 4.5,8.5 9,3"/></svg></div>
+          </div>
+          <div class="s4-badge-item">
+            <div class="s4-badge-icon" style="overflow:hidden;"><img src="images/jobrivals/framer_logo.webp" width="56" height="56" style="object-fit:contain; margin: -8px;"></div>
+            <span class="s4-badge-name">Framer</span>
+            <div class="s4-badge-verified"><svg viewBox="0 0 11 11"><polyline points="2,6 4.5,8.5 9,3"/></svg></div>
+          </div>
+          <div class="s4-badge-item">
+            <div class="s4-badge-icon" style="overflow:hidden; display:flex; align-items:center; justify-content:center;"><img src="https://rive.app/favicon.ico" width="16" height="16" style="object-fit:contain;" onerror="this.parentElement.style.background='#1a1a2e';this.parentElement.style.color='white';this.parentElement.innerHTML='R'"></div>
+            <span class="s4-badge-name">Rive</span>
+            <div class="s4-badge-verified"><svg viewBox="0 0 11 11"><polyline points="2,6 4.5,8.5 9,3"/></svg></div>
+          </div>
+        </div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-header">
+          <span class="s4-card-title-text">Portfolio link</span>
+          <div class="s4-card-edit"><svg viewBox="0 0 13 13"><path d="M9.5 2.5l1 1L4 10H3V9l6.5-6.5z"/></svg></div>
+        </div>
+        <div class="s4-card-body">
+          <a href="#" class="s4-link">hussein.design</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 5 Radar Graph
+═══════════════════════════════════════ -->
+<div class="screen-label">Screen 5 Skills Radar Graph</div>
+<div class="screen-5">
+  <nav class="s5-nav">
+    <div class="s5-nav-top">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+        <span class="logo-text">JobRivals</span>
+      </a>
+    </div>
+    <div class="s5-profile-header">
+      <div class="s4-avatar"><img src="images/jobrivals/ProfileImage.png" alt="John Doe"></div>
+      <div class="s4-profile-info">
+        <div class="s4-name">John Doe</div>
+        <div class="s4-title">Product Designer</div>
+        <div class="s4-viewers">
+          <svg viewBox="0 0 12 12"><circle cx="6" cy="5" r="2"/><path d="M1 10c0-2 2-3.5 5-3.5S11 8 11 10"/></svg>
+          123 profile viewers this month
+        </div>
+      </div>
+    </div>
+    <div class="s5-tabs">
+      <a href="#" class="s4-tab">Profile</a>
+      <a href="#" class="s4-tab">My Badges</a>
+      <a href="#" class="s4-tab">Notifications <span class="s4-tab-badge"></span></a>
+      <a href="#" class="s4-tab active">Graph</a>
+      <a href="#" class="s4-tab">Settings</a>
+    </div>
+  </nav>
+  <div class="s5-body">
+    <div class="s5-left">
+      <div class="s5-card">
+        <div class="s5-card-header">
+          <div class="s5-card-title">Skills Radar</div>
+          <div class="s5-card-desc">Based on your assessment results and verified badges</div>
+        </div>
+        <div class="s5-radar-wrap">
+          <div class="s5-radar-inner">
+          <svg class="s5-radar-svg" width="380" height="360" viewBox="-10 -10 400 380">
+            <!-- Background rings -->
+            <g opacity="0.08">
+              <polygon points="190,10 340,95 340,265 190,350 40,265 40,95" fill="none" stroke="#1a6cf6" stroke-width="1"/>
+              <polygon points="190,42 316,112 316,248 190,318 64,248 64,112" fill="none" stroke="#1a6cf6" stroke-width="1"/>
+              <polygon points="190,74 292,129 292,231 190,286 88,231 88,129" fill="none" stroke="#1a6cf6" stroke-width="1"/>
+              <polygon points="190,106 268,146 268,214 190,254 112,214 112,146" fill="none" stroke="#1a6cf6" stroke-width="1"/>
+              <polygon points="190,138 244,163 244,197 190,222 136,197 136,163" fill="none" stroke="#1a6cf6" stroke-width="1"/>
+            </g>
+            <!-- Axis lines -->
+            <g stroke="#e4e4e7" stroke-width="1" opacity="0.6">
+              <line x1="190" y1="180" x2="190" y2="10"/>
+              <line x1="190" y1="180" x2="340" y2="95"/>
+              <line x1="190" y1="180" x2="340" y2="265"/>
+              <line x1="190" y1="180" x2="190" y2="350"/>
+              <line x1="190" y1="180" x2="40" y2="265"/>
+              <line x1="190" y1="180" x2="40" y2="95"/>
+            </g>
+            <!-- Data polygon (filled) -->
+            <polygon
+              points="190,52 308,118 318,238 190,330 80,250 68,110"
+              fill="rgba(26,108,246,0.12)"
+              stroke="#1a6cf6"
+              stroke-width="2"
+            />
+            <!-- Data points -->
+            <circle cx="190" cy="52" r="5" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <circle cx="308" cy="118" r="5" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <circle cx="318" cy="238" r="5" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <circle cx="190" cy="330" r="5" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <circle cx="80" cy="250" r="5" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <circle cx="68" cy="110" r="5" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <!-- Axis labels -->
+            <text x="190" y="-4" text-anchor="middle" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter, sans-serif">People Skills</text>
+            <rect x="348" y="76" width="28" height="20" rx="6" fill="#eff4ff"/>
+            <text x="362" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="#1a6cf6" font-family="Inter, sans-serif">IQ</text>
+            <text x="355" y="270" text-anchor="start" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter, sans-serif">Critical Thinking</text>
+            <text x="190" y="375" text-anchor="middle" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter, sans-serif">Execution</text>
+            <text x="22" y="270" text-anchor="end" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter, sans-serif">Creativity</text>
+            <text x="22" y="90" text-anchor="end" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter, sans-serif">Leadership</text>
+          </svg>
+          <div class="s5-tooltip">
+            <div class="s5-tooltip-tag">IQ</div>
+            <div class="s5-tooltip-pct">82%</div>
+            <div class="s5-tooltip-label">Above average</div>
+            <div class="s5-tooltip-desc">Top 20% among product designers.</div>
+          </div>
+          </div>
+        </div>
+        <div class="s5-legend">
+          <div class="s5-legend-item">
+            <div class="s5-legend-dot" style="background:#1a6cf6"></div>
+            John Doe
+          </div>
+          <div class="s5-legend-item">
+            <div class="s5-legend-dot" style="background:#e4e4e7"></div>
+            Industry average
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s5-right">
+      <div class="s5-score-card">
+        <div class="s5-score-header">Score breakdown</div>
+        <div class="s5-score-list">
+          <div class="s5-score-item">
+            <span class="s5-score-name">People Skills</span>
+            <div class="s5-score-bar-wrap"><div class="s5-score-bar" style="width:88%"></div></div>
+            <span class="s5-score-pct">88%</span>
+          </div>
+          <div class="s5-score-item">
+            <span class="s5-score-name">IQ</span>
+            <div class="s5-score-bar-wrap"><div class="s5-score-bar" style="width:82%"></div></div>
+            <span class="s5-score-pct">82%</span>
+          </div>
+          <div class="s5-score-item">
+            <span class="s5-score-name">Critical Thinking</span>
+            <div class="s5-score-bar-wrap"><div class="s5-score-bar" style="width:76%"></div></div>
+            <span class="s5-score-pct">76%</span>
+          </div>
+          <div class="s5-score-item">
+            <span class="s5-score-name">Execution</span>
+            <div class="s5-score-bar-wrap"><div class="s5-score-bar" style="width:91%"></div></div>
+            <span class="s5-score-pct">91%</span>
+          </div>
+          <div class="s5-score-item">
+            <span class="s5-score-name">Creativity</span>
+            <div class="s5-score-bar-wrap"><div class="s5-score-bar" style="width:79%"></div></div>
+            <span class="s5-score-pct">79%</span>
+          </div>
+          <div class="s5-score-item">
+            <span class="s5-score-name">Leadership</span>
+            <div class="s5-score-bar-wrap"><div class="s5-score-bar" style="width:68%"></div></div>
+            <span class="s5-score-pct">68%</span>
+          </div>
+        </div>
+      </div>
+      <div class="s5-insight-card">
+        <div class="s5-insight-title">Key insights</div>
+        <div class="s5-insight-item">
+          <div class="s5-insight-dot" style="background:#16a34a"></div>
+          <div class="s5-insight-text"><strong>Top strength:</strong> Execution at 91% you follow through and deliver.</div>
+        </div>
+        <div class="s5-insight-item">
+          <div class="s5-insight-dot" style="background:#f59e0b"></div>
+          <div class="s5-insight-text"><strong>Growth area:</strong> Leadership at 68% consider mentorship or team-lead experience.</div>
+        </div>
+        <div class="s5-insight-item">
+          <div class="s5-insight-dot" style="background:#1a6cf6"></div>
+          <div class="s5-insight-text"><strong>Overall:</strong> You're in the <strong>top 25%</strong> of product designers on the platform.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 6 My Badges
+═══════════════════════════════════════ -->
+<div class="screen-label">Screen 6 My Badges</div>
+<div class="screen-5" style="min-height: 820px;">
+  <nav class="s5-nav">
+    <div class="s5-nav-top">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+        <span class="logo-text">JobRivals</span>
+      </a>
+    </div>
+    <div class="s5-profile-header">
+      <div class="s4-avatar"><img src="images/jobrivals/ProfileImage.png" alt="John Doe"></div>
+      <div class="s4-profile-info">
+        <div class="s4-name">John Doe</div>
+        <div class="s4-title">Product Designer</div>
+        <div class="s4-viewers">
+          <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="#a1a1aa" stroke-width="1.8"><circle cx="6" cy="5" r="2"/><path d="M1 10c0-2 2-3.5 5-3.5S11 8 11 10"/></svg>
+          123 profile viewers this month
+        </div>
+      </div>
+    </div>
+    <div class="s5-tabs">
+      <a href="#" class="s4-tab">Profile</a>
+      <a href="#" class="s4-tab active">My Badges</a>
+      <a href="#" class="s4-tab">Notifications <span class="s4-tab-badge"></span></a>
+      <a href="#" class="s4-tab">Graph</a>
+      <a href="#" class="s4-tab">Settings</a>
+    </div>
+  </nav>
+  <div style="padding: 28px 32px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start;">
+
+    <!-- Left: badge list -->
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+
+      <!-- CTA banner -->
+      <div style="background: var(--brand-light); border: 1px solid rgba(26,108,246,0.15); border-radius: var(--radius-lg); padding: 16px 20px; display: flex; align-items: center; gap: 14px;">
+        <div style="width: 36px; height: 36px; background: var(--brand); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px;">🏅</div>
+        <div style="flex: 1;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--zinc-800);">Show employers you know your stuff!</div>
+          <div style="font-size: 12px; color: var(--zinc-500); margin-top: 2px;">Earn 3 more badges to reach <strong style="color: var(--brand);">Elite status</strong></div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="height: 6px; width: 80px; background: rgba(26,108,246,0.15); border-radius: 999px; overflow: hidden;">
+            <div style="width: 62%; height: 100%; background: var(--brand); border-radius: 999px;"></div>
+          </div>
+          <span style="font-size: 12px; font-weight: 700; color: var(--brand);">5/8</span>
+        </div>
+        <div style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 5px; flex-shrink: 0;">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round"><line x1="2" y1="2" x2="10" y2="10"/><line x1="10" y1="2" x2="2" y2="10"/></svg>
+        </div>
+      </div>
+
+      <!-- Earned badges -->
+      <div class="s5-card">
+        <div class="s5-card-header" style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 24px; line-height: 1;">🏆</span>
+            <div>
+              <div class="s5-card-title">Earned badges</div>
+              <div class="s5-card-desc">5 verified · 2 in progress</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--zinc-400); font-weight: 500;">
+              Sort by
+              <select style="border: 1px solid var(--zinc-200); border-radius: 6px; padding: 4px 8px; font-size: 12px; color: var(--zinc-600); background: #fff; font-family: inherit; cursor: pointer; outline: none;">
+                <option>Most recent</option>
+                <option>A Z</option>
+              </select>
+            </div>
+            <button class="btn-primary" style="height: 32px; font-size: 12px; padding: 0 14px; gap: 5px;">
+              <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg>
+              Earn badge
+            </button>
+          </div>
+        </div>
+        <div style="padding: 8px 0;">
+
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100); transition: background 0.12s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='transparent'">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); overflow: hidden; flex-shrink: 0; background: #fff; display: flex; align-items: center; justify-content: center;">
+              <img src="images/jobrivals/Figma-logo.svg" width="24" height="24" style="object-fit:contain;">
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Figma</div>
+              <div style="font-size: 12px; color: var(--zinc-400); margin-top: 1px;">Passed · Jun 2024</div>
+            </div>
+            <div style="height: 24px; padding: 0 10px; background: var(--green-light); border-radius: 999px; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--green);">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5.5 3.5,7.5 8.5,2.5"/></svg>
+              Verified
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100); transition: background 0.12s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='transparent'">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); overflow: hidden; flex-shrink: 0; background: #fff;">
+              <img src="images/jobrivals/Illustrator-logo.jpg" width="40" height="40" style="object-fit:cover; display:block;">
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Illustrator</div>
+              <div style="font-size: 12px; color: var(--zinc-400); margin-top: 1px;">Passed · Mar 2024</div>
+            </div>
+            <div style="height: 24px; padding: 0 10px; background: var(--green-light); border-radius: 999px; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--green);">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5.5 3.5,7.5 8.5,2.5"/></svg>
+              Verified
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100); transition: background 0.12s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='transparent'">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); overflow: hidden; flex-shrink: 0; background: #fff; display: flex; align-items: center; justify-content: center;">
+              <img src="https://www.adobe.com/favicon.ico" width="26" height="26" style="object-fit: contain;" onerror="this.parentElement.innerHTML='📐'">
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Adobe Suite</div>
+              <div style="font-size: 12px; color: var(--zinc-400); margin-top: 1px;">Passed · Jan 2024</div>
+            </div>
+            <div style="height: 24px; padding: 0 10px; background: var(--green-light); border-radius: 999px; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--green);">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5.5 3.5,7.5 8.5,2.5"/></svg>
+              Verified
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100); transition: background 0.12s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='transparent'">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); overflow: hidden; flex-shrink: 0; background: #fff;">
+              <img src="images/jobrivals/framer_logo.webp" width="64" height="64" style="object-fit:contain; margin: -12px;">
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Framer</div>
+              <div style="font-size: 12px; color: var(--zinc-400); margin-top: 1px;">Passed · Nov 2023</div>
+            </div>
+            <div style="height: 24px; padding: 0 10px; background: var(--green-light); border-radius: 999px; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--green);">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5.5 3.5,7.5 8.5,2.5"/></svg>
+              Verified
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; transition: background 0.12s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='transparent'">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); overflow: hidden; flex-shrink: 0; background: #fff; display: flex; align-items: center; justify-content: center;">
+              <img src="https://rive.app/favicon.ico" width="26" height="26" style="object-fit: contain;" onerror="this.parentElement.style.background='#1a1a2e';this.parentElement.innerHTML='<span style=\'color:white;font-size:13px;font-weight:800;\'>R</span>'">
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Rive</div>
+              <div style="font-size: 12px; color: var(--zinc-400); margin-top: 1px;">Passed · Sep 2023</div>
+            </div>
+            <div style="height: 24px; padding: 0 10px; background: var(--green-light); border-radius: 999px; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--green);">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5.5 3.5,7.5 8.5,2.5"/></svg>
+              Verified
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- In progress -->
+      <div class="s5-card">
+        <div class="s5-card-header">
+          <div class="s5-card-title">In progress</div>
+          <div class="s5-card-desc">Complete these assessments to earn your badge</div>
+        </div>
+        <div style="padding: 8px 0;">
+
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100);">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; background: #fff;">🧠</div>
+            <div style="flex: 1;">
+              <div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Design Thinking</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                <div style="flex: 1; height: 4px; background: var(--zinc-100); border-radius: 999px; overflow: hidden;">
+                  <div style="width: 60%; height: 100%; background: var(--brand); border-radius: 999px;"></div>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: var(--zinc-500);">60%</span>
+              </div>
+            </div>
+            <button style="height: 32px; padding: 0 14px; background: var(--brand-light); color: var(--brand); font-size: 12px; font-weight: 600; border: none; border-radius: var(--radius-sm); cursor: pointer; letter-spacing: -0.01em;">Continue</button>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; background: #fff;">📊</div>
+            <div style="flex: 1;">
+              <div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Data-Driven Design</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                <div style="flex: 1; height: 4px; background: var(--zinc-100); border-radius: 999px; overflow: hidden;">
+                  <div style="width: 20%; height: 100%; background: var(--brand); border-radius: 999px;"></div>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: var(--zinc-500);">20%</span>
+              </div>
+            </div>
+            <button style="height: 32px; padding: 0 14px; background: var(--brand-light); color: var(--brand); font-size: 12px; font-weight: 600; border: none; border-radius: var(--radius-sm); cursor: pointer; letter-spacing: -0.01em;">Continue</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: stats + explore -->
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+
+      <div class="s5-score-card">
+        <div class="s5-score-header">Badge stats</div>
+        <div style="padding: 16px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="background: var(--zinc-50); border: 1px solid var(--zinc-200); border-radius: var(--radius); padding: 14px 16px;">
+              <div style="font-size: 28px; font-weight: 800; color: var(--zinc-900); letter-spacing: -0.04em; line-height: 1;">5</div>
+              <div style="font-size: 11px; color: var(--zinc-400); font-weight: 500; margin-top: 8px;">Verified</div>
+            </div>
+            <div style="background: var(--zinc-50); border: 1px solid var(--zinc-200); border-radius: var(--radius); padding: 14px 16px;">
+              <div style="font-size: 28px; font-weight: 800; color: var(--brand); letter-spacing: -0.04em; line-height: 1; white-space: nowrap;">Top 15%</div>
+              <div style="font-size: 11px; color: var(--zinc-400); font-weight: 500; margin-top: 8px;">On platform</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="s5-insight-card">
+        <div class="s5-insight-title">Recommended next</div>
+        <div class="s5-insight-item">
+          <div class="s5-insight-dot" style="background: var(--brand);"></div>
+          <div class="s5-insight-text"><strong>Prototyping</strong> 68% of employers searching for Product Designers require this.</div>
+        </div>
+        <div class="s5-insight-item">
+          <div class="s5-insight-dot" style="background: #f59e0b;"></div>
+          <div class="s5-insight-text"><strong>User Research</strong> Adds 2.4× more profile views on average.</div>
+        </div>
+        <div class="s5-insight-item">
+          <div class="s5-insight-dot" style="background: var(--green);"></div>
+          <div class="s5-insight-text"><strong>Design Systems</strong> Trending badge among senior designers this month.</div>
+        </div>
+      </div>
+
+      <div class="s5-score-card">
+        <div class="s5-score-header">Profile boost</div>
+        <div style="padding: 14px 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            <span style="font-size: 12px; color: var(--zinc-500); font-weight: 500;">Completion</span>
+            <span style="font-size: 12px; font-weight: 700; color: var(--zinc-800);">72%</span>
+          </div>
+          <div style="height: 6px; background: var(--zinc-100); border-radius: 999px; overflow: hidden;">
+            <div style="width: 72%; height: 100%; background: linear-gradient(90deg, var(--brand) 0%, #0ea5e9 100%); border-radius: 999px;"></div>
+          </div>
+          <div style="font-size: 12px; color: var(--zinc-400); margin-top: 10px; line-height: 1.5;">Earn 3 more badges to reach <strong style="color: var(--zinc-700);">Elite status</strong> and appear at the top of employer searches.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 7 My Badges (list view)
+═══════════════════════════════════════ -->
+<div class="screen-label">Screen 7 My Badges (list view)</div>
+<div class="screen-5" style="min-height: 820px;">
+  <nav class="s5-nav">
+    <div class="s5-nav-top">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+        <span class="logo-text">JobRivals</span>
+      </a>
+    </div>
+    <div class="s5-profile-header">
+      <div class="s4-avatar"><img src="images/jobrivals/ProfileImage.png" alt="John Doe"></div>
+      <div class="s4-profile-info">
+        <div class="s4-name">John Doe</div>
+        <div class="s4-title">Product Designer</div>
+        <div class="s4-viewers">
+          <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="#a1a1aa" stroke-width="1.8"><circle cx="6" cy="5" r="2"></circle><path d="M1 10c0-2 2-3.5 5-3.5S11 8 11 10"></path></svg>
+          123 profile viewers this month
+        </div>
+      </div>
+    </div>
+    <div class="s5-tabs">
+      <a href="#" class="s4-tab">Profile</a>
+      <a href="#" class="s4-tab active">My Badges</a>
+      <a href="#" class="s4-tab">Notifications <span class="s4-tab-badge"></span></a>
+      <a href="#" class="s4-tab">Graph</a>
+      <a href="#" class="s4-tab">Settings</a>
+    </div>
+  </nav>
+  <div style="padding: 28px 32px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="background: var(--brand-light); border: 1px solid rgba(26,108,246,0.15); border-radius: var(--radius-lg); padding: 16px 20px; display: flex; align-items: center; gap: 14px;">
+        <div style="width: 36px; height: 36px; background: var(--brand); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px;">🏅</div>
+        <div style="flex: 1;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--zinc-800);">Show employers you know your stuff!</div>
+          <div style="font-size: 12px; color: var(--zinc-500); margin-top: 2px;">Earn 3 more badges to reach <strong style="color: var(--brand);">Elite status</strong></div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="height: 6px; width: 80px; background: rgba(26,108,246,0.15); border-radius: 999px; overflow: hidden;">
+            <div style="width: 62%; height: 100%; background: var(--brand); border-radius: 999px;"></div>
+          </div>
+          <span style="font-size: 12px; font-weight: 700; color: var(--brand);">5/8</span>
+        </div>
+        <div style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 5px; flex-shrink: 0;">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round"><line x1="2" y1="2" x2="10" y2="10"></line><line x1="10" y1="2" x2="2" y2="10"></line></svg>
+        </div>
+      </div>
+      <div class="s5-card">
+        <div class="s5-card-header" style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 24px; line-height: 1;">🏆</span>
+            <div>
+              <div class="s5-card-title">Earned badges</div>
+              <div class="s5-card-desc">5 verified · 2 in progress</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--zinc-400); font-weight: 500;">
+              Sort by
+              <select style="border: 1px solid var(--zinc-200); border-radius: 6px; padding: 4px 8px; font-size: 12px; color: var(--zinc-600); background: #fff; font-family: inherit; cursor: pointer; outline: none;">
+                <option>Most recent</option>
+                <option>AâZ</option>
+              </select>
+            </div>
+            <button class="btn-primary" style="height: 32px; font-size: 12px; padding: 0 14px; gap: 5px;">
+              <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="3" x2="8" y2="13"></line><line x1="3" y1="8" x2="13" y2="8"></line></svg>
+              Earn badge
+            </button>
+          </div>
+        </div>
+        <div style="padding: 8px 0;">
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100);">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); overflow: hidden; flex-shrink: 0; background: #fff; display: flex; align-items: center; justify-content: center;">
+              <img src="images/jobrivals/Figma-logo.svg" width="24" height="24" style="object-fit:contain;">
+            </div>
+            <div style="flex: 1;"><div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Figma</div><div style="font-size: 12px; color: var(--zinc-400); margin-top: 1px;">Passed · Jun 2024</div></div>
+            <div style="height: 24px; padding: 0 10px; background: var(--green-light); border-radius: 999px; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--green);"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5.5 3.5,7.5 8.5,2.5"></polyline></svg>Verified</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100);">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); overflow: hidden; flex-shrink: 0; background: #fff;">
+              <img src="images/jobrivals/Illustrator-logo.jpg" width="40" height="40" style="object-fit:cover; display:block;">
+            </div>
+            <div style="flex: 1;"><div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Illustrator</div><div style="font-size: 12px; color: var(--zinc-400); margin-top: 1px;">Passed · Mar 2024</div></div>
+            <div style="height: 24px; padding: 0 10px; background: var(--green-light); border-radius: 999px; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--green);"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5.5 3.5,7.5 8.5,2.5"></polyline></svg>Verified</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100);">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); overflow: hidden; flex-shrink: 0; background: #fff; display: flex; align-items: center; justify-content: center;">
+              <img src="https://www.adobe.com/favicon.ico" width="26" height="26" style="object-fit: contain;" onerror="this.parentElement.innerHTML='📐'">
+            </div>
+            <div style="flex: 1;"><div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Adobe Suite</div><div style="font-size: 12px; color: var(--zinc-400); margin-top: 1px;">Passed · Jan 2024</div></div>
+            <div style="height: 24px; padding: 0 10px; background: var(--green-light); border-radius: 999px; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--green);"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5.5 3.5,7.5 8.5,2.5"></polyline></svg>Verified</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100);">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); overflow: hidden; flex-shrink: 0; background: #fff;">
+              <img src="images/jobrivals/framer_logo.webp" width="64" height="64" style="object-fit:contain; margin: -12px;">
+            </div>
+            <div style="flex: 1;"><div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Framer</div><div style="font-size: 12px; color: var(--zinc-400); margin-top: 1px;">Passed · Nov 2023</div></div>
+            <div style="height: 24px; padding: 0 10px; background: var(--green-light); border-radius: 999px; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--green);"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5.5 3.5,7.5 8.5,2.5"></polyline></svg>Verified</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); overflow: hidden; flex-shrink: 0; background: #fff; display: flex; align-items: center; justify-content: center;">
+              <img src="https://rive.app/favicon.ico" width="26" height="26" style="object-fit: contain;">
+            </div>
+            <div style="flex: 1;"><div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Rive</div><div style="font-size: 12px; color: var(--zinc-400); margin-top: 1px;">Passed · Sep 2023</div></div>
+            <div style="height: 24px; padding: 0 10px; background: var(--green-light); border-radius: 999px; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--green);"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5.5 3.5,7.5 8.5,2.5"></polyline></svg>Verified</div>
+          </div>
+        </div>
+      </div>
+      <div class="s5-card">
+        <div class="s5-card-header">
+          <div class="s5-card-title">In progress</div>
+          <div class="s5-card-desc">Complete these assessments to earn your badge</div>
+        </div>
+        <div style="padding: 8px 0;">
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100);">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; background: #fff;">🧠</div>
+            <div style="flex: 1;">
+              <div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Design Thinking</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                <div style="flex: 1; height: 4px; background: var(--zinc-100); border-radius: 999px; overflow: hidden;"><div style="width: 60%; height: 100%; background: var(--brand); border-radius: 999px;"></div></div>
+                <span style="font-size: 11px; font-weight: 600; color: var(--zinc-500);">60%</span>
+              </div>
+            </div>
+            <button style="height: 32px; padding: 0 14px; background: var(--brand-light); color: var(--brand); font-size: 12px; font-weight: 600; border: none; border-radius: var(--radius-sm); cursor: pointer;">Continue</button>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--zinc-200); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; background: #fff;">📊</div>
+            <div style="flex: 1;">
+              <div style="font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em;">Data-Driven Design</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                <div style="flex: 1; height: 4px; background: var(--zinc-100); border-radius: 999px; overflow: hidden;"><div style="width: 20%; height: 100%; background: var(--brand); border-radius: 999px;"></div></div>
+                <span style="font-size: 11px; font-weight: 600; color: var(--zinc-500);">20%</span>
+              </div>
+            </div>
+            <button style="height: 32px; padding: 0 14px; background: var(--brand-light); color: var(--brand); font-size: 12px; font-weight: 600; border: none; border-radius: var(--radius-sm); cursor: pointer;">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="s5-score-card">
+        <div class="s5-score-header">Badge stats</div>
+        <div style="padding: 16px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="background: var(--zinc-50); border: 1px solid var(--zinc-200); border-radius: var(--radius); padding: 14px 16px;">
+              <div style="font-size: 28px; font-weight: 800; color: var(--zinc-900); letter-spacing: -0.04em; line-height: 1;">5</div>
+              <div style="font-size: 11px; color: var(--zinc-400); font-weight: 500; margin-top: 8px;">Verified</div>
+            </div>
+            <div style="background: var(--zinc-50); border: 1px solid var(--zinc-200); border-radius: var(--radius); padding: 14px 16px;">
+              <div style="font-size: 28px; font-weight: 800; color: var(--brand); letter-spacing: -0.04em; line-height: 1; white-space: nowrap;">Top 15%</div>
+              <div style="font-size: 11px; color: var(--zinc-400); font-weight: 500; margin-top: 8px;">On platform</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="s5-insight-card">
+        <div class="s5-insight-title">Recommended next</div>
+        <div class="s5-insight-item"><div class="s5-insight-dot" style="background: var(--brand);"></div><div class="s5-insight-text"><strong>Prototyping</strong> 68% of employers searching for Product Designers require this.</div></div>
+        <div class="s5-insight-item"><div class="s5-insight-dot" style="background: #f59e0b;"></div><div class="s5-insight-text"><strong>User Research</strong> Adds 2.4× more profile views on average.</div></div>
+        <div class="s5-insight-item"><div class="s5-insight-dot" style="background: var(--green);"></div><div class="s5-insight-text"><strong>Design Systems</strong> Trending badge among senior designers this month.</div></div>
+      </div>
+      <div class="s5-score-card">
+        <div class="s5-score-header">Profile boost</div>
+        <div style="padding: 14px 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            <span style="font-size: 12px; color: var(--zinc-500); font-weight: 500;">Completion</span>
+            <span style="font-size: 12px; font-weight: 700; color: var(--zinc-800);">72%</span>
+          </div>
+          <div style="height: 6px; background: var(--zinc-100); border-radius: 999px; overflow: hidden;">
+            <div style="width: 72%; height: 100%; background: linear-gradient(90deg, var(--brand) 0%, #0ea5e9 100%); border-radius: 999px;"></div>
+          </div>
+          <div style="font-size: 12px; color: var(--zinc-400); margin-top: 10px; line-height: 1.5;">Earn 3 more badges to reach <strong style="color: var(--zinc-700);">Elite status</strong> and appear at the top of employer searches.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ═══════════════════════════════════════════
+     EMPLOYER SCREENS shared styles
+═══════════════════════════════════════════ -->
+<style>
+  /* Employer nav header (shared) */
+  .emp-screen {
+    width: 1280px;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--zinc-200);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .emp-topbar {
+    padding: 16px 32px 0;
+    border-bottom: 1px solid var(--zinc-200);
+  }
+  .emp-topbar-logo {
+    margin-bottom: 14px;
+  }
+  .emp-company-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .emp-company-avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: #111;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .emp-company-name {
+    font-size: 18px; font-weight: 700; color: var(--zinc-900); letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .emp-company-name svg { width: 12px; height: 12px; stroke: var(--zinc-400); fill: none; stroke-width: 1.5; }
+  .emp-company-type { font-size: 13px; color: var(--zinc-500); margin-top: 1px; }
+  .emp-company-count { font-size: 12px; color: var(--zinc-400); margin-top: 2px; }
+  .emp-tabs {
+    display: flex;
+    gap: 0;
+  }
+  .emp-tab {
+    font-size: 13px; font-weight: 500; color: var(--zinc-500);
+    padding: 10px 16px; text-decoration: none;
+    border-bottom: 2px solid transparent;
+    display: flex; align-items: center; gap: 5px;
+    white-space: nowrap;
+  }
+  .emp-tab.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 600; }
+  .emp-tab-dot { width: 6px; height: 6px; border-radius: 50%; background: #ef4444; }
+  .emp-tab-chevron { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .emp-body { flex: 1; background: var(--zinc-50); }
+
+  /* ── Screen E1: Dashboard empty state ── */
+  .se1-body {
+    padding: 56px 64px;
+    display: grid;
+    grid-template-columns: 1fr 520px;
+    gap: 40px;
+    align-items: center;
+    min-height: 580px;
+  }
+  .se1-eyebrow { font-size: 12px; font-weight: 600; color: var(--brand); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
+  .se1-headline { font-size: 36px; font-weight: 800; color: var(--zinc-900); letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+  .se1-desc { font-size: 15px; color: var(--zinc-500); line-height: 1.6; margin-bottom: 32px; max-width: 420px; }
+  .se1-actions { display: flex; align-items: center; gap: 16px; }
+  .se1-btn-primary {
+    background: var(--brand); color: #fff; font-size: 14px; font-weight: 600;
+    padding: 10px 24px; border-radius: var(--radius); border: none; cursor: pointer;
+    letter-spacing: -0.01em;
+  }
+  .se1-btn-ghost {
+    font-size: 14px; font-weight: 500; color: var(--zinc-500); text-decoration: none;
+  }
+  .se1-illustration {
+    display: flex; align-items: center; justify-content: center;
+  }
+  .se1-illustration img { width: 100%; max-width: 480px; object-fit: contain; }
+
+  /* ── Screen E2: Talent Discover ── */
+  .se2-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 720px;
+  }
+  .se2-sidebar {
+    background: #fff;
+    border-right: 1px solid var(--zinc-200);
+    padding: 24px 0;
+  }
+  .se2-sidebar-title { font-size: 15px; font-weight: 700; color: var(--zinc-900); padding: 0 20px; margin-bottom: 16px; letter-spacing: -0.01em; }
+  .se2-sidebar-link { display: block; font-size: 13px; font-weight: 500; color: var(--zinc-500); padding: 8px 20px; text-decoration: none; }
+  .se2-sidebar-link.active { color: var(--brand); font-weight: 600; background: var(--brand-light); }
+  .se2-content { padding: 28px 32px; background: var(--zinc-50); }
+  .se2-cta-banner {
+    background: #fff; border: 1px solid var(--zinc-200); border-radius: var(--radius);
+    padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+  .se2-cta-text { font-size: 13px; font-weight: 600; color: var(--zinc-700); }
+  .se2-cta-btn { font-size: 12px; font-weight: 600; background: var(--brand); color: #fff; padding: 6px 14px; border-radius: var(--radius-sm); border: none; cursor: pointer; }
+  .se2-section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .se2-section-title { font-size: 15px; font-weight: 700; color: var(--zinc-900); letter-spacing: -0.01em; }
+  .se2-section-link { font-size: 12px; font-weight: 500; color: var(--brand); text-decoration: none; display: flex; align-items: center; gap: 4px; }
+  .se2-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px; }
+  .se2-card {
+    background: #fff; border: 1px solid var(--zinc-200); border-radius: var(--radius);
+    padding: 14px; display: flex; flex-direction: column; gap: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+  .se2-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
+  .se2-card-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; background: var(--zinc-200); flex-shrink: 0; }
+  .se2-card-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .se2-card-bookmark { color: var(--zinc-300); }
+  .se2-card-bookmark svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+  .se2-card-name { font-size: 13px; font-weight: 700; color: var(--zinc-900); letter-spacing: -0.01em; }
+  .se2-card-role { font-size: 12px; color: var(--zinc-500); }
+  .se2-card-meta { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--zinc-400); }
+  .se2-card-meta svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+  .se2-card-status { font-size: 11px; font-weight: 600; color: var(--green); display: flex; align-items: center; gap: 4px; }
+  .se2-card-status svg { width: 11px; height: 11px; }
+
+  /* ── Screen E3: Talent Search ── */
+  .se3-layout { display: grid; grid-template-columns: 180px 1fr; min-height: 700px; }
+  .se3-sidebar { background: #fff; border-right: 1px solid var(--zinc-200); padding: 20px 16px; }
+  .se3-filter-section { margin-bottom: 20px; }
+  .se3-filter-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--zinc-400); margin-bottom: 10px; }
+  .se3-range-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .se3-range-badge { font-size: 11px; font-weight: 700; background: var(--brand); color: #fff; width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; }
+  .se3-range-track { flex: 1; height: 4px; background: var(--zinc-200); border-radius: 2px; position: relative; }
+  .se3-range-fill { position: absolute; left: 40%; right: 20%; top: 0; height: 100%; background: var(--brand); border-radius: 2px; }
+  .se3-range-thumb { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--brand); border: 2px solid #fff; box-shadow: var(--shadow-sm); top: -4px; }
+  .se3-option { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--zinc-600); margin-bottom: 6px; cursor: pointer; }
+  .se3-radio { width: 13px; height: 13px; border-radius: 50%; border: 1.5px solid var(--zinc-300); flex-shrink: 0; }
+  .se3-radio.checked { border-color: var(--brand); background: var(--brand); box-shadow: inset 0 0 0 2px #fff; }
+  .se3-checkbox { width: 13px; height: 13px; border-radius: 3px; border: 1.5px solid var(--zinc-300); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .se3-checkbox.checked { border-color: var(--brand); background: var(--brand); }
+  .se3-checkbox.checked::after { content: ''; display: block; width: 6px; height: 4px; border-left: 1.5px solid #fff; border-bottom: 1.5px solid #fff; transform: rotate(-45deg) translateY(-1px); }
+  .se3-lang-input { width: 100%; border: 1px solid var(--zinc-200); border-radius: var(--radius-sm); padding: 5px 8px; font-size: 12px; color: var(--zinc-500); background: #fff; margin-bottom: 6px; }
+  .se3-content { padding: 20px 24px; background: var(--zinc-50); }
+  .se3-search-bar { display: flex; align-items: center; background: #fff; border: 1px solid var(--zinc-200); border-radius: var(--radius); padding: 10px 14px; gap: 10px; margin-bottom: 12px; box-shadow: var(--shadow-sm); }
+  .se3-search-bar input { flex: 1; border: none; outline: none; font-size: 13px; color: var(--zinc-700); background: transparent; font-family: inherit; }
+  .se3-search-bar svg { width: 15px; height: 15px; stroke: var(--zinc-400); fill: none; stroke-width: 1.5; }
+  .se3-toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .se3-filter-btn { background: var(--brand); color: #fff; font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: var(--radius-sm); border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+  .se3-filter-btn svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2; }
+  .se3-compare-link { font-size: 12px; font-weight: 500; color: var(--brand); text-decoration: none; }
+  .se3-candidate-row {
+    background: #fff; border: 1px solid var(--zinc-200); border-radius: var(--radius);
+    padding: 14px 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+  .se3-cand-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--zinc-200); flex-shrink: 0; overflow: hidden; }
+  .se3-cand-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .se3-cand-body { flex: 1; min-width: 0; }
+  .se3-cand-title { font-size: 14px; font-weight: 600; color: var(--zinc-900); letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .se3-cand-meta { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--zinc-400); margin-top: 3px; }
+  .se3-cand-status { font-size: 11px; font-weight: 600; color: var(--green); }
+  .se3-tags { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+  .se3-tag { font-size: 11px; font-weight: 500; background: var(--zinc-100); color: var(--zinc-600); border-radius: 4px; padding: 3px 8px; border: 1px solid var(--zinc-200); }
+  .se3-invite-btn { font-size: 12px; font-weight: 600; color: var(--brand); text-decoration: none; white-space: nowrap; }
+  .se3-bookmark svg { width: 13px; height: 13px; stroke: var(--zinc-300); fill: none; stroke-width: 1.5; }
+
+  /* ── Screen E4: Compare Talent ── */
+  .se4-layout { display: grid; grid-template-columns: 300px 1fr; min-height: 700px; }
+  .se4-sidebar { background: #fff; border-right: 1px solid var(--zinc-200); padding: 20px; }
+  .se4-back { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--zinc-700); margin-bottom: 20px; text-decoration: none; }
+  .se4-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .se4-compare-title { font-size: 18px; font-weight: 700; color: var(--zinc-900); letter-spacing: -0.02em; margin-bottom: 16px; }
+  .se4-candidate-card {
+    border: 1px solid var(--zinc-200); border-radius: var(--radius);
+    padding: 12px 14px; display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+    background: #fff; box-shadow: var(--shadow-sm);
+  }
+  .se4-candidate-card.ideal { border-color: var(--green); background: var(--green-light); }
+  .se4-cand-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+  .se4-cand-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .se4-cand-avatar.ideal-av { background: var(--green); display: flex; align-items: center; justify-content: center; }
+  .se4-cand-avatar.ideal-av svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 1.5; }
+  .se4-cand-name { font-size: 13px; font-weight: 700; color: var(--zinc-900); letter-spacing: -0.01em; }
+  .se4-cand-name.ideal-name { color: var(--green); }
+  .se4-cand-role { font-size: 12px; color: var(--zinc-500); }
+  .se4-invite-link { margin-left: auto; font-size: 11px; font-weight: 600; color: var(--brand); text-decoration: none; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+  .se4-invite-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .se4-radar-area { background: var(--zinc-50); display: flex; align-items: center; justify-content: center; position: relative; padding: 32px; }
+  .se4-radar-inner { position: relative; display: inline-block; }
+  .se4-legend { display: flex; gap: 20px; justify-content: center; margin-top: 16px; }
+  .se4-legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--zinc-600); }
+  .se4-legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .se4-tooltip-multi {
+    position: absolute; top: 82px; left: 437px;
+    background: #fff; border: 1px solid var(--zinc-200); border-radius: var(--radius);
+    padding: 12px 14px; width: 170px;
+    box-shadow: var(--shadow-lg);
+  }
+  .se4-tooltip-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
+  .se4-tooltip-row:last-child { margin-bottom: 0; }
+  .se4-tooltip-av { width: 22px; height: 22px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+  .se4-tooltip-av img { width: 100%; height: 100%; object-fit: cover; }
+  .se4-tooltip-av.ideal-av { background: var(--green); display: flex; align-items: center; justify-content: center; }
+  .se4-tooltip-av.ideal-av svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2; }
+  .se4-tooltip-label { font-size: 11px; font-weight: 700; color: var(--zinc-900); }
+  .se4-tooltip-pct { font-size: 13px; font-weight: 800; color: var(--zinc-900); letter-spacing: -0.02em; }
+  .se4-tooltip-desc { font-size: 11px; color: var(--zinc-400); line-height: 1.4; }
+  .se4-iq-pill {
+    position: absolute; top: 50%; right: -12px; transform: translateY(-50%);
+    background: var(--brand-light); color: var(--brand); font-size: 11px; font-weight: 700;
+    padding: 3px 8px; border-radius: 5px;
+  }
+
+  /* ── Screen E5: Job Post Review ── */
+  .se5-body { padding: 0 200px; background: var(--zinc-50); min-height: 680px; }
+  .se5-top-actions { display: flex; justify-content: flex-end; gap: 10px; padding: 24px 0 20px; }
+  .se5-btn-ghost { font-size: 13px; font-weight: 500; color: var(--zinc-500); background: #fff; border: 1px solid var(--zinc-200); padding: 8px 18px; border-radius: var(--radius-sm); cursor: pointer; }
+  .se5-btn-primary { font-size: 13px; font-weight: 600; color: #fff; background: var(--brand); border: none; padding: 8px 18px; border-radius: var(--radius-sm); cursor: pointer; }
+  .se5-section-title { font-size: 13px; font-weight: 600; color: var(--zinc-500); letter-spacing: 0.02em; margin-bottom: 4px; }
+  .se5-card { background: #fff; border: 1px solid var(--zinc-200); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 28px; }
+  .se5-card-title { font-size: 15px; font-weight: 700; color: var(--zinc-700); letter-spacing: -0.01em; padding: 18px 20px 14px; border-bottom: 1px solid var(--zinc-100); }
+  .se5-row { display: flex; align-items: flex-start; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--zinc-100); }
+  .se5-row:last-child { border-bottom: none; }
+  .se5-row-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--zinc-400); margin-bottom: 4px; }
+  .se5-row-value { font-size: 14px; font-weight: 500; color: var(--zinc-900); }
+  .se5-edit-btn { color: var(--zinc-300); flex-shrink: 0; margin-left: 12px; }
+  .se5-edit-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+</style>
+
+<!-- ══════════════════════════════════════
+     Screen E1 Employer Dashboard (Empty State)
+══════════════════════════════════════ -->
+<div class="screen-label">Screen 8 Employer Dashboard: Empty State</div>
+<div class="emp-screen" style="height: 720px;">
+  <div class="emp-topbar">
+    <div class="emp-topbar-logo">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+        <span class="logo-text">JobRivals</span>
+      </a>
+    </div>
+    <div class="emp-company-row">
+      <div class="emp-company-avatar">PIXAR</div>
+      <div>
+        <div class="emp-company-name">
+          Pixar Animation Studios
+          <svg viewBox="0 0 12 12"><path d="M8 1.5l2 2L3 11H1V9L8 1.5z"/></svg>
+        </div>
+        <div class="emp-company-type">Animation Studio</div>
+        <div class="emp-company-count">Number of employees: 123</div>
+      </div>
+    </div>
+    <div class="emp-tabs">
+      <a href="#" class="emp-tab active">talent <svg class="emp-tab-chevron" viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3"/></svg></a>
+      <a href="#" class="emp-tab">jobs <svg class="emp-tab-chevron" viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3"/></svg></a>
+      <a href="#" class="emp-tab">profile</a>
+      <a href="#" class="emp-tab">my rewards</a>
+      <a href="#" class="emp-tab">notifications <span class="emp-tab-dot"></span></a>
+      <a href="#" class="emp-tab">settings</a>
+    </div>
+  </div>
+  <div class="emp-body">
+    <div class="se1-body">
+      <div>
+        <div class="se1-eyebrow">Get started</div>
+        <div class="se1-headline">Hey, Pixar! Let's start<br>with your first job post.</div>
+        <div class="se1-desc">Post a job and let our AI match you with the best-fit candidates based on skills, personality, and experience.</div>
+        <div class="se1-actions">
+          <button class="se1-btn-primary">Get started</button>
+          <a href="#" class="se1-btn-ghost">Post a job later</a>
+        </div>
+      </div>
+      <div class="se1-illustration">
+        <img src="images/jobrivals/illustration.png" alt="Illustration">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     Screen E2 Talent Discover
+══════════════════════════════════════ -->
+<div class="screen-label">Screen 9 Employer: Talent Discover</div>
+<div class="emp-screen">
+  <div class="emp-topbar">
+    <div class="emp-topbar-logo">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+        <span class="logo-text">JobRivals</span>
+      </a>
+    </div>
+    <div class="emp-company-row">
+      <div class="emp-company-avatar">PIXAR</div>
+      <div>
+        <div class="emp-company-name">Pixar Animation Studios <svg viewBox="0 0 12 12"><path d="M8 1.5l2 2L3 11H1V9L8 1.5z"/></svg></div>
+        <div class="emp-company-type">Animation Studio</div>
+        <div class="emp-company-count">Number of employees: 123</div>
+      </div>
+    </div>
+    <div class="emp-tabs">
+      <a href="#" class="emp-tab active">talent <svg class="emp-tab-chevron" viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3"/></svg></a>
+      <a href="#" class="emp-tab">jobs <svg class="emp-tab-chevron" viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3"/></svg></a>
+      <a href="#" class="emp-tab">profile</a>
+      <a href="#" class="emp-tab">my rewards</a>
+      <a href="#" class="emp-tab">notifications <span class="emp-tab-dot"></span></a>
+      <a href="#" class="emp-tab">settings</a>
+    </div>
+  </div>
+  <div class="emp-body">
+    <div class="se2-layout">
+      <div class="se2-sidebar">
+        <div class="se2-sidebar-title">Talent</div>
+        <a href="#" class="se2-sidebar-link active">Discover</a>
+        <a href="#" class="se2-sidebar-link">Saved Talent</a>
+      </div>
+      <div class="se2-content">
+        <div class="se2-cta-banner">
+          <div class="se2-cta-text">Let's Post a Job!</div>
+          <button class="se2-cta-btn">Post a Job</button>
+        </div>
+        <!-- Section 1 -->
+        <div class="se2-section-header">
+          <div class="se2-section-title">Talents tailored to you</div>
+          <a href="#" class="se2-section-link">See more like this →</a>
+        </div>
+        <div class="se2-grid">
+          <!-- Card -->
+          <div class="se2-card">
+            <div class="se2-card-top">
+              <div class="se2-card-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+              <div class="se2-card-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+            </div>
+            <div class="se2-card-name">John Doe</div>
+            <div class="se2-card-role">Product Designer</div>
+            <div class="se2-card-meta">
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="4" r="1.5"/><path d="M1 10c0-2 2-3 5-3s5 1 5 3"/></svg> Ex: 6 years
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.5"/><path d="M6 1.5v4.5l2.5 2.5"/></svg> Madagascar
+            </div>
+            <div class="se2-card-status"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="var(--green)"/></svg> Open to hire</div>
+          </div>
+          <div class="se2-card">
+            <div class="se2-card-top">
+              <div class="se2-card-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+              <div class="se2-card-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+            </div>
+            <div class="se2-card-name">Sarah Kim</div>
+            <div class="se2-card-role">Product Designer</div>
+            <div class="se2-card-meta">
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="4" r="1.5"/><path d="M1 10c0-2 2-3 5-3s5 1 5 3"/></svg> Ex: 4 years
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.5"/><path d="M6 1.5v4.5l2.5 2.5"/></svg> Beirut, LB
+            </div>
+            <div class="se2-card-status"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="var(--green)"/></svg> Open to hire</div>
+          </div>
+          <div class="se2-card">
+            <div class="se2-card-top">
+              <div class="se2-card-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+              <div class="se2-card-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+            </div>
+            <div class="se2-card-name">Alex Torres</div>
+            <div class="se2-card-role">Product Designer</div>
+            <div class="se2-card-meta">
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="4" r="1.5"/><path d="M1 10c0-2 2-3 5-3s5 1 5 3"/></svg> Ex: 7 years
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.5"/><path d="M6 1.5v4.5l2.5 2.5"/></svg> Dubai, UAE
+            </div>
+            <div class="se2-card-status"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="var(--green)"/></svg> Open to hire</div>
+          </div>
+          <div class="se2-card">
+            <div class="se2-card-top">
+              <div class="se2-card-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+              <div class="se2-card-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+            </div>
+            <div class="se2-card-name">Maya Patel</div>
+            <div class="se2-card-role">UX Designer</div>
+            <div class="se2-card-meta">
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="4" r="1.5"/><path d="M1 10c0-2 2-3 5-3s5 1 5 3"/></svg> Ex: 5 years
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.5"/><path d="M6 1.5v4.5l2.5 2.5"/></svg> Toronto, CA
+            </div>
+            <div class="se2-card-status"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="var(--green)"/></svg> Open to hire</div>
+          </div>
+          <div class="se2-card">
+            <div class="se2-card-top">
+              <div class="se2-card-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+              <div class="se2-card-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+            </div>
+            <div class="se2-card-name">Chris Nolan</div>
+            <div class="se2-card-role">Product Designer</div>
+            <div class="se2-card-meta">
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="4" r="1.5"/><path d="M1 10c0-2 2-3 5-3s5 1 5 3"/></svg> Ex: 8 years
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.5"/><path d="M6 1.5v4.5l2.5 2.5"/></svg> London, UK
+            </div>
+            <div class="se2-card-status"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="var(--green)"/></svg> Open to hire</div>
+          </div>
+        </div>
+        <!-- Section 2 -->
+        <div class="se2-section-header">
+          <div class="se2-section-title">Talent in Lebanon</div>
+          <a href="#" class="se2-section-link">See more like this →</a>
+        </div>
+        <div class="se2-grid">
+          <div class="se2-card">
+            <div class="se2-card-top">
+              <div class="se2-card-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+              <div class="se2-card-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+            </div>
+            <div class="se2-card-name">Lara Khoury</div>
+            <div class="se2-card-role">UI Designer</div>
+            <div class="se2-card-meta">
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="4" r="1.5"/><path d="M1 10c0-2 2-3 5-3s5 1 5 3"/></svg> Ex: 3 years
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.5"/><path d="M6 1.5v4.5l2.5 2.5"/></svg> Beirut, LB
+            </div>
+            <div class="se2-card-status"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="var(--green)"/></svg> Open to hire</div>
+          </div>
+          <div class="se2-card">
+            <div class="se2-card-top">
+              <div class="se2-card-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+              <div class="se2-card-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+            </div>
+            <div class="se2-card-name">Omar Farhat</div>
+            <div class="se2-card-role">Product Designer</div>
+            <div class="se2-card-meta">
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="4" r="1.5"/><path d="M1 10c0-2 2-3 5-3s5 1 5 3"/></svg> Ex: 5 years
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.5"/><path d="M6 1.5v4.5l2.5 2.5"/></svg> Tripoli, LB
+            </div>
+            <div class="se2-card-status"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="var(--green)"/></svg> Open to hire</div>
+          </div>
+          <div class="se2-card">
+            <div class="se2-card-top">
+              <div class="se2-card-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+              <div class="se2-card-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+            </div>
+            <div class="se2-card-name">Nadia Slim</div>
+            <div class="se2-card-role">UX Researcher</div>
+            <div class="se2-card-meta">
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="4" r="1.5"/><path d="M1 10c0-2 2-3 5-3s5 1 5 3"/></svg> Ex: 4 years
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.5"/><path d="M6 1.5v4.5l2.5 2.5"/></svg> Beirut, LB
+            </div>
+            <div class="se2-card-status"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="var(--green)"/></svg> Open to hire</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     Screen E3 Talent Search
+══════════════════════════════════════ -->
+<div class="screen-label">Screen 10 Employer: Talent Search</div>
+<div class="emp-screen">
+  <div class="emp-topbar">
+    <div class="emp-topbar-logo">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+        <span class="logo-text">JobRivals</span>
+      </a>
+    </div>
+    <div class="emp-company-row">
+      <div class="emp-company-avatar">PIXAR</div>
+      <div>
+        <div class="emp-company-name">Pixar Animation Studios <svg viewBox="0 0 12 12"><path d="M8 1.5l2 2L3 11H1V9L8 1.5z"/></svg></div>
+        <div class="emp-company-type">Animation Studio</div>
+        <div class="emp-company-count">Number of employees: 123</div>
+      </div>
+    </div>
+    <div class="emp-tabs">
+      <a href="#" class="emp-tab active">talent <svg class="emp-tab-chevron" viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3"/></svg></a>
+      <a href="#" class="emp-tab">jobs <svg class="emp-tab-chevron" viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3"/></svg></a>
+      <a href="#" class="emp-tab">profile</a>
+      <a href="#" class="emp-tab">my rewards</a>
+      <a href="#" class="emp-tab">notifications <span class="emp-tab-dot"></span></a>
+      <a href="#" class="emp-tab">settings</a>
+    </div>
+  </div>
+  <div class="emp-body">
+    <div class="se3-layout">
+      <div class="se3-sidebar">
+        <div class="se3-filter-section">
+          <div class="se3-filter-title">Work experience</div>
+          <div class="se3-range-row">
+            <div class="se3-range-badge">8</div>
+            <div class="se3-range-track">
+              <div class="se3-range-fill"></div>
+              <div class="se3-range-thumb" style="left: 40%"></div>
+              <div class="se3-range-thumb" style="left: 80%"></div>
+            </div>
+            <div class="se3-range-badge" style="background:var(--zinc-200); color:var(--zinc-700);">10</div>
+          </div>
+        </div>
+        <div class="se3-filter-section">
+          <div class="se3-filter-title">Work type</div>
+          <div class="se3-option"><div class="se3-radio"></div> On site</div>
+          <div class="se3-option"><div class="se3-radio checked"></div> Hybrid</div>
+          <div class="se3-option"><div class="se3-radio"></div> Remote</div>
+          <div class="se3-option"><div class="se3-checkbox checked"></div> Full time</div>
+          <div class="se3-option"><div class="se3-checkbox"></div> Part time</div>
+          <div class="se3-option"><div class="se3-checkbox"></div> Freelance</div>
+          <div class="se3-option"><div class="se3-checkbox"></div> Consultancy</div>
+          <div class="se3-option"><div class="se3-checkbox"></div> Contractor</div>
+          <div class="se3-option"><div class="se3-checkbox"></div> Consultation</div>
+        </div>
+        <div class="se3-filter-section">
+          <div class="se3-filter-title">Language</div>
+          <input class="se3-lang-input" type="text" placeholder="Language">
+          <input class="se3-lang-input" type="text" placeholder="Proficiency">
+          <input class="se3-lang-input" type="text" placeholder="Language">
+          <input class="se3-lang-input" type="text" placeholder="Proficiency">
+        </div>
+      </div>
+      <div class="se3-content">
+        <div class="se3-search-bar">
+          <svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><line x1="10.5" y1="10.5" x2="14" y2="14"/></svg>
+          <input type="text" placeholder="Search Talent">
+        </div>
+        <div class="se3-toolbar">
+          <button class="se3-filter-btn">
+            <svg viewBox="0 0 12 12"><line x1="1" y1="3" x2="11" y2="3"/><line x1="3" y1="6" x2="9" y2="6"/><line x1="5" y1="9" x2="7" y2="9"/></svg>
+            Filter
+          </button>
+          <a href="#" class="se3-compare-link">Compare talent</a>
+        </div>
+        <!-- Candidate rows -->
+        <div class="se3-candidate-row">
+          <div class="se3-cand-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+          <div class="se3-cand-body">
+            <div class="se3-cand-title">UX / UI Designer | Figma | Web, Dashboard Analytic, Mobile App | SaaS</div>
+            <div class="se3-cand-meta">
+              <span>Ex: 6 years</span>
+              <span>0 badges</span>
+              <span>📍 Beirut, Lebanon</span>
+              <span class="se3-cand-status">✓ Open to hire</span>
+            </div>
+            <div class="se3-tags">
+              <span class="se3-tag">Web Design</span>
+              <span class="se3-tag">UX/UI</span>
+              <span class="se3-tag">Product Design</span>
+              <span class="se3-tag">Mobile Design</span>
+            </div>
+          </div>
+          <div class="se3-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+          <a href="#" class="se3-invite-btn">Invite to job</a>
+        </div>
+        <div class="se3-candidate-row">
+          <div class="se3-cand-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+          <div class="se3-cand-body">
+            <div class="se3-cand-title">Product Designer | Systems Thinking | Design Ops | B2B SaaS</div>
+            <div class="se3-cand-meta">
+              <span>Ex: 8 years</span>
+              <span>3 badges</span>
+              <span>📍 Dubai, UAE</span>
+              <span class="se3-cand-status">✓ Open to hire</span>
+            </div>
+            <div class="se3-tags">
+              <span class="se3-tag">Design Systems</span>
+              <span class="se3-tag">Figma</span>
+              <span class="se3-tag">Product Design</span>
+            </div>
+          </div>
+          <div class="se3-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+          <a href="#" class="se3-invite-btn">Invite to job</a>
+        </div>
+        <div class="se3-candidate-row">
+          <div class="se3-cand-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+          <div class="se3-cand-body">
+            <div class="se3-cand-title">UX Designer | User Research | Mobile-First | Fintech</div>
+            <div class="se3-cand-meta">
+              <span>Ex: 5 years</span>
+              <span>2 badges</span>
+              <span>📍 Toronto, CA</span>
+              <span class="se3-cand-status">✓ Open to hire</span>
+            </div>
+            <div class="se3-tags">
+              <span class="se3-tag">UX Research</span>
+              <span class="se3-tag">Mobile Design</span>
+              <span class="se3-tag">Figma</span>
+            </div>
+          </div>
+          <div class="se3-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+          <a href="#" class="se3-invite-btn">Invite to job</a>
+        </div>
+        <div class="se3-candidate-row">
+          <div class="se3-cand-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+          <div class="se3-cand-body">
+            <div class="se3-cand-title">Visual Designer | Brand Identity | Motion | Illustration</div>
+            <div class="se3-cand-meta">
+              <span>Ex: 4 years</span>
+              <span>1 badge</span>
+              <span>📍 Beirut, Lebanon</span>
+              <span class="se3-cand-status">✓ Open to hire</span>
+            </div>
+            <div class="se3-tags">
+              <span class="se3-tag">Branding</span>
+              <span class="se3-tag">Illustrator</span>
+              <span class="se3-tag">Motion</span>
+            </div>
+          </div>
+          <div class="se3-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+          <a href="#" class="se3-invite-btn">Invite to job</a>
+        </div>
+        <div class="se3-candidate-row">
+          <div class="se3-cand-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+          <div class="se3-cand-body">
+            <div class="se3-cand-title">Senior Product Designer | Enterprise SaaS | Design Leadership</div>
+            <div class="se3-cand-meta">
+              <span>Ex: 10 years</span>
+              <span>5 badges</span>
+              <span>📍 London, UK</span>
+              <span class="se3-cand-status">✓ Open to hire</span>
+            </div>
+            <div class="se3-tags">
+              <span class="se3-tag">Leadership</span>
+              <span class="se3-tag">Product Design</span>
+              <span class="se3-tag">Design Systems</span>
+            </div>
+          </div>
+          <div class="se3-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+          <a href="#" class="se3-invite-btn">Invite to job</a>
+        </div>
+        <div class="se3-candidate-row">
+          <div class="se3-cand-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+          <div class="se3-cand-body">
+            <div class="se3-cand-title">UX/UI Designer | E-commerce | Conversion-Focused Design</div>
+            <div class="se3-cand-meta">
+              <span>Ex: 6 years</span>
+              <span>2 badges</span>
+              <span>📍 Amman, JO</span>
+              <span class="se3-cand-status">✓ Open to hire</span>
+            </div>
+            <div class="se3-tags">
+              <span class="se3-tag">E-commerce</span>
+              <span class="se3-tag">UX/UI</span>
+              <span class="se3-tag">Framer</span>
+            </div>
+          </div>
+          <div class="se3-bookmark"><svg viewBox="0 0 14 14"><path d="M3 2h8v10l-4-2.5L3 12V2z"/></svg></div>
+          <a href="#" class="se3-invite-btn">Invite to job</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     Screen E4 Compare Talent
+══════════════════════════════════════ -->
+<div class="screen-label">Screen 11 Employer: Compare Talent</div>
+<div class="emp-screen">
+  <div class="emp-topbar">
+    <div class="emp-topbar-logo">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+        <span class="logo-text">JobRivals</span>
+      </a>
+    </div>
+    <div class="emp-company-row">
+      <div class="emp-company-avatar">PIXAR</div>
+      <div>
+        <div class="emp-company-name">Pixar Animation Studios <svg viewBox="0 0 12 12"><path d="M8 1.5l2 2L3 11H1V9L8 1.5z"/></svg></div>
+        <div class="emp-company-type">Animation Studio</div>
+        <div class="emp-company-count">Number of employees: 123</div>
+      </div>
+    </div>
+    <div class="emp-tabs">
+      <a href="#" class="emp-tab active">talent <svg class="emp-tab-chevron" viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3"/></svg></a>
+      <a href="#" class="emp-tab">jobs <svg class="emp-tab-chevron" viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3"/></svg></a>
+      <a href="#" class="emp-tab">profile</a>
+      <a href="#" class="emp-tab">my rewards</a>
+      <a href="#" class="emp-tab">notifications <span class="emp-tab-dot"></span></a>
+      <a href="#" class="emp-tab">settings</a>
+    </div>
+  </div>
+  <div class="emp-body">
+    <div class="se4-layout">
+      <div class="se4-sidebar">
+        <a href="#" class="se4-back"><svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"/></svg> Compare</a>
+        <!-- Ideal -->
+        <div class="se4-candidate-card ideal">
+          <div class="se4-cand-avatar ideal-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div>
+            <div class="se4-cand-name ideal-name">Ideal</div>
+            <div class="se4-cand-role">Product Designer</div>
+          </div>
+        </div>
+        <!-- Candidate 1 -->
+        <div class="se4-candidate-card">
+          <div class="se4-cand-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+          <div>
+            <div class="se4-cand-name">John Doe</div>
+            <div class="se4-cand-role">Product Designer</div>
+          </div>
+          <a href="#" class="se4-invite-link"><svg viewBox="0 0 12 12"><path d="M10 6H2m5-4l4 4-4 4"/></svg> Invite to job</a>
+        </div>
+        <!-- Candidate 2 -->
+        <div class="se4-candidate-card">
+          <div class="se4-cand-avatar"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+          <div>
+            <div class="se4-cand-name">Sarah Kim</div>
+            <div class="se4-cand-role">Product Designer</div>
+          </div>
+          <a href="#" class="se4-invite-link"><svg viewBox="0 0 12 12"><path d="M10 6H2m5-4l4 4-4 4"/></svg> Invite to job</a>
+        </div>
+      </div>
+      <div class="se4-radar-area">
+        <div class="se4-radar-inner">
+          <svg width="520" height="460" viewBox="-60 -20 560 490">
+            <!-- rings -->
+            <g opacity="0.08">
+              <polygon points="220,10 390,108 390,292 220,390 50,292 50,108" fill="none" stroke="#1a6cf6" stroke-width="1"/>
+              <polygon points="220,44 358,124 358,276 220,356 82,276 82,124" fill="none" stroke="#1a6cf6" stroke-width="1"/>
+              <polygon points="220,78 326,140 326,260 220,322 114,260 114,140" fill="none" stroke="#1a6cf6" stroke-width="1"/>
+              <polygon points="220,112 294,156 294,244 220,288 146,244 146,156" fill="none" stroke="#1a6cf6" stroke-width="1"/>
+              <polygon points="220,146 262,172 262,228 220,254 178,228 178,172" fill="none" stroke="#1a6cf6" stroke-width="1"/>
+            </g>
+            <!-- axes -->
+            <g stroke="#e4e4e7" stroke-width="1" opacity="0.6">
+              <line x1="220" y1="200" x2="220" y2="10"/>
+              <line x1="220" y1="200" x2="390" y2="108"/>
+              <line x1="220" y1="200" x2="390" y2="292"/>
+              <line x1="220" y1="200" x2="220" y2="390"/>
+              <line x1="220" y1="200" x2="50" y2="292"/>
+              <line x1="220" y1="200" x2="50" y2="108"/>
+              <line x1="220" y1="200" x2="220" y2="390"/>
+              <line x1="220" y1="200" x2="305" y2="390"/>
+              <line x1="220" y1="200" x2="135" y2="390"/>
+            </g>
+            <!-- Ideal polygon (green) -->
+            <polygon points="220,42 368,122 372,268 220,368 80,270 72,118" fill="rgba(22,163,74,0.08)" stroke="#16a34a" stroke-width="2"/>
+            <!-- Candidate 1 polygon (blue) -->
+            <polygon points="220,70 348,138 352,252 220,340 100,255 92,135" fill="rgba(26,108,246,0.10)" stroke="#1a6cf6" stroke-width="2"/>
+            <!-- Candidate 2 polygon (orange) -->
+            <polygon points="220,90 330,148 340,260 220,348 108,262 104,148" fill="rgba(249,115,22,0.08)" stroke="#f97316" stroke-width="2"/>
+            <!-- Data points Ideal -->
+            <circle cx="220" cy="42" r="4" fill="#16a34a" stroke="white" stroke-width="2"/>
+            <circle cx="368" cy="122" r="4" fill="#16a34a" stroke="white" stroke-width="2"/>
+            <circle cx="372" cy="268" r="4" fill="#16a34a" stroke="white" stroke-width="2"/>
+            <circle cx="220" cy="368" r="4" fill="#16a34a" stroke="white" stroke-width="2"/>
+            <circle cx="80" cy="270" r="4" fill="#16a34a" stroke="white" stroke-width="2"/>
+            <circle cx="72" cy="118" r="4" fill="#16a34a" stroke="white" stroke-width="2"/>
+            <!-- Data points John Doe -->
+            <circle cx="220" cy="70" r="4" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <circle cx="348" cy="138" r="4" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <circle cx="352" cy="252" r="4" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <circle cx="220" cy="340" r="4" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <circle cx="100" cy="255" r="4" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <circle cx="92" cy="135" r="4" fill="#1a6cf6" stroke="white" stroke-width="2"/>
+            <!-- Data points Sarah Kim -->
+            <circle cx="220" cy="90" r="4" fill="#f97316" stroke="white" stroke-width="2"/>
+            <circle cx="330" cy="148" r="4" fill="#f97316" stroke="white" stroke-width="2"/>
+            <circle cx="340" cy="260" r="4" fill="#f97316" stroke="white" stroke-width="2"/>
+            <circle cx="220" cy="348" r="4" fill="#f97316" stroke="white" stroke-width="2"/>
+            <circle cx="108" cy="262" r="4" fill="#f97316" stroke="white" stroke-width="2"/>
+            <circle cx="104" cy="148" r="4" fill="#f97316" stroke="white" stroke-width="2"/>
+            <!-- Labels -->
+            <text x="220" y="-2" text-anchor="middle" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter,sans-serif">People Skills</text>
+            <rect x="378" y="96" width="28" height="20" rx="6" fill="#eff4ff"/>
+            <text x="392" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#1a6cf6" font-family="Inter,sans-serif">IQ</text>
+            <text x="400" y="298" text-anchor="start" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter,sans-serif">Critical Thinking</text>
+            <text x="220" y="412" text-anchor="middle" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter,sans-serif">Execution</text>
+            <text x="36" y="298" text-anchor="end" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter,sans-serif">Creativity</text>
+            <text x="36" y="108" text-anchor="end" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter,sans-serif">Leadership</text>
+            <text x="220" y="412" text-anchor="middle" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter,sans-serif">Execution</text>
+            <text x="130" y="412" text-anchor="middle" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter,sans-serif">Mindset</text>
+            <text x="310" y="412" text-anchor="middle" font-size="12" font-weight="600" fill="#3f3f46" font-family="Inter,sans-serif">Openness</text>
+          </svg>
+          <!-- Tooltip next to IQ -->
+          <div class="se4-tooltip-multi">
+            <div class="se4-tooltip-row">
+              <div class="se4-tooltip-av ideal-av"><svg viewBox="0 0 12 12"><circle cx="6" cy="4" r="2"/><path d="M1 10c0-2 2-3 5-3s5 1 5 3"/></svg></div>
+              <div>
+                <div class="se4-tooltip-label">Ideal</div>
+                <div class="se4-tooltip-pct">95%</div>
+                <div class="se4-tooltip-desc">Top benchmark for this role.</div>
+              </div>
+            </div>
+            <div class="se4-tooltip-row">
+              <div class="se4-tooltip-av"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+              <div>
+                <div class="se4-tooltip-label">John Doe</div>
+                <div class="se4-tooltip-pct">82%</div>
+                <div class="se4-tooltip-desc">Above average. Top 20%.</div>
+              </div>
+            </div>
+            <div class="se4-tooltip-row">
+              <div class="se4-tooltip-av"><img src="images/jobrivals/ProfileImage.png" alt=""></div>
+              <div>
+                <div class="se4-tooltip-label">Sarah Kim</div>
+                <div class="se4-tooltip-pct">68%</div>
+                <div class="se4-tooltip-desc">Average range.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Legend -->
+        <div style="position:absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display:flex; gap:20px;">
+          <div class="se4-legend-item"><div class="se4-legend-dot" style="background:#16a34a;"></div> Ideal</div>
+          <div class="se4-legend-item"><div class="se4-legend-dot" style="background:#1a6cf6;"></div> John Doe</div>
+          <div class="se4-legend-item"><div class="se4-legend-dot" style="background:#f97316;"></div> Sarah Kim</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     Screen E5 Job Post Review
+══════════════════════════════════════ -->
+<div class="screen-label">Screen 12 Employer: Job Post Review</div>
+<div class="emp-screen">
+  <div class="emp-topbar">
+    <div class="emp-topbar-logo">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="images/jobrivals/JobRivalsLogo.png" alt="JobRivals">
+        <span class="logo-text">JobRivals</span>
+      </a>
+    </div>
+    <div class="emp-company-row">
+      <div class="emp-company-avatar">PIXAR</div>
+      <div>
+        <div class="emp-company-name">Pixar Animation Studios <svg viewBox="0 0 12 12"><path d="M8 1.5l2 2L3 11H1V9L8 1.5z"/></svg></div>
+        <div class="emp-company-type">Animation Studio</div>
+        <div class="emp-company-count">Number of employees: 123</div>
+      </div>
+    </div>
+    <div class="emp-tabs">
+      <a href="#" class="emp-tab active">talent <svg class="emp-tab-chevron" viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3"/></svg></a>
+      <a href="#" class="emp-tab">jobs <svg class="emp-tab-chevron" viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3"/></svg></a>
+      <a href="#" class="emp-tab">profile</a>
+      <a href="#" class="emp-tab">my rewards</a>
+      <a href="#" class="emp-tab">notifications <span class="emp-tab-dot"></span></a>
+      <a href="#" class="emp-tab">settings</a>
+    </div>
+  </div>
+  <div class="emp-body">
+    <div class="se5-body">
+      <div class="se5-top-actions">
+        <button class="se5-btn-ghost">Save Draft</button>
+        <button class="se5-btn-primary">Post Job</button>
+      </div>
+      <div class="se5-card">
+        <div class="se5-card-title">Job details</div>
+        <div class="se5-row">
+          <div>
+            <div class="se5-row-label">Title</div>
+            <div class="se5-row-value">Product Designer</div>
+          </div>
+          <div class="se5-edit-btn"><svg viewBox="0 0 14 14"><path d="M9.5 1.5l3 3L4 13H1v-3L9.5 1.5z"/></svg></div>
+        </div>
+        <div class="se5-row">
+          <div>
+            <div class="se5-row-label">Category</div>
+            <div class="se5-row-value">Product design</div>
+          </div>
+          <div class="se5-edit-btn"><svg viewBox="0 0 14 14"><path d="M9.5 1.5l3 3L4 13H1v-3L9.5 1.5z"/></svg></div>
+        </div>
+        <div class="se5-row">
+          <div>
+            <div class="se5-row-label">Skills</div>
+            <div class="se5-row-value">UX/UI, Product design, Figma</div>
+          </div>
+          <div class="se5-edit-btn"><svg viewBox="0 0 14 14"><path d="M9.5 1.5l3 3L4 13H1v-3L9.5 1.5z"/></svg></div>
+        </div>
+        <div class="se5-row">
+          <div>
+            <div class="se5-row-label">Work experience</div>
+            <div class="se5-row-value">5 / 8 years of work experience</div>
+          </div>
+          <div class="se5-edit-btn"><svg viewBox="0 0 14 14"><path d="M9.5 1.5l3 3L4 13H1v-3L9.5 1.5z"/></svg></div>
+        </div>
+        <div class="se5-row">
+          <div>
+            <div class="se5-row-label">Type of Talent</div>
+            <div class="se5-row-value">On site, Full time, Freelance</div>
+          </div>
+          <div class="se5-edit-btn"><svg viewBox="0 0 14 14"><path d="M9.5 1.5l3 3L4 13H1v-3L9.5 1.5z"/></svg></div>
+        </div>
+        <div class="se5-row">
+          <div>
+            <div class="se5-row-label">Language</div>
+            <div class="se5-row-value">English: fluent</div>
+          </div>
+          <div class="se5-edit-btn"><svg viewBox="0 0 14 14"><path d="M9.5 1.5l3 3L4 13H1v-3L9.5 1.5z"/></svg></div>
+        </div>
+        <div class="se5-row">
+          <div>
+            <div class="se5-row-label">Description</div>
+            <div class="se5-row-value" style="max-width: 600px; line-height: 1.6; color: var(--zinc-600);">We're looking for a Product Designer who thrives on solving complex UX challenges and building intuitive digital experiences. You'll work closely with product and engineering teams to shape features from concept to launch.</div>
+          </div>
+          <div class="se5-edit-btn"><svg viewBox="0 0 14 14"><path d="M9.5 1.5l3 3L4 13H1v-3L9.5 1.5z"/></svg></div>
+        </div>
+      </div>
+      <div class="se5-top-actions" style="padding-top:0; padding-bottom: 32px;">
+        <button class="se5-btn-ghost">Save Draft</button>
+        <button class="se5-btn-primary">Post Job</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

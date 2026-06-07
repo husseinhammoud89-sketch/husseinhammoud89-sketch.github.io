@@ -38,6 +38,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
+html, body { overflow-x: hidden; }
 
 /* ── TOKENS ── */
 :root {
@@ -809,8 +810,19 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 }
 
 .footer-linkedin-arrow {
-  display: inline-block;
-  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-linkedin-arrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.btn-arrow {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
 }
 
 .footer-bottom {
