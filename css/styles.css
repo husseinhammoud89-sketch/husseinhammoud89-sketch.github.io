@@ -788,7 +788,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   gap: 40px;
 }
 
-.footer-info { max-width: 440px; text-align: right; }
+.footer-info { max-width: 440px; text-align: right; margin-left: auto; }
 
 .footer-info p {
   font-size: 24px;
