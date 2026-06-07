@@ -782,13 +782,13 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 
 .footer-top {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: space-between;
   padding-bottom: 40px;
   gap: 40px;
 }
 
-.footer-info { max-width: 440px; }
+.footer-info { max-width: 440px; text-align: right; }
 
 .footer-info p {
   font-size: 24px;
