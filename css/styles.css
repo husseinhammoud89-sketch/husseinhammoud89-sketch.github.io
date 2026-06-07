@@ -294,8 +294,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   font-weight: 700;
 }
 
-.hero-star-svg { display: none; }
-.hero-star-text { display: block; }
+.hero-star-svg { display: block; }
+.hero-star-text { display: none; }
 
 /* Row 2: bio + "A designer" side by side, centered as a unit */
 .hero-row2 {
@@ -1401,7 +1401,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .hero-row1-content { gap: 12px; }
   .hero-star { width: 48px; height: 48px; font-size: 36px; }
   .hero-star-text { display: none !important; }
-  .hero-star-svg { display: block !important; width: 48px !important; height: 48px !important; }
+  .hero-star-svg { display: none !important; }
   .hero-line1, .hero-line2, .hero-line3 {
     font-size: clamp(40px, 13vw, 64px);
     letter-spacing: -2px;
