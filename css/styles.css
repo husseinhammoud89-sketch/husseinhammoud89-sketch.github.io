@@ -1479,7 +1479,6 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
     align-items: flex-start;
     gap: 12px;
     padding-top: 20px;
-    border-top: 1px solid rgba(241,239,236,0.12);
     margin-top: 24px;
   }
   .footer-bottom::before {
