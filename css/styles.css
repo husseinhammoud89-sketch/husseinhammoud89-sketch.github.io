@@ -788,6 +788,12 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   gap: 40px;
 }
 
+.footer-top-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .footer-info { max-width: 440px; text-align: left; }
 
 .footer-info p {
