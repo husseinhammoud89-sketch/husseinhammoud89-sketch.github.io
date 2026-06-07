@@ -282,8 +282,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 }
 
 .hero-star {
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
