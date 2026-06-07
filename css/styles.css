@@ -864,8 +864,11 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   padding-bottom: 1px;
 }
 
+.footer-linkedin-mobile { display: none; }
+
 /* Footer link underlines: static faint line, animates bright left-to-right on hover */
 .footer-linkedin::after,
+.footer-linkedin-mobile::after,
 .footer-email::after,
 .footer-copy-row a::after,
 .footer-back-top::after {
@@ -882,6 +885,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 }
 
 .footer-linkedin:hover::after,
+.footer-linkedin-mobile:hover::after,
 .footer-email:hover::after,
 .footer-copy-row a:hover::after,
 .footer-back-top:hover::after {
@@ -1317,6 +1321,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .footer-body { padding: 0 20px 40px; }
   .footer-top { flex-direction: column; gap: 24px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+
 }
 
 /* Restore default cursor on touch devices */
@@ -1464,10 +1469,35 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .cs-next h3 { font-size: 18px; }
 
   /* FOOTER */
-  .footer-body { padding: 0 16px 32px; }
+  .footer-body { padding: 0 16px 32px; display: flex; flex-direction: column; gap: 0; }
+  .footer-top { padding-bottom: 0; }
   .footer-info p { font-size: 18px; }
+  .footer-info { gap: 0; }
+  .footer-linkedin { display: none; }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(241,239,236,0.12);
+    margin-top: 24px;
+  }
+  .footer-bottom::before {
+    content: '';
+    display: none;
+  }
+  .footer-linkedin-mobile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #f1efec;
+    position: relative;
+    padding-bottom: 2px;
+    white-space: nowrap;
+  }
   .footer-email { font-size: 16px; }
   .footer-copy-row { font-size: 16px; }
   .footer-back-top { font-size: 16px; }
-  .footer-linkedin { font-size: 16px; }
 }
