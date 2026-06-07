@@ -1471,8 +1471,11 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 
   /* FOOTER */
   .site-footer { min-height: auto; justify-content: flex-start; }
-  .footer-body { padding: 0 16px 32px; position: relative; bottom: auto; }
-  .footer-top { display: none; }
+  .footer-marquee { position: relative; z-index: 1; }
+  .footer-body { padding: 0 16px 32px; position: relative; bottom: auto; z-index: 2; }
+  .footer-top { display: flex; flex-direction: column; gap: 0; padding-bottom: 20px; }
+  .footer-top .footer-linkedin { display: none; }
+  .footer-info-mobile { display: none; }
   .footer-info p { font-size: 18px; }
   .footer-top .footer-linkedin { display: none; }
   .footer-top .footer-info { display: none; }
