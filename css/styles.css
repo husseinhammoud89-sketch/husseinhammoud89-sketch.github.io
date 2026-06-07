@@ -788,7 +788,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   gap: 40px;
 }
 
-.footer-info { max-width: 440px; text-align: right; margin-left: auto; }
+.footer-info { max-width: 440px; text-align: right; }
 
 .footer-info p {
   font-size: 24px;
@@ -827,10 +827,16 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 
 .footer-bottom {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   padding-top: 28px;
-  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 16px;
 }
 
@@ -1474,6 +1480,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .footer-top { padding-bottom: 0; }
   .footer-info p { font-size: 18px; }
   .footer-top .footer-linkedin { display: none; }
+  .footer-bottom-right { display: none; }
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
