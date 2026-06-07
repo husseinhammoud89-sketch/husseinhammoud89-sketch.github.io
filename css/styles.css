@@ -1518,6 +1518,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
     position: relative;
     padding-bottom: 2px;
     white-space: nowrap;
+    margin-top: 24px;
   }
   .footer-email { font-size: 16px; }
   .footer-copy-row { font-size: 16px; }
