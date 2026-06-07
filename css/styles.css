@@ -305,6 +305,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   animation: hero-spring 1s ease both 0.4s;
 }
 
+.hero-bio-mobile { display: none; }
+
 .hero-bio {
   width: 26%;
   flex-shrink: 0;
@@ -1407,8 +1409,9 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
     letter-spacing: -2px;
     white-space: normal;
   }
-  .hero-bio { font-size: 16px; width: 100%; padding-right: 0; text-align: center; }
-  .hero-row2 { flex-direction: column-reverse; gap: 12px; align-items: center; }
+  .hero-bio { font-size: 16px; width: 100%; padding-right: 0; text-align: center; display: none; }
+  .hero-bio-mobile { display: block; font-size: 16px; text-align: center; padding-top: 16px; line-height: 1.5; }
+  .hero-row2 { flex-direction: column; gap: 12px; align-items: center; }
   .hero-row3 { justify-content: center; }
 
   /* SECTION HEADERS */
