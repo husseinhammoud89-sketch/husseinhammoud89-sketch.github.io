@@ -3,507 +3,589 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hussein Hammoud — Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Resume Hussein Hammoud</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --bg:             #f1efec;
+      --dark:           #151515;
+      --border:         rgba(21,21,21,0.10);
+      --border-light:   rgba(21,21,21,0.06);
+      --text-primary:   #151515;
+      --text-secondary: rgba(21,21,21,0.55);
+      --text-muted:     rgba(21,21,21,0.35);
+      --radius-md:      12px;
+      --font:           'Space Grotesk', 'Inter', system-ui, sans-serif;
+    }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: #e8e8e8;
-      padding: 40px 20px;
-      color: #111;
-      font-size: 14px;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-primary);
+      font-size: 15px;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 60px 20px 80px;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: repeating-linear-gradient(
+        to right,
+        rgba(21,21,21,0.06) 0px,
+        rgba(21,21,21,0.06) 1px,
+        transparent 1px,
+        transparent calc(100% / 5)
+      );
     }
 
     .page {
-      max-width: 840px;
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
       margin: 0 auto;
-      background: #fff;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.13);
-    }
-
-    /* ── YELLOW HEADER ── */
-    .header {
-      background: #F5C700;
-      padding: 36px 48px 32px;
-    }
-
-    .header h1 {
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: #111;
-      margin-bottom: 14px;
-    }
-
-    .contact-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px 28px;
-      align-items: center;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    .contact-item {
+    /* DOWNLOAD BTN */
+    .r-download-bar {
       display: flex;
+      justify-content: flex-end;
+      margin-bottom: 8px;
+    }
+
+    .r-download-btn {
+      display: inline-flex;
       align-items: center;
       gap: 7px;
+      font-family: var(--font);
       font-size: 13px;
       font-weight: 600;
-      color: #111;
-      text-decoration: none;
-    }
-
-    .contact-item [data-lucide] {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    /* ── INFO CARD (inside yellow) ── */
-    .info-card {
-      margin-top: 22px;
+      color: var(--text-primary);
       background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      overflow: hidden;
+      border: 1px solid var(--border);
+      padding: 9px 18px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
     }
 
-    .info-row {
-      display: flex;
-      align-items: stretch;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .info-row:last-child { border-bottom: none; }
+    .r-download-btn:hover { background: var(--dark); color: var(--bg); border-color: var(--dark); }
+    .r-download-btn [data-lucide] { width: 14px; height: 14px; }
 
-    .info-label {
-      font-size: 13px;
+    /* HEADER */
+    .r-header {
+      background: var(--dark);
+      color: #f1efec;
+      border-radius: var(--radius-md);
+      padding: 40px 48px 36px;
+    }
+
+    .r-header h1 {
+      font-size: 40px;
       font-weight: 700;
-      width: 130px;
-      flex-shrink: 0;
-      padding: 10px 16px;
-      border-right: 1.5px solid #e8e8e8;
+      letter-spacing: -1.5px;
+      margin-bottom: 6px;
     }
 
-    .info-value {
-      font-size: 13px;
-      color: #333;
-      padding: 10px 16px;
-      line-height: 1.5;
-    }
-
-    /* ── BODY ── */
-    .body {
-      padding: 44px 48px 56px;
-    }
-
-    .section-title {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 28px;
-      margin-top: 44px;
-    }
-    .section-title:first-child { margin-top: 0; }
-
-    /* ── ROLE ── */
-    .role { margin-bottom: 28px; }
-
-    .role-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-bottom: 3px;
-    }
-
-    .role-title {
-      display: flex;
-      align-items: center;
-      gap: 7px;
+    .r-header-role {
       font-size: 14px;
-      font-weight: 700;
-      color: #111;
+      font-weight: 500;
+      color: rgba(241,239,236,0.5);
+      margin-bottom: 24px;
     }
 
-    .role-title [data-lucide] {
-      width: 14px;
-      height: 14px;
-      color: #999;
-      flex-shrink: 0;
-    }
-
-    .role-dates {
-      font-size: 13px;
-      color: #999;
-      white-space: nowrap;
-    }
-
-    .role-subtitle {
-      font-size: 13px;
-      color: #999;
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
-
-    /* ── PILLS ── */
-    .pills {
+    .r-contact-row {
       display: flex;
       flex-wrap: wrap;
+      gap: 8px 24px;
+    }
+
+    .r-contact-item {
+      display: flex;
+      align-items: center;
       gap: 6px;
-      margin-bottom: 12px;
-    }
-
-    .pill {
-      background: #ebebeb;
-      color: #333;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
-      padding: 3px 12px;
-      border-radius: 20px;
+      color: rgba(241,239,236,0.65);
     }
 
-    /* ── BULLETS ── */
-    ul.bullets { list-style: none; }
+    .r-contact-item [data-lucide] { width: 13px; height: 13px; flex-shrink: 0; }
 
-    ul.bullets li {
-      position: relative;
-      padding-left: 16px;
-      font-size: 13.5px;
-      color: #333;
-      margin-bottom: 5px;
-      line-height: 1.55;
+    /* INFO STRIP */
+    .r-info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #fff;
     }
 
-    ul.bullets li::before {
-      content: '•';
-      position: absolute;
-      left: 1px;
-      top: 0;
-      color: #111;
+    .r-info-item {
+      padding: 16px 24px;
+      border-right: 1px solid var(--border);
     }
 
-    .role-divider {
-      border: none;
-      border-top: 1px solid #f0f0f0;
-      margin: 24px 0;
+    .r-info-item:last-child { border-right: none; }
+
+    .r-info-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
     }
 
-    /* ── EDUCATION ── */
-    .edu-entry { margin-bottom: 20px; }
+    .r-info-value {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
 
-    .edu-top {
+    /* SECTION */
+    .r-section {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px 36px;
+    }
+
+    .r-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    /* ROLE */
+    .r-role { margin-bottom: 28px; }
+    .r-role:last-child { margin-bottom: 0; }
+
+    .r-role-top {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       flex-wrap: wrap;
       gap: 4px;
+      margin-bottom: 2px;
     }
 
-    .edu-school {
+    .r-role-title {
       font-size: 14px;
       font-weight: 700;
+      letter-spacing: -0.2px;
     }
 
-    .edu-dates {
-      font-size: 13px;
-      color: #999;
+    .r-role-dates {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .edu-degree {
+    .r-role-company {
       font-size: 13px;
-      color: #555;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
     }
 
-    /* ── MORE ABOUT ME ── */
-    .about-block { margin-bottom: 14px; }
+    .r-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
 
-    .about-label {
-      font-size: 14px;
+    .r-pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    ul.r-bullets { list-style: none; }
+
+    ul.r-bullets li {
+      position: relative;
+      padding-left: 14px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+      line-height: 1.55;
+    }
+
+    ul.r-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-muted);
+    }
+
+    .r-divider {
+      border: none;
+      border-top: 1px solid var(--border-light);
+      margin: 24px 0;
+    }
+
+    /* EDU + ABOUT GRID */
+    .r-footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .r-edu-entry { margin-bottom: 20px; }
+    .r-edu-entry:last-child { margin-bottom: 0; }
+
+    .r-edu-school {
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      margin-bottom: 2px;
+    }
+
+    .r-edu-degree {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .r-edu-dates { font-size: 12px; color: var(--text-muted); }
+
+    .r-about-block { margin-bottom: 16px; }
+    .r-about-block:last-child { margin-bottom: 0; }
+
+    .r-about-label {
+      font-size: 12px;
       font-weight: 700;
       margin-bottom: 3px;
     }
 
-    .about-value {
-      font-size: 13.5px;
-      color: #333;
-    }
+    .r-about-value { font-size: 13px; color: var(--text-secondary); }
 
-    /* ── PRINT ── */
+    /* PRINT */
     @media print {
       body { background: #fff; padding: 0; }
-      .page { box-shadow: none; max-width: 100%; }
-      @page { margin: 0; size: A4; }
+      body::before { display: none; }
+      .page { max-width: 100%; gap: 0; }
+      .r-download-bar { display: none; }
+      @page { margin: 10mm; size: A4; }
+
+      /* flatten cards */
+      .r-header,
+      .r-section,
+      .r-info-strip,
+      .r-info-item { border-radius: 0; }
+
+      .r-header { margin-bottom: 0; }
+      .r-info-strip { border-top: none; }
+      .r-section { border-top: none; }
+      .r-footer-grid { gap: 0; }
+      .r-footer-grid .r-section:first-child { border-right: none; }
+
+      /* on white cards: darken the muted grays */
+      .r-role-company,
+      ul.r-bullets li,
+      .r-edu-degree,
+      .r-about-value,
+      .r-info-value { color: #222; }
+
+      .r-role-dates,
+      .r-edu-dates,
+      .r-section-title,
+      .r-info-label { color: #888; }
+
+      /* on dark header: lighten to near-white */
+      .r-header-role { color: rgba(241,239,236,0.95); }
+      .r-contact-item { color: #f1efec; }
     }
 
-    @media (max-width: 600px) {
-      .header, .body { padding-left: 24px; padding-right: 24px; }
-      .header h1 { font-size: 26px; }
+    @media (max-width: 700px) {
+      .r-header { padding: 28px 24px; }
+      .r-header h1 { font-size: 28px; }
+      .r-info-strip { grid-template-columns: 1fr; }
+      .r-info-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .r-info-item:last-child { border-bottom: none; }
+      .r-section { padding: 24px 20px; }
+      .r-footer-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- ── HEADER ── -->
-  <div class="header">
-    <h1>Hussein Hammoud</h1>
+  <div class="r-download-bar">
+    <a class="r-download-btn" href="hussein-hammoud-resume.pdf" download="Hussein Hammoud Resume.pdf">
+      <i data-lucide="download"></i> Download PDF
+    </a>
+  </div>
 
-    <div class="contact-row">
-      <a class="contact-item" href="mailto:hussein.hammoud89@gmail.com">
+  <div class="r-header">
+    <h1>Hussein Hammoud</h1>
+    <p class="r-header-role">Lead Product Designer · 10+ years · Ad-Tech, Fintech, Humanitarian Tech, SaaS</p>
+    <div class="r-contact-row">
+      <a class="r-contact-item" href="mailto:hussein.hammoud89@gmail.com">
         <i data-lucide="mail"></i> hussein.hammoud89@gmail.com
       </a>
-      <a class="contact-item" href="tel:+96170842588">
-        <i data-lucide="phone"></i> +96170842588
+      <a class="r-contact-item" href="tel:+96170842588">
+        <i data-lucide="phone"></i> +961 70 842 588
       </a>
-      <a class="contact-item" href="https://linkedin.com/in/hussein-hammoud-2148b686/">
+      <a class="r-contact-item" href="https://linkedin.com/in/hussein-hammoud-2148b686/" target="_blank">
         <i data-lucide="linkedin"></i> LinkedIn
       </a>
-      <a class="contact-item" href="https://husseinhammoud.framer.website/">
-        <i data-lucide="globe"></i> My Website
+      <a class="r-contact-item" href="https://husseinhammoud.framer.website/" target="_blank">
+        <i data-lucide="globe"></i> Portfolio
       </a>
     </div>
+  </div>
 
-    <div class="info-card">
-      <div class="info-row">
-        <span class="info-label">Previous role</span>
-        <span class="info-value">Lead Product Designer at Mobile Arts</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Experience</span>
-        <span class="info-value">Ad-Tech, Recruitment, HR, Fintech, B2C, Incubator, Education</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Technologies</span>
-        <span class="info-value">Figma, JIRA, Claude Code, Adobe Creative Suite</span>
-      </div>
+  <div class="r-info-strip">
+    <div class="r-info-item">
+      <div class="r-info-label">Previous role</div>
+      <div class="r-info-value">Lead Product Designer, Mobile Arts</div>
+    </div>
+    <div class="r-info-item">
+      <div class="r-info-label">Industries</div>
+      <div class="r-info-value">Ad-Tech · Recruitment · Fintech · Humanitarian · Education</div>
+    </div>
+    <div class="r-info-item">
+      <div class="r-info-label">Tools</div>
+      <div class="r-info-value">Figma · JIRA · Claude Code · Adobe Suite</div>
     </div>
   </div>
 
-  <!-- ── BODY ── -->
-  <div class="body">
+  <div class="r-section">
+    <div class="r-section-title">Work experience</div>
 
-    <h2 class="section-title">Work experience</h2>
-
-    <!-- Mobile Arts -->
-    <div class="role">
-      <div class="role-top">
-        <span class="role-title">Lead Product Designer, Mobile Arts <i data-lucide="building-2"></i></span>
-        <span class="role-dates">Oct 2025 – Jun 2026 (8m)</span>
+    <div class="r-role">
+      <div class="r-role-top">
+        <span class="r-role-title">Lead Product Designer</span>
+        <span class="r-role-dates">Oct 2025 · Jun 2026 · 8m</span>
       </div>
-      <p class="role-subtitle">Ad-Tech</p>
-      <div class="pills">
-        <span class="pill">Figma</span>
-        <span class="pill">JIRA</span>
-        <span class="pill">Claude Code</span>
+      <p class="r-role-company">Mobile Arts · Ad-Tech</p>
+      <div class="r-pills">
+        <span class="r-pill">Figma</span>
+        <span class="r-pill">JIRA</span>
+        <span class="r-pill">Claude Code</span>
       </div>
-      <ul class="bullets">
-        <li>Owned end-to-end redesign of flagship ad-tech platform — rebuilt information architecture, core workflows, and UI into a modern, minimal, scalable system ready for product expansion.</li>
-        <li>Defined and shipped a Figma-based design system that standardized components and accelerated design-to-dev delivery across the product.</li>
-        <li>Integrated Claude Code into the design workflow to automate repetitive UI tasks, prototype faster, and reduce handoff friction with engineering.</li>
-        <li>Drove alignment between design, product, and engineering via structured JIRA sprints, compressing iteration cycles.</li>
+      <ul class="r-bullets">
+        <li>Owned end-to-end redesign of flagship ad-tech platform, rebuilt information architecture, core workflows, and UI into a modern, scalable system.</li>
+        <li>Defined and shipped a Figma-based design system that standardized components and accelerated design-to-dev delivery.</li>
+        <li>Integrated Claude Code into the design workflow to prototype faster and reduce handoff friction with engineering.</li>
+        <li>Drove alignment between design, product, and engineering via structured JIRA sprints.</li>
       </ul>
     </div>
 
-    <hr class="role-divider" />
+    <hr class="r-divider" />
 
-    <!-- UNESCWA -->
-    <div class="role">
-      <div class="role-top">
-        <span class="role-title">Lead Product Designer, UNESCWA <i data-lucide="building-2"></i></span>
-        <span class="role-dates">Oct 2024 – Apr 2025 (6m)</span>
+    <div class="r-role">
+      <div class="r-role-top">
+        <span class="r-role-title">Lead Product Designer</span>
+        <span class="r-role-dates">Oct 2024 · Apr 2025 · 6m</span>
       </div>
-      <p class="role-subtitle">NGO UX/UI Design Web Applications ITS</p>
-      <div class="pills">
-        <span class="pill">Figma</span>
-        <span class="pill">JIRA</span>
+      <p class="r-role-company">UNESCWA · NGO · Web Applications</p>
+      <div class="r-pills">
+        <span class="r-pill">Figma</span>
+        <span class="r-pill">JIRA</span>
       </div>
-      <ul class="bullets">
-        <li>Designed internal web portals and operational workflow tools serving UN staff across the Western Asia region.</li>
+      <ul class="r-bullets">
+        <li>Designed internal web portals and workflow tools serving UN staff across the Western Asia region.</li>
         <li>Built ESCWA's first unified design system, reducing inconsistency across multiple digital products.</li>
         <li>Led accessibility reviews ensuring all interfaces met UN digital standards and WCAG guidelines.</li>
-        <li>Collaborated with cross-functional stakeholders to align product direction with operational needs.</li>
       </ul>
     </div>
 
-    <hr class="role-divider" />
+    <hr class="r-divider" />
 
-    <!-- JobRivals -->
-    <div class="role">
-      <div class="role-top">
-        <span class="role-title">Lead Product Designer, JobRivals <i data-lucide="building-2"></i></span>
-        <span class="role-dates">Sep 2023 – Aug 2024 (11m)</span>
+    <div class="r-role">
+      <div class="r-role-top">
+        <span class="r-role-title">Lead Product Designer</span>
+        <span class="r-role-dates">Sep 2023 · Aug 2024 · 11m</span>
       </div>
-      <p class="role-subtitle">Startup · Recruitment Technology · AI UX/UI Web App · Recruitment · HR</p>
-      <div class="pills">
-        <span class="pill">Figma</span>
-        <span class="pill">JIRA</span>
+      <p class="r-role-company">JobRivals · Startup · Recruitment Tech · AI</p>
+      <div class="r-pills">
+        <span class="r-pill">Figma</span>
+        <span class="r-pill">JIRA</span>
       </div>
-      <ul class="bullets">
-        <li>Designed 0→1 product experience for an AI-powered hiring platform — from discovery through high-fidelity prototype to dev handoff.</li>
-        <li>Invented a pre-signup assessment flow that surfaced candidate quality before account creation, creating a key product differentiator.</li>
-        <li>Delivered a fully responsive candidate + recruiter experience across web and mobile in an 11-month solo design engagement.</li>
-        <li>Collaborated with founders, developers, and data scientists to align product functionality with user needs and AI capabilities.</li>
+      <ul class="r-bullets">
+        <li>Designed 0 to 1 product for an AI-powered hiring platform from discovery through high-fidelity prototype to dev handoff.</li>
+        <li>Invented a pre-signup assessment flow that surfaced candidate quality before account creation.</li>
+        <li>Delivered a fully responsive candidate and recruiter experience in an 11-month solo engagement.</li>
       </ul>
     </div>
 
-    <hr class="role-divider" />
+    <hr class="r-divider" />
 
-    <!-- Klevr -->
-    <div class="role">
-      <div class="role-top">
-        <span class="role-title">Senior Product Designer, Klevr <i data-lucide="building-2"></i></span>
-        <span class="role-dates">Jan 2022 – Aug 2023 (1y 7m)</span>
+    <div class="r-role">
+      <div class="r-role-top">
+        <span class="r-role-title">Senior Product Designer</span>
+        <span class="r-role-dates">Jan 2022 · Aug 2023 · 1y 7m</span>
       </div>
-      <p class="role-subtitle">Product Design UX/UI · Fintech · B2C</p>
-      <div class="pills">
-        <span class="pill">Figma</span>
-        <span class="pill">JIRA</span>
+      <p class="r-role-company">Klevr · Fintech · B2C</p>
+      <div class="r-pills">
+        <span class="r-pill">Figma</span>
+        <span class="r-pill">JIRA</span>
       </div>
-      <ul class="bullets">
-        <li>Designed WeePay — a mobile-first clinic payment app — from wireframes through production-ready UI.</li>
-        <li>Shipped responsive web experiences for clinic clients, improving patient-facing billing flows.</li>
+      <ul class="r-bullets">
+        <li>Designed WeePay, a mobile-first payment app from wireframes through production-ready UI.</li>
         <li>Implemented user-centered design principles in healthcare digital products for improved accessibility.</li>
-        <li>Maintained cross-platform visual consistency across mobile app, web, and client materials.</li>
+        <li>Maintained cross-platform visual consistency across mobile app and client materials.</li>
       </ul>
     </div>
 
-    <hr class="role-divider" />
+    <hr class="r-divider" />
 
-    <!-- Interform -->
-    <div class="role">
-      <div class="role-top">
-        <span class="role-title">Senior Product Designer, Interform <i data-lucide="building-2"></i></span>
-        <span class="role-dates">Jan 2021 – Dec 2021 (11m)</span>
+    <div class="r-role">
+      <div class="r-role-top">
+        <span class="r-role-title">Senior Product Designer</span>
+        <span class="r-role-dates">Jan 2021 · Dec 2021 · 11m</span>
       </div>
-      <p class="role-subtitle">Startup · Product Design UX/UI · Incubator</p>
-      <div class="pills">
-        <span class="pill">Figma</span>
-        <span class="pill">JIRA</span>
+      <p class="r-role-company">Interform · Startup · Incubator</p>
+      <div class="r-pills">
+        <span class="r-pill">Figma</span>
+        <span class="r-pill">JIRA</span>
       </div>
-      <ul class="bullets">
+      <ul class="r-bullets">
         <li>Shipped UX/UI designs across concurrent startup products within the incubator portfolio.</li>
         <li>Applied rapid prototyping and mobile-first principles to compress concept-to-handoff timelines.</li>
-        <li>Conducted user research and usability testing to enhance product usability.</li>
-        <li>Built per-product design systems enabling consistent, fast iteration without visual debt.</li>
+        <li>Built per-product design systems enabling consistent, fast iteration.</li>
       </ul>
     </div>
 
-    <hr class="role-divider" />
+    <hr class="r-divider" />
 
-    <!-- UNWFP -->
-    <div class="role">
-      <div class="role-top">
-        <span class="role-title">Lead Product Designer/Animator, UNWFP <i data-lucide="building-2"></i></span>
-        <span class="role-dates">Jan 2020 – Jan 2021 (1y)</span>
+    <div class="r-role">
+      <div class="r-role-top">
+        <span class="r-role-title">Lead Product Designer and Animator</span>
+        <span class="r-role-dates">Jan 2020 · Jan 2021 · 1y</span>
       </div>
-      <p class="role-subtitle">NGO · Product Design · ITS · Mobile Applications</p>
-      <div class="pills">
-        <span class="pill">Adobe Creative Suite</span>
-        <span class="pill">Figma</span>
+      <p class="r-role-company">UN World Food Programme · NGO · Mobile</p>
+      <div class="r-pills">
+        <span class="r-pill">Figma</span>
+        <span class="r-pill">Adobe Creative Suite</span>
       </div>
-      <ul class="bullets">
-        <li>Led UX/UI design for Dalili — a mobile app delivering real-time food prices and vendor data to vulnerable communities across Lebanon.</li>
+      <ul class="r-bullets">
+        <li>Led UX/UI design for Dalili, a mobile app delivering food assistance access to vulnerable communities in Lebanon.</li>
         <li>Prioritized accessibility and low-literacy UX patterns for users with limited digital experience.</li>
         <li>Produced motion graphic campaigns distributed across WFP's regional digital channels.</li>
-        <li>Collaborated with cross-functional teams including field officers, developers, and communication specialists.</li>
       </ul>
     </div>
 
-    <hr class="role-divider" />
+    <hr class="r-divider" />
 
-    <!-- UNHCR -->
-    <div class="role">
-      <div class="role-top">
-        <span class="role-title">Lead Digital Designer/Animator, UNHCR <i data-lucide="building-2"></i></span>
-        <span class="role-dates">Feb 2018 – Nov 2019 (1y 9m)</span>
+    <div class="r-role">
+      <div class="r-role-top">
+        <span class="r-role-title">Lead Digital Designer and Animator</span>
+        <span class="r-role-dates">Feb 2018 · Nov 2019 · 1y 9m</span>
       </div>
-      <p class="role-subtitle">NGO · Design · Media Production · Animation · Humanitarian Aid</p>
-      <div class="pills">
-        <span class="pill">Adobe Creative Suite</span>
-        <span class="pill">Figma</span>
+      <p class="r-role-company">UNHCR · NGO · Humanitarian Aid</p>
+      <div class="r-pills">
+        <span class="r-pill">Adobe Creative Suite</span>
+        <span class="r-pill">Figma</span>
       </div>
-      <ul class="bullets">
-        <li>Designed and animated digital content for awareness, fundraising, and advocacy campaigns across UNHCR's regional communications.</li>
+      <ul class="r-bullets">
+        <li>Designed and animated digital content for awareness, fundraising, and advocacy campaigns.</li>
         <li>Delivered multilingual assets for campaigns reaching global and regional audiences.</li>
-        <li>Maintained visual consistency with UNHCR brand standards across all digital touchpoints.</li>
-        <li>Worked closely with communications and content teams to create compelling visual narratives.</li>
       </ul>
     </div>
 
-    <hr class="role-divider" />
+    <hr class="r-divider" />
 
-    <!-- DataFlow -->
-    <div class="role">
-      <div class="role-top">
-        <span class="role-title">Product Designer / Animator, DataFlow <i data-lucide="building-2"></i></span>
-        <span class="role-dates">Aug 2014 – Dec 2017 (3y 4m)</span>
+    <div class="r-role">
+      <div class="r-role-top">
+        <span class="r-role-title">Product Designer and Animator</span>
+        <span class="r-role-dates">Aug 2014 · Dec 2017 · 3y 4m</span>
       </div>
-      <p class="role-subtitle">E-Learning · Information Technology & Services · Design · Education</p>
-      <div class="pills">
-        <span class="pill">Adobe Creative Suite</span>
-        <span class="pill">Figma</span>
+      <p class="r-role-company">DataFlow · E-Learning · Education</p>
+      <div class="r-pills">
+        <span class="r-pill">Adobe Creative Suite</span>
+        <span class="r-pill">Figma</span>
       </div>
-      <ul class="bullets">
-        <li>Designed UX/UI for DataFlow's online education platform, improving learner navigation and content discoverability.</li>
-        <li>Produced animated explainer and educational videos simplifying complex topics for a diverse learner base.</li>
-        <li>Conducted UX research and prototyping to improve platform usability and engagement.</li>
-        <li>Maintained consistent visual language across product UI and all multimedia content.</li>
+      <ul class="r-bullets">
+        <li>Designed UX/UI for an online education platform, improving learner navigation and content discoverability.</li>
+        <li>Produced animated explainer and educational videos for a diverse learner base.</li>
       </ul>
     </div>
 
-    <hr class="role-divider" />
+    <hr class="r-divider" />
 
-    <!-- UN ESCWA -->
-    <div class="role">
-      <div class="role-top">
-        <span class="role-title">Graphic Designer, UN ESCWA <i data-lucide="building-2"></i></span>
-        <span class="role-dates">Jan 2014 – Apr 2014 (3m)</span>
+    <div class="r-role">
+      <div class="r-role-top">
+        <span class="r-role-title">Graphic Designer</span>
+        <span class="r-role-dates">Jan 2014 · Apr 2014 · 3m</span>
       </div>
-      <p class="role-subtitle">Supports economic and social development in Western Asia.</p>
-      <div class="pills">
-        <span class="pill">Adobe Creative Suite</span>
+      <p class="r-role-company">UN ESCWA · NGO</p>
+      <div class="r-pills">
+        <span class="r-pill">Adobe Creative Suite</span>
       </div>
-      <ul class="bullets">
-        <li>Created digital and print materials for UN internal and public communications, aligned with UN brand standards.</li>
+      <ul class="r-bullets">
+        <li>Created digital and print materials for UN internal and public communications.</li>
         <li>Produced motion graphic animations for events and informational content.</li>
-        <li>Ensured consistent branding with the communications and events teams.</li>
       </ul>
-    </div>
-
-    <!-- ── EDUCATION ── -->
-    <h2 class="section-title">Education</h2>
-
-    <div class="edu-entry">
-      <div class="edu-top">
-        <span class="edu-school">University of Michigan</span>
-        <span class="edu-dates">Jan 2021 – Jan 2022 (1y)</span>
-      </div>
-      <p class="edu-degree">Certificate, User Experience Design</p>
-    </div>
-
-    <div class="edu-entry">
-      <div class="edu-top">
-        <span class="edu-school">Lebanese International University</span>
-        <span class="edu-dates">Feb 2009 – Mar 2013 (4y 1m)</span>
-      </div>
-      <p class="edu-degree">B.S. Visual Arts &amp; Design</p>
-    </div>
-
-    <!-- ── MORE ABOUT ME ── -->
-    <h2 class="section-title">More about me</h2>
-
-    <div class="about-block">
-      <p class="about-label">Languages</p>
-      <p class="about-value">English, Arabic</p>
     </div>
 
   </div>
-</div>
 
+  <div class="r-footer-grid">
+
+    <div class="r-section">
+      <div class="r-section-title">Education</div>
+      <div class="r-edu-entry">
+        <p class="r-edu-school">University of Michigan</p>
+        <p class="r-edu-degree">Certificate, User Experience Design</p>
+        <p class="r-edu-dates">Jan 2021 · Jan 2022</p>
+      </div>
+      <div class="r-edu-entry">
+        <p class="r-edu-school">Lebanese International University</p>
+        <p class="r-edu-degree">B.S. Visual Arts and Design</p>
+        <p class="r-edu-dates">Feb 2009 · Mar 2013</p>
+      </div>
+    </div>
+
+    <div class="r-section">
+      <div class="r-section-title">More about me</div>
+      <div class="r-about-block">
+        <p class="r-about-label">Languages</p>
+        <p class="r-about-value">English, Arabic</p>
+      </div>
+      <div class="r-about-block">
+        <p class="r-about-label">Location</p>
+        <p class="r-about-value">Beirut, Lebanon</p>
+      </div>
+      <div class="r-about-block">
+        <p class="r-about-label">Availability</p>
+        <p class="r-about-value">Open to new opportunities</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
 <script>lucide.createIcons();</script>
 </body>
 </html>
