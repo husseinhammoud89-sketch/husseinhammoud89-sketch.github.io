@@ -1521,5 +1521,5 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   }
   .footer-email { font-size: 16px; }
   .footer-copy-row { font-size: 16px; }
-  .footer-back-top { font-size: 16px; }
+  .footer-back-top { font-size: 16px; align-self: flex-end; }
 }
