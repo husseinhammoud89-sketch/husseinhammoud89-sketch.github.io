@@ -1470,8 +1470,9 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .cs-next h3 { font-size: 18px; }
 
   /* FOOTER */
-  .footer-body { padding: 0 16px 32px; display: flex; flex-direction: column; gap: 0; }
-  .footer-top { padding-bottom: 0; }
+  .site-footer { min-height: auto; justify-content: flex-start; }
+  .footer-body { padding: 0 16px 32px; position: relative; bottom: auto; }
+  .footer-top { display: none; }
   .footer-info p { font-size: 18px; }
   .footer-top .footer-linkedin { display: none; }
   .footer-top .footer-info { display: none; }
