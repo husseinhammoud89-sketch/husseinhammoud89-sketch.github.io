@@ -782,7 +782,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 
 .footer-top {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   padding-bottom: 40px;
   gap: 40px;
