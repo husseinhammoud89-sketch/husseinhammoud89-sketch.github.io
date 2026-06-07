@@ -788,7 +788,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   gap: 40px;
 }
 
-.footer-info { max-width: 440px; text-align: left; }
+.footer-info { max-width: 440px; }
 
 .footer-info p {
   font-size: 24px;
@@ -827,16 +827,9 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 
 .footer-bottom {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   padding-top: 28px;
-  gap: 16px;
-}
-
-.footer-bottom-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   gap: 16px;
 }
 
@@ -1480,7 +1473,6 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .footer-top { padding-bottom: 0; }
   .footer-info p { font-size: 18px; }
   .footer-top .footer-linkedin { display: none; }
-  .footer-bottom-right { display: none; }
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
