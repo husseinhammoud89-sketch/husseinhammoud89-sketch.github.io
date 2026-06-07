@@ -783,11 +783,12 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 .footer-top {
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   padding-bottom: 40px;
   gap: 40px;
 }
 
-.footer-info { max-width: 440px; display: flex; flex-direction: column; gap: 20px; }
+.footer-info { max-width: 440px; }
 
 .footer-info p {
   font-size: 24px;
@@ -1472,8 +1473,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .footer-body { padding: 0 16px 32px; display: flex; flex-direction: column; gap: 0; }
   .footer-top { padding-bottom: 0; }
   .footer-info p { font-size: 18px; }
-  .footer-info { gap: 0; }
-  .footer-linkedin { display: none; }
+  .footer-top .footer-linkedin { display: none; }
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
