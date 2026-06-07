@@ -865,6 +865,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 }
 
 .footer-linkedin-mobile { display: none; }
+.footer-info-mobile { display: none; }
 
 /* Footer link underlines: static faint line, animates bright left-to-right on hover */
 .footer-linkedin::after,
@@ -1473,6 +1474,14 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .footer-top { padding-bottom: 0; }
   .footer-info p { font-size: 18px; }
   .footer-top .footer-linkedin { display: none; }
+  .footer-top .footer-info { display: none; }
+  .footer-info-mobile {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    color: #f1efec;
+    line-height: 1.5;
+  }
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
