@@ -1304,8 +1304,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .hero-row2 { flex-direction: column; gap: 0; align-items: center; justify-content: center; text-align: center; }
   .hero-line2 { text-align: center; }
   .hero-row3 { justify-content: center; }
-  .hero-star { width: clamp(48px, 6vw, 80px); height: clamp(48px, 6vw, 80px); }
-  .hero-star-svg { width: clamp(48px, 6vw, 80px) !important; height: clamp(48px, 6vw, 80px) !important; }
+  .hero-star { width: clamp(40px, 8vw, 80px); height: clamp(40px, 8vw, 80px); }
+  .hero-star-svg { width: clamp(40px, 8vw, 80px) !important; height: clamp(40px, 8vw, 80px) !important; }
 }
 
 @media (min-width: 900px) and (max-width: 1439px) {
