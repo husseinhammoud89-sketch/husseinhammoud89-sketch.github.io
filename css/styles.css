@@ -1298,6 +1298,9 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 @media (max-width: 1439px) {
   .hero { padding: 60px 0; }
   .hero-inner { gap: clamp(4px, 1vw, 12px); }
+  .site-footer { min-height: auto; justify-content: flex-start; }
+  .footer-marquee { position: relative; z-index: 1; }
+  .footer-body { position: relative; bottom: auto; z-index: 2; }
   .hero-line1, .hero-line2, .hero-line3 { font-size: clamp(48px, 11vw, 100px); letter-spacing: -3px; white-space: nowrap; }
   .hero-bio { display: none; }
   .hero-row1 { justify-content: center; }
