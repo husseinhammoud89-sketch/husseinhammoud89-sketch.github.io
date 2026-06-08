@@ -781,10 +781,17 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 
 .footer-body {
   padding: 0 40px 48px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 1440px) {
+  .footer-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 .footer-top {
@@ -1289,7 +1296,8 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 @media (max-width: 1024px) {
   .fw-item { height: auto; flex-direction: column; align-items: flex-start; gap: 32px; }
   .fw-item-details { width: 100%; padding: 0; }
-  .fw-item-img { width: 100%; height: 400px; border-radius: 16px; }
+  .fw-item-img { width: 100%; height: auto; aspect-ratio: unset; border-radius: 16px; }
+  .fw-item-img img { width: 100% !important; height: auto !important; object-fit: unset !important; }
   .about-grid { grid-template-columns: 1fr; }
   .about-photo { min-height: 340px; }
   .services-layout { grid-template-columns: 1fr; gap: 32px; }
@@ -1300,7 +1308,6 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .hero-inner { gap: clamp(4px, 1vw, 12px); }
   .site-footer { min-height: auto; justify-content: flex-start; }
   .footer-marquee { position: relative; z-index: 1; }
-  .footer-body { position: relative; bottom: auto; z-index: 2; }
   .hero-line1, .hero-line2, .hero-line3 { font-size: clamp(48px, 11vw, 100px); letter-spacing: -3px; white-space: nowrap; }
   .hero-bio { display: none; }
   .hero-row1 { justify-content: center; }

@@ -152,7 +152,7 @@ if (lightbox) {
 
 // Footer marquee parallax
 (function () {
-  if (window.matchMedia('(max-width: 480px)').matches) return;
+  if (window.matchMedia('(max-width: 1439px)').matches) return;
   const footer = document.querySelector('.site-footer');
   const marquee = document.querySelector('.footer-marquee');
   if (!footer || !marquee) return;
