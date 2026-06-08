@@ -294,7 +294,8 @@
       body::before { display: none; }
       .page { max-width: 100%; gap: 0; }
       .r-download-bar { display: none; }
-      @page { margin: 10mm; size: A4; }
+      @page { margin: 10mm; size: A4; margin-header: 0; margin-footer: 0; }
+      @page { @top-center { content: none; } @bottom-center { content: none; } }
 
       /* flatten cards */
       .r-header,
