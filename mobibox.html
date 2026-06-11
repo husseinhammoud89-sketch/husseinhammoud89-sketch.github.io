@@ -51,6 +51,24 @@
       </div>
     </div>
 
+    <!-- IMPACT AT A GLANCE -->
+    <div class="cs-stats-top">
+      <div class="cs-stats">
+        <div class="cs-stat">
+          <div class="cs-stat-value">24</div>
+          <div class="cs-stat-label">Production-ready components shipped to engineering</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cs-stat-value">0</div>
+          <div class="cs-stat-label">Redline specs needed: handoff was working code</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cs-stat-value">8</div>
+          <div class="cs-stat-label">Months for full IA, design system, and AI prototyping, solo</div>
+        </div>
+      </div>
+    </div>
+
     <!-- DASHBOARD SCREENSHOT -->
     <div class="cs-img-full" style="padding-top: 60px;">
       <img src="images/mobibox/dashboard.png" alt="MobiBox Dashboard" data-lightbox />
@@ -62,7 +80,7 @@
       <div class="cs-section">
         <div class="cs-section-label">Overview</div>
         <h2>The platform worked. The experience didn't.</h2>
-        <p>MobiBox is Mobile Arts' core product. A DCB (Direct Carrier Billing) platform used by telecom operators and content publishers across the MENA region to manage subscription services, payouts, capacity limits, and market performance.</p>
+        <p>MobiBox is Mobile Arts' core product. A DCB (Direct Carrier Billing) platform used by telecom operators and content publishers to manage subscription services, payouts, capacity limits, and market performance.</p>
         <p>When I joined, the platform was functional but visually inconsistent, hard to navigate, and built on a patchwork of UI patterns that had accumulated over years. The engineering team was moving fast, but without a design system, every new screen reinvented the wheel.</p>
         <div class="cs-callout">
           <p>"The product works but it doesn't feel like a product. We need it to scale visually and structurally before we grow the team."</p>
@@ -101,19 +119,37 @@
     <div class="cs-body" style="padding-top: 0;">
       <div class="cs-section">
         <div class="cs-section-label">Scope of Work</div>
-        <h2>Four parallel workstreams</h2>
+        <h2>Five parallel workstreams</h2>
 
         <h3>1. Information architecture</h3>
         <p>The original platform had no clear mental model. Operators, services, offers, portals, and billing settings were scattered without hierarchy. I mapped every entity and their relationships, then restructured the nav around three primary objects: Services, Dashboard, and Clients. Everything else became a sub-surface or drawer.</p>
 
         <h3>2. Core screen redesigns</h3>
-        <p>I redesigned four primary surfaces from scratch: the Services overview (grid, search, filter chips, archive/restore), the Service Detail drawer (tabbed: Overview / Offers / Activity), the Analytics Dashboard (KPI strip, Payouts bar chart, CAPs health, Country and Operator performance), and the 5-step Service Creation Wizard.</p>
+        <p>I redesigned the platform's primary surfaces from scratch: the Services overview (grid, search, filter chips, archive/restore), the Service Detail drawer (tabbed: Overview / Offers / Activity), the Analytics Dashboard (KPI strip, Payouts bar chart, CAPs health, Country and Operator performance), and the 5-step Service Creation Wizard.</p>
+        <p>Beyond the DCB core, the scope extended across the full product: the campaign creation flow, the Smart Link creation flow, notification settings, and the subscription flow and payment wall in settings.</p>
 
-        <h3>3. Design system</h3>
+        <h3>3. Spark, MobiBox's AI agent</h3>
+        <p>I also designed Spark, the platform's built-in AI agent. Spark lets operators query performance, surface anomalies, and act on services conversationally instead of digging through dashboards. Designing an AI surface inside a data-heavy B2B tool meant defining when Spark answers inline, when it deep-links into a screen, and how it earns trust with verifiable, sourced responses.</p>
+
+        <h3>4. Design system</h3>
         <p>Built a token-based design system with a single source of truth in <code>design-tokens.ts</code> covering colors, radii, shadows, typography, spacing, motion, and z-index. 24 components from primitives (Button, Input, Chip, StatusPill, BarChart) to full composites (ServiceGrid, DashboardSection, WizardShell). Every component documented in Storybook.</p>
 
-        <h3>4. Design-to-code handoff via Claude Code</h3>
+        <h3>5. Design-to-code handoff via Claude Code</h3>
         <p>Rather than delivering static Figma specs, I used Claude Code to translate the design system directly into a working React + Next.js + MUI v6 implementation. The team received production-ready TypeScript components, not redlines. This eliminated the interpretation gap between design intent and engineering output.</p>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-section-label">Key Decisions</div>
+        <h2>Three calls that shaped the redesign.</h2>
+
+        <h3>Three objects, not fifteen menu items</h3>
+        <p>The discovery phase started with an audit of every entity in the platform and how operators actually moved between them. The old nav listed every feature at the same level, fifteen items deep, and nearly every item opened a static data grid. Users faced walls of undifferentiated tables with no hierarchy, a constant source of cognitive overload. Mapping real workflows showed users think in three objects: the services they run, the clients they serve, and the numbers they watch. The nav was rebuilt around exactly that, the scattered grids were compacted into a clean, sectioned dashboard, and everything else became a drawer or sub-surface. Fewer clicks for the daily tasks, zero lost functionality.</p>
+
+        <h3>Drawer over page for service details</h3>
+        <p>Service details could have been a full page, the conventional choice. But operators check details mid-task while scanning the grid, comparing services, and acting on several in a row. A full page navigation would destroy that context every time. The tabbed drawer keeps the grid alive behind it. The trade-off is less room for content, solved by splitting detail into Overview, Offers, and Activity tabs.</p>
+
+        <h3>Code as the handoff artifact</h3>
+        <p>The riskiest decision was skipping redline specs entirely. With a small engineering team and no dedicated design ops, every redline document was a future inconsistency waiting to happen. Delivering the system as typed, documented React components meant the engineering team's first contact with the design was already the implementation. Higher upfront effort for me, near-zero interpretation cost for the team.</p>
       </div>
     </div>
 
@@ -175,21 +211,6 @@
         <div class="cs-section-label">Outcomes</div>
         <h2>A platform ready to scale.</h2>
 
-        <div class="cs-stats">
-          <div class="cs-stat">
-            <div class="cs-stat-value">24</div>
-            <div class="cs-stat-label">Production-ready components shipped to engineering</div>
-          </div>
-          <div class="cs-stat">
-            <div class="cs-stat-value">4</div>
-            <div class="cs-stat-label">Core screens redesigned from scratch</div>
-          </div>
-          <div class="cs-stat">
-            <div class="cs-stat-value">1</div>
-            <div class="cs-stat-label">Design system as single source of truth</div>
-          </div>
-        </div>
-
         <p>The handoff was complete and immediately integrable. The team received a working Next.js app with full TypeScript typing, Storybook documentation, mock data, and integration instructions. No Figma redlines. No ambiguity.</p>
         <p>The design system's token architecture means future team members can restyle the entire product by editing one file. The component API is deliberately thin: wrappers stay under 80 lines, heavy logic stays in MUI underneath.</p>
 
@@ -242,11 +263,11 @@
       <div class="footer-top">
         <a href="https://linkedin.com/in/hussein-hammoud-2148b686/" target="_blank" class="footer-linkedin">LinkedIn <span class="footer-linkedin-arrow"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         <div class="footer-info">
-          <p>I'm currently available for new work. Let me know if you need a product (UX/UI) designer. I'd love to talk about the next big thing!</p>
+          <p>Let's build something worth using.</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-info-mobile">I'm currently available for new work, let me know if you need a product (UX/UI) designer. I'd love to talk about the next big thing!</p>
+        <p class="footer-info-mobile">Let's build something worth using.</p>
         
         <a href="https://linkedin.com/in/hussein-hammoud-2148b686/" target="_blank" class="footer-linkedin footer-linkedin-mobile">LinkedIn <span class="footer-linkedin-arrow"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         <a href="mailto:hussein.hammoud89@gmail.com" class="footer-email">hussein.hammoud89@gmail.com</a>

@@ -244,6 +244,36 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 
 .nav-dot { margin: 0 3px; }
 
+.nav-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: end;
+  width: fit-content;
+}
+
+.nav-resume::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--dark);
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-resume { position: relative; }
+
+.nav-resume:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.nav-resume-li { display: none; }
+
 /* ── LAYOUT ── */
 .page-wrap {
   padding-top: var(--nav-h);
@@ -1079,6 +1109,14 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   margin: 28px 0;
 }
 
+.cs-stats-top {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 40px 0;
+}
+
+.cs-stats-top .cs-stats { margin: 0; }
+
 .cs-stat {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1338,6 +1376,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
 @media (max-width: 768px) {
   .nav { padding: 0 20px; grid-template-columns: 1fr auto; }
   .nav-meta { display: none; }
+  .nav-resume-li { display: block; }
   .container { padding: 40px 20px; }
   .hero { padding: 40px 20px 60px; }
   .hero-line1, .hero-line2, .hero-line3 { font-size: clamp(48px, 14vw, 80px); }
@@ -1406,6 +1445,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   .nav-logo { grid-area: logo; font-size: 16px; }
   .nav-meta { display: none !important; }
   .nav-toggle { grid-area: toggle; display: flex; }
+  .nav-resume-li { display: block; }
   .nav-links {
     display: none;
     position: absolute;
@@ -1503,6 +1543,7 @@ a, button, [role="button"], label, select, input[type="submit"], input[type="but
   /* STATS */
   .cs-stats { grid-template-columns: 1fr; gap: 12px; }
   .cs-stat-value { font-size: 28px; }
+  .cs-stats-top { padding: 32px 16px 0; }
 
   /* NEXT PROJECT */
   .cs-next { padding: 32px 16px; gap: 20px; }

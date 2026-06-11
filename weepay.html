@@ -50,6 +50,24 @@
       </div>
     </div>
 
+    <!-- IMPACT AT A GLANCE -->
+    <div class="cs-stats-top">
+      <div class="cs-stats">
+        <div class="cs-stat">
+          <div class="cs-stat-value">0</div>
+          <div class="cs-stat-label">Bank account required to get started</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cs-stat-value">5</div>
+          <div class="cs-stat-label">Core flows shipped: transfers, bills, QR, top-up, virtual card</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cs-stat-value">2</div>
+          <div class="cs-stat-label">Currencies supported: USD and LBP</div>
+        </div>
+      </div>
+    </div>
+
     <!-- HERO IMAGE -->
     <div class="cs-img-full" style="padding-top: 60px;">
       <img src="images/weepay/weepay-4.png" alt="WeePay app overview" data-lightbox />
@@ -62,7 +80,7 @@
         <div class="cs-section-label">Context</div>
         <h2>Designing for a broken financial system.</h2>
         <p>Lebanon's banking crisis left millions of people without reliable access to their own money. Traditional banking apps were irrelevant for a large portion of the population. WeePay was built to fill that gap: a trusted, accessible digital wallet that didn't require a bank account to get started.</p>
-        <p>I joined as the product designer responsible for the full mobile experience from zero to a production-ready, responsive app used by real clinic clients and individual users.</p>
+        <p>I joined as the product designer responsible for the full mobile experience from zero to a production-ready, responsive app serving real users across Lebanon.</p>
         <div class="cs-callout">
           <p>"We need people to trust us with their money before they trust any bank. That means every screen has to feel safe."</p>
         </div>
@@ -89,10 +107,24 @@
         <p>For a financial product in a high-distrust environment, the primary design challenge wasn't just usability it was credibility. Every interaction needed to feel safe, intentional, and transparent.</p>
 
         <h3>Core flows designed</h3>
-        <p>I designed the full suite of WeePay's core product flows: onboarding (zero-fee sign-up with minimal friction), money transfers (domestic and international), bill payment, and QR code-based shopping. Each flow was designed mobile-first, then adapted for web.</p>
+        <p>I designed the full suite of WeePay's core product flows: onboarding (zero-fee sign-up with minimal friction), money transfers (domestic and international via MoneyGram), bill payment for mobile and utility providers, QR code-based shopping at licensed merchants, and cash top-up and withdrawal through the agent network. Each flow was designed mobile-first, then adapted for web.</p>
 
-        <h3>Clinic payment module</h3>
-        <p>WeePay also powered clinic payment flows for multiple healthcare clients. I designed and shipped experiences for these clients, improving patient-facing billing flows and reducing payment drop-off. Visual consistency was maintained across the mobile app and client-facing materials.</p>
+        <h3>Cash in a digital product</h3>
+        <p>Most users entered and exited the system through physical cash agents, not card top-ups. The agent locator and the deposit and withdrawal flows were treated as first-class product surfaces, not an afterthought. For this audience, the bridge between cash and digital was the product's most used feature.</p>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-section-label">Key Decisions</div>
+        <h2>Designing for distrust.</h2>
+
+        <h3>Every fee visible before every confirmation</h3>
+        <p>In a market where banks had frozen people's savings, hidden costs were the fastest way to lose a user forever. The standard fintech pattern of revealing fees at the final step was off the table. Every transfer flow shows the full cost breakdown upfront, before the user commits to anything. Slower funnel, stronger trust, and trust was the product.</p>
+
+        <h3>Plain language over banking language</h3>
+        <p>Early drafts used conventional financial copy: beneficiary, remittance, transaction settlement. For an audience that actively distrusted banks, this vocabulary worked against us. Every flow was rewritten in plain conversational language. You are not initiating a remittance, you are sending money to your sister.</p>
+
+        <h3>Onboarding with nothing to lose</h3>
+        <p>Sign-up requires no bank account, no deposit, and no commitment. The decision was to let users explore the full app before putting a single lira in. People in a financial crisis do not trust first and verify later, they verify first. Removing every barrier to that verification was the single most important onboarding decision.</p>
       </div>
     </div>
 
@@ -105,8 +137,8 @@
     <!-- SCREENS GRID 2 -->
     <div class="cs-img-grid" style="align-items: start;">
       <div class="cs-img-grid-item">
-        <img src="images/weepay/weepay-6.png" alt="WeePay clinic payments" data-lightbox style="aspect-ratio: 2974/1906; object-fit: cover; object-position: top;" />
-        <p class="cs-img-caption">Clinic-facing payment module with responsive web layout</p>
+        <img src="images/weepay/weepay-6.png" alt="WeePay bill payment providers" data-lightbox style="aspect-ratio: 2974/1906; object-fit: cover; object-position: top;" />
+        <p class="cs-img-caption">Bill payment hub: settle Alfa, Touch, and Ogero bills directly from the wallet</p>
       </div>
       <div class="cs-img-grid-item">
         <img src="images/weepay/weepay-4.png" alt="WeePay dashboard" data-lightbox style="aspect-ratio: 2974/1906; object-fit: cover; object-position: top;" />
@@ -119,22 +151,7 @@
       <div class="cs-section">
         <div class="cs-section-label">Outcomes</div>
         <h2>A digital gateway where none existed.</h2>
-        <p>WeePay launched as an accessible, trustworthy alternative to traditional banking for users in Lebanon. The product served both individual users and clinic clients, with consistent design quality across all touchpoints.</p>
-
-        <div class="cs-stats">
-          <div class="cs-stat">
-            <div class="cs-stat-value">0</div>
-            <div class="cs-stat-label">Bank account required to get started</div>
-          </div>
-          <div class="cs-stat">
-            <div class="cs-stat-value">4</div>
-            <div class="cs-stat-label">Core transaction flows shipped</div>
-          </div>
-          <div class="cs-stat">
-            <div class="cs-stat-value">2</div>
-            <div class="cs-stat-label">Platforms: iOS and Android</div>
-          </div>
-        </div>
+        <p>WeePay launched as an accessible, trustworthy alternative to traditional banking for users in Lebanon. It shipped on iOS and Android in both USD and LBP, bridging cash and digital through a nationwide agent network.</p>
 
         <div class="cs-tags">
           <span class="tag">Figma</span>
@@ -179,11 +196,11 @@
       <div class="footer-top">
         <a href="https://linkedin.com/in/hussein-hammoud-2148b686/" target="_blank" class="footer-linkedin">LinkedIn <span class="footer-linkedin-arrow"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         <div class="footer-info">
-          <p>I'm currently available for new work. Let me know if you need a product (UX/UI) designer. I'd love to talk about the next big thing!</p>
+          <p>Let's build something worth using.</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-info-mobile">I'm currently available for new work, let me know if you need a product (UX/UI) designer. I'd love to talk about the next big thing!</p>
+        <p class="footer-info-mobile">Let's build something worth using.</p>
         
         <a href="https://linkedin.com/in/hussein-hammoud-2148b686/" target="_blank" class="footer-linkedin footer-linkedin-mobile">LinkedIn <span class="footer-linkedin-arrow"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         <a href="mailto:hussein.hammoud89@gmail.com" class="footer-email">hussein.hammoud89@gmail.com</a>
