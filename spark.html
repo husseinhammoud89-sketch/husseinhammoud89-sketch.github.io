@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spark Hussein Hammoud</title>
+  <meta name="description" content="Designing Spark, an in-product AI agent for the MobiBox Direct Carrier Billing platform. Conversational UX, sourced answers, and trust-first interaction design." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Hussein Hammoud</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="mailto:hussein.hammoud89@gmail.com" class="nav-cta">Get in touch</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="page-wrap">
+  <div class="page-lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+    <!-- HERO -->
+    <div class="cs-hero">
+      <div class="cs-hero-inner">
+        <span class="cs-tag">AI Agent · Ad-Tech · Conversational UX</span>
+        <h1>Spark: an AI agent inside a data-heavy platform</h1>
+        <p class="cs-hero-sub">Spark is the built-in AI agent for MobiBox, a Direct Carrier Billing platform. It lets the marketers who run the platform query performance, surface anomalies, and act on services in plain language instead of digging through dashboards. The core design problem was trust: an AI answer is only useful if the marketer believes it.</p>
+        <div class="cs-meta">
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Company</div>
+            <div class="cs-meta-value">Mobile Arts</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Role</div>
+            <div class="cs-meta-value">Lead Product Designer</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Part of</div>
+            <div class="cs-meta-value">The MobiBox platform</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Tools</div>
+            <div class="cs-meta-value">Figma · Claude Code</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO IMAGE -->
+    <div class="cs-img-full" style="padding-top: 60px;">
+      <img src="images/mobibox/spark/Screenshots/spark-welcome.png" alt="Spark welcome screen" data-lightbox />
+      <p class="cs-img-caption">Spark welcome state: a focused entry point with suggested queries, opened as a tab in the MobiBox nav with its own chat-history sub-sidebar.</p>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="cs-body">
+      <div class="cs-section">
+        <div class="cs-section-label">Overview</div>
+        <h2>The data was there. Getting to it wasn't.</h2>
+        <p>MobiBox is the platform marketers use to run subscription services for telecom operators and content publishers: payouts, capacity limits, market performance, campaign CTR across Meta, Google, and TikTok. But answering a simple question, how many accounts are active on Google, or which campaign is dragging down CTR, meant knowing exactly which dashboard to open and how to read it.</p>
+        <p>Spark closes that gap. Marketers ask in plain language and get an answer, a source, and a way to act, without leaving the conversation. My mandate was to design that agent so it fit natively inside a dense B2B tool and, more importantly, so marketers would trust what it told them.</p>
+        <div class="cs-callout">
+          <p>"An AI answer that the marketer has to second-guess is worse than no answer. It has to be verifiable, or it won't get used."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE DESIGN PROBLEM -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">The Design Problem</div>
+        <h2>Designing for trust, not just answers.</h2>
+        <p>A consumer chatbot can be conversational and a little loose. An AI agent inside a platform that moves real money cannot. Operators act on what Spark says, so the design had to make every answer checkable, make it obvious when Spark was certain versus working, and never leave a dead end when something failed.</p>
+        <p>That reframed the work from "build a chat UI" to three concrete interaction problems: how an answer earns trust, when Spark answers inline versus routing you to a screen, and how failure is handled without breaking the marketer's flow.</p>
+      </div>
+    </div>
+
+    <!-- KEY DECISIONS -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">Key Decisions</div>
+        <h2>Three calls that made Spark trustworthy.</h2>
+
+        <h3>Answer first, then the receipts</h3>
+        <p>Every response leads with the answer, the number or the list the marketer actually asked for, then backs it with a "Data Sources" section that names the dashboards behind it and deep-links to each. The marketer gets a fast answer and a one-click path to verify it. The AI never asks to be taken on faith.</p>
+
+        <h3>Answer inline, or hand off to the right screen</h3>
+        <p>Not every request should be answered in chat. Simple lookups (counts, CTR highlights) resolve inline. Anything that needs the full surface, managing the accounts, drilling into a campaign, ends with a clear action button that drops the marketer onto the exact screen. Spark is a fast lane to the platform, not a replacement for it.</p>
+
+        <h3>Failure that recovers, never a dead end</h3>
+        <p>When a response can't be generated, Spark shows a plain-language error, a support link, and a one-click retry, rather than a spinner that never resolves or a blank reply. A retried query returns a deeper analysis, so the recovery path adds value instead of just repeating itself.</p>
+      </div>
+    </div>
+
+    <!-- THINKING + ANSWER -->
+    <div class="cs-img-grid">
+      <div class="cs-img-grid-item">
+        <img src="images/mobibox/spark/Screenshots/spark-conversation-thinkind-dots.png" alt="Spark thinking state" data-lightbox />
+        <p class="cs-img-caption">Thinking state: the query posts immediately, then a typing indicator signals Spark is working, so the marketer is never left guessing.</p>
+      </div>
+      <div class="cs-img-grid-item">
+        <img src="images/mobibox/spark/Screenshots/spark-coversation.png" alt="Spark sourced answer" data-lightbox />
+        <p class="cs-img-caption">Sourced answer: the response leads with the number, then offers a deep-link to view the underlying accounts.</p>
+      </div>
+    </div>
+
+    <!-- ERROR STATE -->
+    <div class="cs-img-full">
+      <img src="images/mobibox/spark/Screenshots/spark-error.png" alt="Spark error state with retry" data-lightbox />
+      <p class="cs-img-caption">Graceful failure: a clear error with a support link and a one-click retry. The marketer's flow is preserved, and a retry returns a deeper analysis.</p>
+    </div>
+
+    <!-- RESEARCH & VALIDATION -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">Research and Validation</div>
+        <h2>Grounded in how marketers actually work.</h2>
+        <p>The design started from the questions marketers already asked support and each other, the recurring "how many," "which one," and "why is this down" queries that mapped directly to dashboards they found hard to navigate. Those became Spark's suggested prompts and shaped the answer-plus-source pattern. Flows and interaction states were reviewed with the MobiBox product and engineering team to confirm the agent fit the platform's existing surfaces and data, not a separate silo.</p>
+      </div>
+    </div>
+
+    <!-- OUTCOMES -->
+    <div class="cs-body" style="padding-top: 0;">
+      <div class="cs-section">
+        <div class="cs-section-label">Outcomes</div>
+        <h2>An AI surface that belongs in the product.</h2>
+        <p>Spark turns a dense, multi-dashboard platform into something a marketer can simply ask. The trust-first pattern, answer, source, deep-link, means the agent accelerates work without asking anyone to take its word on faith, and the graceful-failure handling keeps it dependable enough to live inside a tool that moves real revenue.</p>
+        <p>Designed as part of the broader MobiBox redesign, Spark shares its design system and visual language, so it reads as a native part of the platform rather than a bolted-on chatbot.</p>
+
+        <div class="cs-tags">
+          <span class="tag">AI Product Design</span>
+          <span class="tag">Conversational UX</span>
+          <span class="tag">Interaction Design</span>
+          <span class="tag">B2B / Ad-Tech</span>
+          <span class="tag">Design System</span>
+          <span class="tag">Figma</span>
+        </div>
+
+        <div class="cs-note">
+          <strong>Note:</strong> Spark was designed as part of the MobiBox engagement at Mobile Arts. The screens shown here are a faithful, interactive recreation built to demonstrate the agent's key states and flows.
+        </div>
+      </div>
+    </div>
+
+    <!-- NEXT PROJECT -->
+    <a href="jobrivals.html" class="cs-next">
+      <div class="cs-next-left">
+        <div class="cs-next-thumb">
+          <img src="images/jobrivals/screens/screen-7-badges-list.png" alt="JobRivals" />
+        </div>
+        <div>
+          <div class="cs-next-label">Next project</div>
+          <h3>JobRivals AI Hiring Platform</h3>
+        </div>
+      </div>
+      <div class="cs-next-arrow">→</div>
+    </a>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-lines">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="footer-marquee">
+      <div class="footer-marquee-track">
+        <span>Let's work together </span>
+        <span>Let's work together </span>
+        <span>Let's work together </span>
+        <span>Let's work together </span>
+      </div>
+    </div>
+    <div class="footer-body">
+      <div class="footer-top">
+        <a href="https://linkedin.com/in/hussein-hammoud-2148b686/" target="_blank" class="footer-linkedin">LinkedIn <span class="footer-linkedin-arrow"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <div class="footer-info">
+          <p>Let's build something worth using.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-info-mobile">Let's build something worth using.</p>
+
+        <a href="https://linkedin.com/in/hussein-hammoud-2148b686/" target="_blank" class="footer-linkedin footer-linkedin-mobile">LinkedIn <span class="footer-linkedin-arrow"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a href="mailto:hussein.hammoud89@gmail.com" class="footer-email">hussein.hammoud89@gmail.com</a>
+        <div class="footer-copy-row"><span>© Crafted by</span><a href="index.html">Hussein</a></div>
+        <a href="#" class="footer-back-top">↑ Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

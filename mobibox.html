@@ -45,7 +45,7 @@
           </div>
           <div class="cs-meta-item">
             <div class="cs-meta-label">Tools</div>
-            <div class="cs-meta-value">Figma · React · Claude Code · Storybook</div>
+            <div class="cs-meta-value">Figma · Claude Code · Storybook</div>
           </div>
         </div>
       </div>
@@ -136,7 +136,7 @@
         <p>Beyond the DCB core, the scope extended across the full product: the campaign creation flow, the Smart Link creation flow, notification settings, and the subscription flow and payment wall in settings.</p>
 
         <h3>3. Spark, MobiBox's AI agent</h3>
-        <p>I also designed Spark, the platform's built-in AI agent. Spark lets operators query performance, surface anomalies, and act on services conversationally instead of digging through dashboards. Designing an AI surface inside a data-heavy B2B tool meant defining when Spark answers inline, when it deep-links into a screen, and how it earns trust with verifiable, sourced responses.</p>
+        <p>I designed Spark, the platform's built-in AI agent, which lets operators query performance and act on services in plain language instead of digging through dashboards. It's a self-contained piece of interaction design, so it gets its own deep-dive. <a href="spark.html" class="cs-inline-link">See the full Spark case study &rarr;</a></p>
 
         <h3>4. Design system</h3>
         <p>Built a token-based design system with a single source of truth in <code>design-tokens.ts</code> covering colors, radii, shadows, typography, spacing, motion, and z-index. 24 components from primitives (Button, Input, Chip, StatusPill, BarChart) to full composites (ServiceGrid, DashboardSection, WizardShell). Every component documented in Storybook.</p>
@@ -144,28 +144,6 @@
         <h3>5. Design-to-code handoff via Claude Code</h3>
         <p>Rather than delivering static Figma specs, I used Claude Code to translate the design system directly into a working React + Next.js + MUI v6 implementation. The team received production-ready TypeScript components, not redlines. This eliminated the interpretation gap between design intent and engineering output.</p>
       </div>
-    </div>
-
-    <!-- SPARK AI AGENT SCREENSHOTS -->
-    <div class="cs-img-full">
-      <img src="images/mobibox/spark/Screenshots/spark-welcome-hover.png" alt="Spark welcome screen with suggestion chips" data-lightbox />
-      <p class="cs-img-caption">Spark welcome state: a focused entry point with suggested queries, opened as a tab in the DCB platform nav with its own chat-history sub-sidebar.</p>
-    </div>
-
-    <div class="cs-img-grid">
-      <div class="cs-img-grid-item">
-        <img src="images/mobibox/spark/Screenshots/spark-conversation-thinkind-dots.png" alt="Spark thinking state" data-lightbox />
-        <p class="cs-img-caption">Thinking state: the user's query posts, then a typing indicator signals Spark is working.</p>
-      </div>
-      <div class="cs-img-grid-item">
-        <img src="images/mobibox/spark/Screenshots/spark-coversation.png" alt="Spark sourced answer" data-lightbox />
-        <p class="cs-img-caption">Sourced answer: the response leads with the number, then offers a deep-link to view the underlying accounts.</p>
-      </div>
-    </div>
-
-    <div class="cs-img-full">
-      <img src="images/mobibox/spark/Screenshots/spark-error.png" alt="Spark error state with retry" data-lightbox />
-      <p class="cs-img-caption">Graceful failure: when a response can't be generated, Spark shows a clear error with a support link and a one-click retry, never a dead end.</p>
     </div>
 
     <div class="cs-body" style="padding-top: 0;">
@@ -284,14 +262,14 @@
     </div>
 
     <!-- NEXT PROJECT -->
-    <a href="jobrivals.html" class="cs-next">
+    <a href="spark.html" class="cs-next">
       <div class="cs-next-left">
         <div class="cs-next-thumb">
-          <img src="images/jobrivals/screens/screen-7-badges-list.png" alt="JobRivals" />
+          <img src="images/mobibox/spark/Screenshots/spark-welcome.png" alt="Spark" />
         </div>
         <div>
           <div class="cs-next-label">Next project</div>
-          <h3>JobRivals AI Hiring Platform</h3>
+          <h3>Spark AI Agent</h3>
         </div>
       </div>
       <div class="cs-next-arrow">→</div>
